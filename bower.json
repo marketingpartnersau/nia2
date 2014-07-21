@@ -1,0 +1,12 @@
+{
+  "name": "zf5_project",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "font-awesome": "~4.1.0",
+    "jquery-bez": "~1.0.11",
+    "angular-ui-router": "~0.2.10"
+  },
+  "devDependencies": {
+    "angular": "~1.2.20"
+  }
+}

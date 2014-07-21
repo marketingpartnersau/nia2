@@ -1,0 +1,88 @@
+/* all app scss styles here */
+
+#contact-actions{
+	margin-right: 1rem;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 100;
+	li{
+		line-height: rem-calc(40px);
+
+		a{
+			color: #fff;
+		}
+	}
+}
+
+.drawer{
+}
+
+.top-bar{
+	z-index: 99;
+}
+
+.top.drawer{
+	position: fixed;
+	height: 100%;
+	top: -100%;
+	left: 0;
+	right: 0;
+	z-index: 98;
+	transition: top .3s cubic-bezier(0.4, 0, 0.2, 1);
+
+	background-color: #eee;
+
+	&.open{
+		top: rem-calc(40px);
+	}
+}
+
+.bottom-bar{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 100%;
+	margin-top: rem-calc(-40px);
+	height: 100%;
+	background-color: #202020;
+	color: #fff;
+	z-index: 99;
+	transition: top .3s cubic-bezier(0.4, 0, 0.2, 1);
+
+	&.open{
+		top: rem-calc(80px);
+	}
+
+	.inline-list{
+		margin-left: 0;
+		
+		li{
+			width: 20%;
+			text-align: center;
+			margin: 0;
+			font-size: .8em;
+			line-height: 1.2em;
+
+			a{
+				display: block;
+				padding-top: rem-calc(8px);
+				color: #fff;
+			}
+		}
+	}
+}
+
+#fullpage{
+	.section{
+		&.points{
+			h1{
+				line-height: .8!important;
+			}
+
+			p{
+				font-size: .8em;
+			}
+		}
+	}
+}

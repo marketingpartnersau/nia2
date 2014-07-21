@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="health">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation project</title>
+    <!-- build:css css/libraries.min.css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/fullpage.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css css/app.min.css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/app_override.css">
+    <!-- endbuild -->
+    <!-- build:js js/vendor/modernizr.min.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-controller="MainController">
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name"><h1><a href="#">health.com.au</a></h1></li>
+      </ul>
+    </nav>
+    <ul class="right inline-list" id="contact-actions"  ng-controller="TopBarController">
+      <li><a href="" ng-click="toggleDrawer()"><i class="fa fa-phone"></i></a></li>
+      <li><a href="#"><i class="fa fa-comment"></i></a></li>
+    </ul>
+    <div class="drawer top" ng-class="{open : uiStates.topDrawerOpen}">
+      <section id="support-section">
+        <h3>This is the support section</h3>
+        <p>Blah di blah blah.</p>
+      </section>
+    </div>
+
+    <nav class="bottom-bar" ng-controller="MenuBarController" ng-class="{open : uiStates.bottomDrawerOpen}">
+      <ul class="top-level-links inline-list">
+        <li class="home"><a href="#"><i class="fa fa-home"></i><br>Home</a></li>
+        <li class="about"><a href="#"><i class="fa fa-question-circle"></i><br>Why us</a></li>
+        <li class="quote"><a href="#"><i class="fa fa-search"></i><br>Quote</a></li>
+        <li class="customers"><a href="#customers-section"><i class="fa fa-user"></i><br>Customers</a></li>
+        <li class="more"><a href="" ng-click="toggleDrawer()"><i class="fa fa-bars"></i><br>More</a></li>
+      </ul>
+
+      <div class="drawer">
+        <section id="customers-section">
+
+        </section>
+        <section id="more-section">
+          <ul class="no-bullet">
+            <li><a class="button">Get tax statement</a></li>
+          </ul>
+        </section>
+      </div>
+    </nav>
+
+    <section class="support hide">
+      <div class="row">
+        <div class="small-12 columns">
+          <h3>Wanna get in touch?</h3>
+          <p>Call us, live chat with us, whatevs</p>
+          <hr>
+        </div>
+        <div class="small-12 columns">
+          <h3>Already a customer?</h3>
+          <p>Hit up these handy links.</p>
+        </div>
+      </div>
+    </section>
+
+    <div ui-view></div>
+
+    <sexy-modal name="contact">
+      <ng-include src="partials/modals/contact.html"></ng-include>
+    </sexy-modal>
+    <div class="md-overlay"></div>
+
+    <!-- build:js js/vendor/libraries.min.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-bez/jquery.bez.min.js"></script>
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="js/lib/easing.js"></script>
+    <script src="js/lib/fullpage.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js js/vendor/foundation.min.js -->
+    <script src="bower_components/foundation/js/foundation/foundation.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.abide.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.accordion.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.alert.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.clearing.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.equalizer.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.interchange.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.joyride.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.magellan.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.offcanvas.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.orbit.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.slider.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.tab.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.tooltip.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
+    <!-- endbuild -->
+    <!-- build:js js/app.min.js -->
+    <script src="js/script.js"></script>
+    <script src="js/ng/app.js"></script>
+    <script src="js/ng/services.js"></script>
+    <script src="js/ng/directives.js"></script>
+    <script src="js/ng/controllers.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
