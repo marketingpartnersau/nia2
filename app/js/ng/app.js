@@ -16,6 +16,22 @@ var app = angular.module('health', [
 					url: '/',
 					templateUrl: 'partials/home.html',
 					controller: 'HomeController'
+				})
+				
+				.state('quote', {
+					url: '/quote',
+					templateUrl: 'partials/quote.html',
+					controller: 'QuoteController'
+				})
+
+				.state('why-us', {
+					url: '/why-us',
+					templateUrl: 'partials/why-us.html',
+				})
+
+				.state('customers', {
+					url: '/customers',
+					templateUrl: 'partials/customers.html'
 				});
 		}
 	])

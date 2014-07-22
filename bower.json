@@ -4,7 +4,8 @@
     "foundation": "zurb/bower-foundation",
     "font-awesome": "~4.1.0",
     "jquery-bez": "~1.0.11",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
     "angular": "~1.2.20"

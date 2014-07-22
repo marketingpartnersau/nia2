@@ -11,6 +11,29 @@ var directives = angular.module('health.directives', [])
 			}
 		}
 	])
+
+	.directive('topBar', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				controller : 'TopBarController',
+				templateUrl: 'partials/interface/header.html'
+			}
+		}
+	])
+
+	.directive('bottomBar', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				controller: 'MenuBarController',
+				templateUrl: 'partials/interface/menu.html'
+			}
+		}
+	])
+
 	.directive('productOnHome', [
 		function(){
 			return {
@@ -31,12 +54,30 @@ var directives = angular.module('health.directives', [])
 				replace: true,
 				transclude: 'element',
 				templateUrl: 'partials/interface/modal.html',
+				scope : {
+					show: '='
+				},
 				link: function(scope, element, attrs){
-					// This is obscenely frustrating.
-					// Trying to get an object from parent scope
-					// and match it against an attr of the directive.
-					// Maybe I'm doing this wrong. 
-					console.log('modalScope', scope);
+					scope.hideModal = function(){
+						scope.show = false;
+					};
+				}
+			}
+		}
+	])
+
+	.directive('coolSelect', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				templateUrl: 'partials/interface/select.html',
+				scope: {
+					userinput: '='
+				},
+				link: function(scope, element, attrs){
+					scope.options = attrs.options;
+					scope.label   = attrs.default; 
 				}
 			}
 		}

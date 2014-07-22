@@ -1,6 +1,5 @@
-<div class="md-modal md-effect-12" ng-class="{ 'md-show' : uiStates.showModal === attrs.name }" id="modal-{{ attrs.name }}">
+<div class="md-modal md-effect-12" ng-class="{ 'md-show' : show }" id="modal-{{ attrs.name }}">
     <div class="md-content">
-        <span ng-click="uiStates.showModal = ''">Close</span>
-        <ng-transclude></ng-transclude>
+    	<div ng-transclude></div>
     </div>
 </div>
