@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" >
+<html class="no-js" lang="en" ng-app="health">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +8,37 @@
     <link rel="stylesheet" href="css/app.min.css">
     <script src="js/vendor/modernizr.min.js"></script>
   </head>
-  <body>
+  <body ng-controller="MainController">
 
-    <div class="row">
-      <div class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius">
-        <h1>Yo Foundation 5 hahaha!</h1>
-        <ul>
-          <li>Sass compiling (Ruby or Node/Libsass)</li>
-          <li>Jade templating engine (option)</li>
-          <li>Publishing to dist directory</li>
-          <li>Server with LiveReload</li>
-          <li>JSHint</li>
-          <li>Grunt Bower install</li>
-          <li>Imagemin</li>
-          <li>Font Awesome (option)</li>
-        </ul>
-        <h1>Grunt tasks:</h1>
-        <ul>
-          <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
-          <li>'grunt compile-sass' - Sass</li>
-          <li>'grunt compile-jade' - Jade</li>
-          <li>'grunt validate-js' - JSHint</li>
-          <li>'grunt bower-install' - injecting bower libraries</li>
-          <li>'grunt publish' - dist directory</li>
-          <li>'grunt server-dist' - server on 127.0.0.1:9001 - dist directory (preview only)</li>
-        </ul>
-        <h2 class="text-right">
-          <a href="https://github.com/juliancwirko/generator-zf5"><i class="fa fa-github"></i></a>
-        </h2>
+    <top-bar></top-bar>
+    <bottom-bar></bottom-bar>
+
+    <section class="support hide">
+      <div class="row">
+        <div class="small-12 columns">
+          <h3>Wanna get in touch?</h3>
+          <p>Call us, live chat with us, whatevs</p>
+          <hr>
+        </div>
+        <div class="small-12 columns">
+          <h3>Already a customer?</h3>
+          <p>Hit up these handy links.</p>
+        </div>
       </div>
+    </section>
+
+    <div class="ui-view-container">
+      <div class="well row" ui-view></div>
     </div>
+
+    <sexy-modal show="uiStates.modalIsVisible.contact">
+      <ng-include src="'partials/modals/contact.html'"></ng-include>
+    </sexy-modal>
+    <sexy-modal show="uiStates.modalIsVisible.support">
+      <ng-include src="'partials/modals/support.html'"></ng-include>
+    </sexy-modal>
+
+    <div class="md-overlay"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
 
     <script src="js/vendor/libraries.min.js"></script>
     <script src="js/vendor/foundation.min.js"></script>

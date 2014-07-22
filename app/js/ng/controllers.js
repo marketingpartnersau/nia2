@@ -1,6 +1,6 @@
 'use strict';
 
-var controllers = angular.module('health.controllers', [])
+angular.module('health.controllers', [])
 
 	.controller('MainController', ['$scope',
 		function($scope){
@@ -18,8 +18,9 @@ var controllers = angular.module('health.controllers', [])
 
 			$scope.closeModal = function(){
 				angular.forEach($scope.uiStates.modalIsVisible, function(state, modal){
-					if(state)
-						$scope.uiStates.modalIsVisible[modal] = false;
+					if(state){
+						$scope.uiStates.modalIsVisible[modal] = false;	
+					}
 				});
 			};
 		}
@@ -44,7 +45,7 @@ var controllers = angular.module('health.controllers', [])
 
 			$scope.items = SiteData.moreMenuItems;
 
-			$scope.toggleDrawer = function(location){
+			$scope.toggleDrawer = function(){
 				$scope.uiStates.topDrawerOpen = false;
 				if(!$scope.uiStates.bottomDrawerOpen){
 					$scope.uiStates.bottomDrawerOpen = true;

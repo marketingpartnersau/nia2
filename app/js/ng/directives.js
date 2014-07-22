@@ -1,14 +1,14 @@
 'use strict';
 
-var directives = angular.module('health.directives', [])
+angular.module('health.directives', [])
 	.directive('fullPageScroll', [
 		function(){
 			return {
 				restrict: 'A',
-				link: function(scope, element, attrs){
+				link: function(scope, element){
 					angular.element(element).fullpage( { easing: $.bez([0.4, 0, 0.2, 1]) } );
 				}
-			}
+			};
 		}
 	])
 
@@ -19,7 +19,7 @@ var directives = angular.module('health.directives', [])
 				replace: true,
 				controller : 'TopBarController',
 				templateUrl: 'partials/interface/header.html'
-			}
+			};
 		}
 	])
 
@@ -30,7 +30,7 @@ var directives = angular.module('health.directives', [])
 				replace: true,
 				controller: 'MenuBarController',
 				templateUrl: 'partials/interface/menu.html'
-			}
+			};
 		}
 	])
 
@@ -40,10 +40,10 @@ var directives = angular.module('health.directives', [])
 				restrict: 'E',
 				replace: true,
 				scope : {
-					product: "="
+					product: '='
 				},
 				templateUrl: 'partials/products/product-on-home.html'
-			}
+			};
 		}
 	])
 
@@ -57,12 +57,12 @@ var directives = angular.module('health.directives', [])
 				scope : {
 					show: '='
 				},
-				link: function(scope, element, attrs){
+				link: function(scope, element){
 					scope.hideModal = function(){
 						scope.show = false;
 					};
 				}
-			}
+			};
 		}
 	])
 
@@ -79,6 +79,6 @@ var directives = angular.module('health.directives', [])
 					scope.options = attrs.options;
 					scope.label   = attrs.default; 
 				}
-			}
+			};
 		}
 	]);

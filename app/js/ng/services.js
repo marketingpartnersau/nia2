@@ -1,6 +1,6 @@
 'use strict';
 
-var services = angular.module('health.services', [])
+angular.module('health.services', [])
 	.factory('HomeData', function(){
 		return {
 			products : [
@@ -16,7 +16,7 @@ var services = angular.module('health.services', [])
 				{name: 'Customer service with a heart.', description: 'When you need to speak with someone, we are here for you.'},
 				{name: 'Some other reason', description: 'When you need to speak with someone, we are here for you.'}
 			]
-		}
+		};
 	})
 
 	.factory('SiteData', function(){
@@ -26,5 +26,5 @@ var services = angular.module('health.services', [])
 				{name: 'Claim Online', description: 'Claim right now'},
 				{name: '10 Second Quote', description: 'Swear to god!'}
 			]
-		}
+		};
 	});

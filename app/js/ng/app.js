@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('health', [
+angular.module('health', [
 		'ui.router',
 		'health.directives',
 		'health.services',
