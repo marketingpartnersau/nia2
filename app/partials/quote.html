@@ -4,19 +4,16 @@
 		<p>We take into account the important factors in your life, so we can give you the best possible policy.</p>
 		<form>
 			<p>
-				<a ng-click="openModal('demographic')">
-					{{ quote.input.demographic.label != '' && quote.input.demographic.label || "This best describes me..." }}</a>
+				<a class="button" ng-click="openModal('demographic')">
+					{{ quote.input.demographic.label != '' && quote.input.demographic.label || "This best describes me..." }} <i class="fa fa-angle-right"></i></a>
 			</p>
 			<p>
-				<a ng-click="openModal('state')">
-					{{ quote.input.state.label != '' && quote.input.state.label || "I live in..." }}</a>
+				<a class="button" ng-click="openModal('state')">
+					{{ quote.input.state.label != '' && quote.input.state.label || "I live in..." }} <i class="fa fa-angle-right"></i></a>
 			</p>
 			<p>
-				<a ng-click="openModal('priority')">
-					{{ quote.input.priority.label != '' && quote.input.priority.label || "I am after..." }}</a>
-			</p>
-			<p>
-
+				<a class="button" ng-click="openModal('priority')">
+					{{ quote.input.priority.label != '' && quote.input.priority.label || "I am after..." }} <i class="fa fa-angle-right"></i></a>
 			</p>
 			<!-- <cool-select open="coolSelect.isOpen.demographics" options="quote.options.demographics" label="What best describes you?" userinput="quote.input.demographic"></cool-select>
 			<cool-select open="coolSelect.isOpen.state" options="quote.options.states" label="Where are you from?" userinput="quote.input.state"></cool-select>

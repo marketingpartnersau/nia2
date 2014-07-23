@@ -4,7 +4,7 @@
         <li class="about"><a ui-sref="why-us"><i class="fa fa-question-circle"></i><br>Why us</a></li>
         <li class="quote"><a ui-sref="quote"><i class="fa fa-search"></i><br>Quote</a></li>
         <li class="customers"><a ui-sref="customers"><i class="fa fa-user"></i><br>Customers</a></li>
-        <li class="more"><a ng-click="toggleDrawer()"><i class="fa fa-bars"></i><br>More</a></li>
+        <li class="more"><a ng-click="toggleDrawer()"><i class="fa {{ uiStates.bottomDrawerOpen && 'fa-times' || 'fa-bars' }}"></i><br>{{ uiStates.bottomDrawerOpen && 'less' || 'more' }}</a></li>
       </ul>
 
       <div class="drawer">
