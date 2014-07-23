@@ -57,7 +57,7 @@ angular.module('health.directives', [])
 				scope : {
 					show: '='
 				},
-				link: function(scope, element){
+				link: function(scope){
 					scope.hideModal = function(){
 						scope.show = false;
 					};
@@ -66,19 +66,63 @@ angular.module('health.directives', [])
 		}
 	])
 
-	.directive('coolSelect', [
-		function(){
+	.directive('selectModal', ['QuoteData',
+		function(QuoteData){
 			return {
 				restrict: 'E',
 				replace: true,
-				templateUrl: 'partials/interface/select.html',
-				scope: {
+				transclude: true,
+				templateUrl: 'partials/interface/select-modal.html',
+				scope : {
+					options : '=',
+					show: '=',
 					userinput: '='
 				},
-				link: function(scope, element, attrs){
-					scope.options = attrs.options;
-					scope.label   = attrs.default; 
+				controller: function($scope){
+					$scope.selectOption = function(option){
+						$scope.show = false;
+						$scope.userinput = option;
+						$scope.$parent.$parent.closeModal();
+						console.log($scope);
+					};
 				}
-			};
+			}
 		}
 	]);
+
+	// .directive('coolSelect', ['CoolSelect',
+	// 	function(CoolSelect){
+	// 		return {
+	// 			restrict: 'E',
+	// 			replace: true,
+	// 			templateUrl: 'partials/interface/select.html',
+	// 			scope: {
+	// 				options: '=',
+	// 				userinput: '=',
+	// 				label: '@',
+	// 				open: '='
+	// 			},
+	// 			controller: function($scope){
+
+	// 				$scope.states = CoolSelect.isOpen;
+
+	// 				$scope.toggleSelect = function(){
+	// 					var originalState = $scope.open;
+
+	// 					angular.forEach($scope.states, function(k,v){
+	// 						k = false;
+	// 					});
+
+	// 					$scope.open = !originalState;
+	// 				};
+
+	// 				$scope.updateSelect = function(option){
+	// 					$scope.userinput = option;
+	// 					$scope.open = false;
+	// 					$scope.label = option.label;
+	// 				};
+
+	// 			}
+	// 		};
+	// 	}
+	// ]);

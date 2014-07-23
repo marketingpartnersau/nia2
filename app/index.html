@@ -48,20 +48,20 @@
       <ng-include src="'partials/modals/support.html'"></ng-include>
     </sexy-modal>
 
-    <div class="md-overlay"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
+    <div class="md-overlay" ng-class="{ 'md-visible' : modalOpen }"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
 
     <!-- build:js js/vendor/libraries.min.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/fastclick/lib/fastclick.js"></script>
     <script src="bower_components/jquery-bez/jquery.bez.min.js"></script>
-    <!-- <script src="bower_components/angular/underscore.js"></script> -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
+    <script src="bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    
     <script src="js/lib/easing.js"></script>
     <script src="js/lib/fullpage.js"></script>
-    <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js js/vendor/foundation.min.js -->
     <script src="bower_components/foundation/js/foundation/foundation.js"></script>
@@ -83,6 +83,7 @@
     <script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
     <!-- endbuild -->
     <!-- build:js js/app.min.js -->
+
     <script src="js/script.js"></script>
     <script src="js/ng/app.js"></script>
     <script src="js/ng/services.js"></script>
