@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('health', [
+		'ngAnimate',
 		'ui.router',
 		'health.directives',
 		'health.services',
@@ -14,24 +15,24 @@ angular.module('health', [
 			$stateProvider
 				.state('home', {
 					url: '/',
-					templateUrl: 'partials/home.html',
+					templateUrl: 'partials/pages/home.html',
 					controller: 'HomeController'
 				})
 				
 				.state('quote', {
 					url: '/quote',
-					templateUrl: 'partials/quote.html',
+					templateUrl: 'partials/pages/quote.html',
 					controller: 'QuoteController'
 				})
 
 				.state('why-us', {
 					url: '/why-us',
-					templateUrl: 'partials/why-us.html',
+					templateUrl: 'partials/pages/why-us.html',
 				})
 
 				.state('customers', {
 					url: '/customers',
-					templateUrl: 'partials/customers.html'
+					templateUrl: 'partials/pages/customers.html'
 				});
 		}
 	])

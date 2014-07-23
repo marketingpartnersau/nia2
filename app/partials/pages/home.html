@@ -1,4 +1,4 @@
-<div full-page-scroll data="data">
+<div full-page-scroll data="data" id="fullpage">
   <div class="section">
     <div class="row">
       <div class="small-12 columns">
@@ -8,16 +8,15 @@
     </div>
   </div>
 
-  <div class="section">
-    <ul class="testimonials no-bullet">
-      <li class="testimonial row">
-        <div class="small-3 columns">
-          <img src="http://placehold.it/50x50">
+  <div class="section testimonials">
+    <ul class="no-bullet">
+      <li class="testimonial row" ng-repeat="testimonial in data.testimonials">
+        <div class="small-2 columns">
+          <img src="http://placehold.it/30x30">
         </div>
-        <div class="small-9 columns" ng-repeat="testimonial in data.testimonials">
-          <h3>{{ testimonial.name }}</h3>
+        <div class="small-10 columns">
           <blockquote>
-            <p>{{ testimonial.description }}</p>
+            <p>{{ testimonial.description }}<br><em>{{ testimonial.name }}</em></p>
           </blockquote>
         </div>
       </li>
@@ -25,13 +24,17 @@
   </div>
 
   <div class="section points">
-    <div class="row">
-      <div class="small-12 columns">
-        <h3>Health insurance made easy.</h3>
+    <div class="row reasons">
+      <div class="small-6 columns">
+        <h3>Reasons to switch</h3>
+        <p>(Tap for more)</p>
       </div>
-      <div class="small-6 columns" ng-repeat="reason in data.reasons">
-        <h1>{{ $index }}. <small>{{ reason.name }}</small></h1>
-        <p>{{ reason.description }}</p>
+      <div class="reason" 
+           ng-repeat="reason in data.reasons" 
+           ng-init="showReason = false" 
+           ng-class="{ 'show-reason' : showReason }">
+        <h3 ng-click="showReason = !showReason">{{ reason.name }}</h3>
+        <p ng-click="showReason = !showReason">{{ reason.description }}</p>
       </div>
     </div>
   </div>

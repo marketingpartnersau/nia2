@@ -9,7 +9,9 @@ angular.module('health.services', [])
 					{name: 'HeartCare Middle 65', description: 'HeartCare 65 is for the golden oldies - with extra coverage for anything heart-related.'},
 				],
 				testimonials: [
-					{name: 'Jack Jones', description: 'We have just been through the birth of our second child and so far it seems nothing is too much trouble at health.com.au. Having a child is stressful enough, so not having to deal with difficult health insurers is a great bonus!'}
+					{name: 'Megan, QLD', description: 'Impressed with the level of service received so far and it\'s never difficult to make the phone call for assistance.'},
+					{name: 'Lucy, NSW', description: 'I found the whole joining process really easy and hassle free! Just the way I like it.'},
+					{name: 'Robyn, VIC', description: 'Many many thanks for your time and patience (over live chat assistance). I’m glad that I decided to join with your company, such pleasurable helpful people you are.'}
 				],
 				reasons: [
 					{name: 'We rock', description: 'We’re a new sort of health insurance, and we’ve got some of the best people in the business behind us.'},

@@ -83,7 +83,6 @@ angular.module('health.directives', [])
 						$scope.show = false;
 						$scope.userinput = option;
 						$scope.$parent.$parent.closeModal();
-						console.log($scope);
 					};
 				}
 			}

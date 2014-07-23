@@ -28,15 +28,14 @@ angular.module('health.controllers', [])
 
 	.controller('TopBarController', ['$scope',
 		function($scope){
-
-			$scope.toggleTopDrawer = function(){
-				$scope.uiStates.bottomDrawerOpen = false;
-				if(!$scope.uiStates.topDrawerOpen){
-					$scope.uiStates.topDrawerOpen = true;
-				} else { 
-					$scope.uiStates.topDrawerOpen = false;
-				}
-			};
+			// $scope.toggleTopDrawer = function(){
+			// 	$scope.uiStates.bottomDrawerOpen = false;
+			// 	if(!$scope.uiStates.topDrawerOpen){
+			// 		$scope.uiStates.topDrawerOpen = true;
+			// 	} else { 
+			// 		$scope.uiStates.topDrawerOpen = false;
+			// 	}
+			// };
 		}
 	])
 
