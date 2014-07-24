@@ -1,0 +1,6 @@
+<h2>{{ title }}</h2>
+
+<label ng-repeat="option in options[type]" for="{{ type }}-{{ option.value | lowercase }}" ui-sref="quote.location">
+	{{ option.label }}
+	<input type="radio" ng-model="formData[type]" value="{{ option.value }}" id="policy-{{ option.value | lowercase }}" name="{{ type }}-{{ option.value | lowercase }}">
+</label>

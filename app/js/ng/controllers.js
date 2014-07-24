@@ -67,6 +67,7 @@ angular.module('health.controllers', [])
 
 			$scope.options = QuoteData2.options;
 			$scope.formData = {};
+			
 
 			$scope.getQuote = function(){
 				// on submit

@@ -27,32 +27,49 @@ angular.module('health', [
 
 				.state('quote.type', {
 					url: '/get',
-					templateUrl: 'partials/quote/quote-type.html'
+					templateUrl: 'partials/quote/quote.type.html'
 				})
 
 				.state('quote.return', {
 					url: '/return',
-					templateUrl: 'partials/quote/quote-return.html'
+					templateUrl: 'partials/quote/quote.return.html'
 				})
 
 				.state('quote.policy', {
 					url: '/policy',
-					templateUrl: 'partials/quote/quote-policy.html'
+					templateUrl: 'partials/quote/quote.select.html',
+					data: {
+						title: 'What best describes you?',
+						type: 'policy'
+					}
 				})
 
 				.state('quote.location', {
 					url: '/location',
-					templateUrl: 'partials/quote/quote-location.html'
+					templateUrl: 'partials/quote/quote.select.html',
+					data: {
+						title: 'What are you from?',
+						type: 'state'
+					}
 				})
 
 				.state('quote.age-income', {
 					url: '/age',
-					templateUrl: 'partials/quote/quote-age-income.html'
+					templateUrl: 'partials/quote/quote.age-income.html'
 				})
 
 				.state('quote.priority', {
 					url: '/priority',
-					templateUrl: 'partials/quote/quote-priority.html'
+					templateUrl: 'partials/quote/quote.select.html',
+					data: {
+						title: 'Finally, what are you looking for?',
+						type: 'priority'
+					}
+				})
+
+				.state('quote.show', {
+					url: '/show',
+					templateUrl: 'partials/quote/quote.show.html'
 				})
 				
 				.state('quote2', {

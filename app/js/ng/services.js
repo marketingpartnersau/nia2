@@ -79,13 +79,13 @@ angular.module('health.services', [])
 		function(){
 			return {
 				options: {
-					policies: [
+					policy: [
 						{ value: 'Sgl',   label: 'Single' },
 						{ value: 'Cpl',   label: 'Couple' },
 						{ value: 'Fam',   label: 'Family' },
 						{ value: 'SPFam', label: 'Single Parent' }
 					],
-					states: [
+					state: [
 						{ value: 'NSW',		label: 'New South Wales' },
 						{ value: 'VIC', 	label: 'Victoria' },
 						{ value: 'QLD', 	label: 'Queensland' },
@@ -95,12 +95,26 @@ angular.module('health.services', [])
 						{ value: 'SA',  	label: 'South Australia' },
 						{ value: 'WA',  	label: 'Western Australia' }
 					],
-					priorities: [
+					priority: [
 						{value: 'cheap', 	label: 'The cheapest insurance'},
 						{value: 'tax', 		label: 'To save on tax'},
 						{value: 'family', 	label: 'To have more kids'},
 						{value: 'coverage', label: 'The best insurance'}
 					]
+				},
+				pages: {
+					policy: { 
+						title: 'What best describes you?', 
+						type: 'policy'
+					},
+					state: {
+						title: 'Where are you from?',
+						type: 'state',
+					},
+					priority: {
+						title: 'What are you after?',
+						type: 'priority'
+					}
 				}
 			}
 		}
