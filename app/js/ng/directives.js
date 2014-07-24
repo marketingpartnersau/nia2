@@ -6,7 +6,19 @@ angular.module('health.directives', [])
 			return {
 				restrict: 'A',
 				link: function(scope, element){
-					angular.element(element).fullpage( { easing: $.bez([0.4, 0, 0.2, 1]) } );
+					// I probably need to detach this when the state
+					// changes as it is being double bound.
+					angular.element(element).fullpage({
+						easing: $.bez([0.4, 0, 0.2, 1]),
+						onLeave: function(left, entered, direction){
+							// Here you should add and remove
+							// animation classes to animate
+							// the slide content.
+						}
+					});
+				}, 
+				controller: function(){
+					// Controller shit here...
 				}
 			};
 		}
@@ -30,19 +42,6 @@ angular.module('health.directives', [])
 				replace: true,
 				controller: 'MenuBarController',
 				templateUrl: 'partials/interface/menu.html'
-			};
-		}
-	])
-
-	.directive('productOnHome', [
-		function(){
-			return {
-				restrict: 'E',
-				replace: true,
-				scope : {
-					product: '='
-				},
-				templateUrl: 'partials/products/product-on-home.html'
 			};
 		}
 	])

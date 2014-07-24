@@ -5,8 +5,10 @@ angular.module('health.services', [])
 		function(){
 			return {
 				products : [
-					{name: 'Basic 65', description: 'Basic 65 is a product for everyone. With simple and essential coverage, we\'ve got your back.'},
-					{name: 'HeartCare Middle 65', description: 'HeartCare 65 is for the golden oldies - with extra coverage for anything heart-related.'},
+					{name: 'Basic 65', description: 'Cheap & Cheerful for young singles'},
+					{name: 'HeartCare Middle 65', description: 'Perfect for the golden oldie'},
+					{name: 'Extras 50', description: 'All the extras, zero hospital'},
+					{name: 'High85', description: 'The best coverage in Australia'},
 				],
 				testimonials: [
 					{name: 'Megan, QLD', description: 'Impressed with the level of service received so far and it\'s never difficult to make the phone call for assistance.'},
@@ -16,8 +18,7 @@ angular.module('health.services', [])
 				reasons: [
 					{name: 'We rock', description: 'We’re a new sort of health insurance, and we’ve got some of the best people in the business behind us.'},
 					{name: 'We love online', description: 'We don’t want to send receipts in by snail mail, and we definitely don’t want to visit anyone’s shop to wait inline and fill out forms.'},
-					{name: 'Customer service with a heart.', description: 'When you need to speak with someone, we are here for you.'},
-					{name: 'Some other reason', description: 'When you need to speak with someone, we are here for you.'}
+					{name: 'Customer service with a heart.', description: 'When you need to speak with someone, we are here for you.'}
 				]
 			};
 		}
@@ -39,6 +40,10 @@ angular.module('health.services', [])
 				]
 			};
 		}
+	])
+
+	.factory('BlogData', [
+
 	])
 
 	.service('QuoteData', [

@@ -28,14 +28,7 @@ angular.module('health.controllers', [])
 
 	.controller('TopBarController', ['$scope',
 		function($scope){
-			// $scope.toggleTopDrawer = function(){
-			// 	$scope.uiStates.bottomDrawerOpen = false;
-			// 	if(!$scope.uiStates.topDrawerOpen){
-			// 		$scope.uiStates.topDrawerOpen = true;
-			// 	} else { 
-			// 		$scope.uiStates.topDrawerOpen = false;
-			// 	}
-			// };
+			
 		}
 	])
 
@@ -62,7 +55,7 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('SecondQuoteController', ['$scope', 'QuoteData2',
+	.controller('SecondQuoteFormController', ['$scope', 'QuoteData2',
 		function($scope, QuoteData2){
 
 			$scope.options = QuoteData2.options;
@@ -75,7 +68,7 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('QuoteController', ['$scope', 'QuoteData',
+	.controller('QuoteFormController', ['$scope', 'QuoteData',
 		function($scope, QuoteData){
 
 			$scope.quote = QuoteData;
@@ -84,6 +77,12 @@ angular.module('health.controllers', [])
 			$scope.getQuote = function(){
 
 			};
+		}
+	])
+
+	.controller('QuoteController', ['$scope',
+		function($scope){
+			// business here motherfucker
 		}
 	])
 

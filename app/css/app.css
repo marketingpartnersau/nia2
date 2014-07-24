@@ -5184,6 +5184,12 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 /* all app scss styles here */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 #contact-actions {
   margin-right: 1rem;
   position: fixed;
@@ -5266,6 +5272,11 @@ th.hide-for-touch {
   /* <=28 */
   box-sizing: border-box;
   padding: 0 0 5rem; }
+  #fullpage .section.hero, #fullpage .section.contact {
+    display: table; }
+    #fullpage .section.hero .fp-tableCell, #fullpage .section.contact .fp-tableCell {
+      display: table-cell;
+      vertical-align: middle; }
   #fullpage .section.testimonials ul {
     position: absolute;
     top: 0;
@@ -5282,7 +5293,7 @@ th.hide-for-touch {
       #fullpage .section.testimonials ul li blockquote {
         margin-left: 0; }
         #fullpage .section.testimonials ul li blockquote p {
-          font-size: 0.6em; }
+          font-size: 0.8em; }
       #fullpage .section.testimonials ul li img {
         margin-top: 10px;
         border-radius: 20px; }
@@ -5298,13 +5309,56 @@ th.hide-for-touch {
       height: 50%;
       width: 50%;
       float: left;
-      overflow: hidden; }
-    #fullpage .section.points * {
-      height: 100%;
-      -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transform: translate3d(0, 0, 0); }
-    #fullpage .section.points.show-reason * {
-      -webkit-transform: translate3d(-100%, 0, 0); }
+      overflow: hidden;
+      background: #f6f6f6; }
+      #fullpage .section.points .reason:nth-child(2) {
+        background: #eee; }
+      #fullpage .section.points .reason:nth-child(3) {
+        background: #e5e5e5; }
+      #fullpage .section.points .reason:nth-child(4) {
+        background: #ddd; }
+      #fullpage .section.points .reason * {
+        height: 100%;
+        margin: 0;
+        padding: 1.25rem;
+        -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-transform: translate3d(0, 0, 0); }
+      #fullpage .section.points .reason p {
+        font-size: 0.8125rem; }
+      #fullpage .section.points .reason.show-reason * {
+        -webkit-transform: translate3d(0, -100%, 0); }
+  #fullpage .section.products {
+    position: relative; }
+    #fullpage .section.products .row {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 80px; }
+    #fullpage .section.products .product {
+      height: 20%;
+      width: 100%;
+      background: #f6f6f6;
+      display: table; }
+      #fullpage .section.products .product > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 20px; }
+      #fullpage .section.products .product h3 {
+        margin-bottom: 0;
+        line-height: 1; }
+      #fullpage .section.products .product p {
+        margin-bottom: 0; }
+      #fullpage .section.products .product:nth-child(1) h3 {
+        line-height: 100%; }
+      #fullpage .section.products .product:nth-child(2) {
+        background: #eee; }
+      #fullpage .section.products .product:nth-child(3) {
+        background: #e5e5e5; }
+      #fullpage .section.products .product:nth-child(4) {
+        background: #ddd; }
+      #fullpage .section.products .product:nth-child(5) {
+        background: #d5d5d5; }
 
 /* Page Transitions */
 .well[ui-view] {

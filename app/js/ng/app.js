@@ -22,7 +22,7 @@ angular.module('health', [
 				.state('quote', {
 					url: '/quote',
 					templateUrl: 'partials/pages/quote2.html',
-					controller: 'SecondQuoteController'
+					controller: 'SecondQuoteFormController'
 				})
 
 				.state('quote.type', {
@@ -38,18 +38,24 @@ angular.module('health', [
 				.state('quote.policy', {
 					url: '/policy',
 					templateUrl: 'partials/quote/quote.select.html',
-					data: {
-						title: 'What best describes you?',
-						type: 'policy'
+					controller: function($scope){
+						$scope.page = {
+							title: 'What best describes you?',
+							type: 'policy',
+							next: 'location'
+						}
 					}
 				})
 
 				.state('quote.location', {
 					url: '/location',
 					templateUrl: 'partials/quote/quote.select.html',
-					data: {
-						title: 'What are you from?',
-						type: 'state'
+					controller: function($scope){
+						$scope.page = {
+							title: 'What are you from?',
+							type: 'state',
+							next: 'age-income'
+						}
 					}
 				})
 
@@ -61,22 +67,26 @@ angular.module('health', [
 				.state('quote.priority', {
 					url: '/priority',
 					templateUrl: 'partials/quote/quote.select.html',
-					data: {
-						title: 'Finally, what are you looking for?',
-						type: 'priority'
-					}
+					controller: function($scope){
+						$scope.page = {
+							title: 'Finally, what are you looking for?',
+							type: 'priority',
+							next: 'show'
+						}
+					} 
 				})
 
 				.state('quote.show', {
 					url: '/show',
-					templateUrl: 'partials/quote/quote.show.html'
+					templateUrl: 'partials/quote/quote.show.html',
+					controller: 'QuoteController'
 				})
 				
 				.state('quote2', {
 					// Other quote template.
 					url: '/quote2',
 					templateUrl: 'partials/pages/quote.html',
-					controller: 'QuoteController'
+					controller: 'QuoteFormController'
 				})
 
 				.state('why-us', {
@@ -87,6 +97,11 @@ angular.module('health', [
 				.state('customers', {
 					url: '/customers',
 					templateUrl: 'partials/pages/customers.html'
+				})
+
+				.state('blog', {
+					url: '/blog',
+					template: '<h2>Blog will go here...</h2>'
 				});
 		}
 	])

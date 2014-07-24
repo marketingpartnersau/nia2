@@ -1,6 +1,0 @@
-<h2>Where are you from?</h2>
-
-<label ng-repeat="option in options.states" for="state-{{ option.value | lowercase }}" ui-sref="quote.age-income">
-	{{ option.label }}
-	<input type="radio" ng-model="formData.state" value="{{ option.value }}" name="state-{{ option.value | lowercase }}">
-</label>

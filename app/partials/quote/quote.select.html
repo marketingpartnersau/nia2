@@ -1,6 +1,6 @@
-<h2>{{ title }}</h2>
+<h2>{{ page.title }}</h2>
 
-<label ng-repeat="option in options[type]" for="{{ type }}-{{ option.value | lowercase }}" ui-sref="quote.location">
+<label ng-repeat="option in options[page.type]" for="{{ page.type }}-{{ option.value | lowercase }}" ui-sref="quote.{{page.next}}">
 	{{ option.label }}
-	<input type="radio" ng-model="formData[type]" value="{{ option.value }}" id="policy-{{ option.value | lowercase }}" name="{{ type }}-{{ option.value | lowercase }}">
+	<input type="radio" ng-model="formData[page.type]" value="{{ option.value }}" id="policy-{{ option.value | lowercase }}" name="{{ page.type }}-{{ option.value | lowercase }}">
 </label>
