@@ -12,24 +12,11 @@
 
     <top-bar></top-bar>
     <bottom-bar></bottom-bar>
-
-    <section class="support hide">
-      <div class="row">
-        <div class="small-12 columns">
-          <h3>Wanna get in touch?</h3>
-          <p>Call us, live chat with us, whatevs</p>
-          <hr>
-        </div>
-        <div class="small-12 columns">
-          <h3>Already a customer?</h3>
-          <p>Hit up these handy links.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="ui-view-container">
-      <div class="well row" ui-view></div>
-    </div>
+  
+   <div class="ui-view-container">
+      <div class="well" ui-view></div>
+   </div>
+   
 
     <sexy-modal show="uiStates.modalIsVisible.contact">
       <ng-include src="'partials/modals/contact.html'"></ng-include>
@@ -38,7 +25,7 @@
       <ng-include src="'partials/modals/support.html'"></ng-include>
     </sexy-modal>
 
-    <div class="md-overlay"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
+    <div class="md-overlay" ng-class="{ 'md-visible' : modalOpen }"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
 
     <script src="js/vendor/libraries.min.js"></script>
     <script src="js/vendor/foundation.min.js"></script>

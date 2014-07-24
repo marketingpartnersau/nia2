@@ -10,7 +10,8 @@ angular.module('health.directives', [])
 					// changes as it is being double bound.
 					angular.element(element).fullpage({
 						easing: $.bez([0.4, 0, 0.2, 1]),
-						onLeave: function(left, entered, direction){
+						onLeave: function(){
+						//onLeave: function(left, entered, direction){
 							// Here you should add and remove
 							// animation classes to animate
 							// the slide content.
@@ -65,8 +66,8 @@ angular.module('health.directives', [])
 		}
 	])
 
-	.directive('selectModal', ['QuoteData',
-		function(QuoteData){
+	.directive('selectModal', [
+		function(){
 			return {
 				restrict: 'E',
 				replace: true,
@@ -84,7 +85,7 @@ angular.module('health.directives', [])
 						$scope.$parent.$parent.closeModal();
 					};
 				}
-			}
+			};
 		}
 	]);
 

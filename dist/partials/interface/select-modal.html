@@ -1,0 +1,12 @@
+<div class="md-modal md-effect-12" ng-class="{ 'md-show' : show }" id="modal-{{ attrs.name }}">
+    <div class="md-content">
+    	<div>
+	    	<div ng-transclude></div>
+	    	<ul class="select">
+	    		<li ng-repeat="option in options" ng-click="selectOption(option)">
+	    			<p>{{ option.label }} <i class="right fa fa-angle-right"></i></p>
+	    		</li>
+	    	</ul>
+	    </div>
+    </div>
+</div>

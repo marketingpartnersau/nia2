@@ -27,7 +27,8 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('TopBarController', ['$scope',
-		function($scope){
+		function(){
+		//function($scope){
 			
 		}
 	])
@@ -81,13 +82,15 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('QuoteController', ['$scope',
-		function($scope){
+		function(){
+		//function($scope){
 			// business here motherfucker
 		}
 	])
 
 	.controller('ContactPopupController', ['$scope',
-		function($scope){
+		function(){
+		//function($scope){
 
 		}
 	]);

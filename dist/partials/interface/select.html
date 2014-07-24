@@ -1,16 +1,13 @@
-<div class="cs-select cs-skin-rotate">
-    <span class="cs-placeholder">Choose your option</span>
+<div class="cs-select cs-skin-underline" ng-init="open = false" ng-class="{ 'cs-active' : open }">
+    <span class="cs-placeholder" ng-click="toggleSelect()">{{ label }} <i class="fa fa-times"></i></span>
     <div class="cs-options">
         <ul>
-            <!-- <li ng-repeat="option in options">
-                <span>{{ option. }}</span>
-            </li> -->
+            <li data-option data-value="option.value" ng-repeat="option in options" ng-click="updateSelect(option)" ng-class="{ 'cs-focus' : userinput === options[$index] }">
+                <span>{{ option.label }}</span>
+            </li>
         </ul>
     </div>
-    <select class="cs-select cs-skin-rotate">
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-    </select>
+    <!-- <select class="cs-select cs-skin-underline" ng-model="userinput" ng-options="option as option.label for option in options">
+        <option value="">{{ label }}</option>
+    </select> -->
 </div>

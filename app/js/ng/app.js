@@ -43,7 +43,7 @@ angular.module('health', [
 							title: 'What best describes you?',
 							type: 'policy',
 							next: 'location'
-						}
+						};
 					}
 				})
 
@@ -55,7 +55,7 @@ angular.module('health', [
 							title: 'What are you from?',
 							type: 'state',
 							next: 'age-income'
-						}
+						};
 					}
 				})
 
@@ -72,7 +72,7 @@ angular.module('health', [
 							title: 'Finally, what are you looking for?',
 							type: 'priority',
 							next: 'show'
-						}
+						};
 					} 
 				})
 

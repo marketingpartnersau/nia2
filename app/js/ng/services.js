@@ -76,7 +76,7 @@ angular.module('health.services', [])
 					]
 				},
 				input: {}
-			}
+			};
 		}
 	])
 
@@ -121,7 +121,7 @@ angular.module('health.services', [])
 						type: 'priority'
 					}
 				}
-			}
+			};
 		}
 	]);
 

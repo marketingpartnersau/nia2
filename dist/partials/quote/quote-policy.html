@@ -1,0 +1,6 @@
+<h2>Which best describes you?</h2>
+
+<label ng-repeat="option in options.policies" for="policy-{{ option.value | lowercase }}" ui-sref="quote.location({policy: option.value})">
+	{{ option.label }}
+	<input type="radio" ng-model="formData.policy" value="{{ option.value }}" id="policy-{{ option.value | lowercase }}" name="policy-{{ option.value | lowercase }}">
+</label>
