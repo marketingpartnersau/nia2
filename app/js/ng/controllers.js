@@ -10,6 +10,8 @@ angular.module('health.controllers', [])
 				modalIsVisible: {}
 			};
 
+			$scope.noOverflow = {'overflow-y' : 'scroll'};
+
 			$scope.openModal = function(modal){
 				$scope.uiStates.modalIsVisible[modal] = !$scope.uiStates.modalIsVisible[modal];
 				$scope.modalOpen = true;
@@ -53,6 +55,7 @@ angular.module('health.controllers', [])
 	.controller('HomeController', ['$scope', 'HomeData',
 		function($scope, HomeData){
 			$scope.data = HomeData;
+			$scope.noOverflow = {};
 		}
 	])
 

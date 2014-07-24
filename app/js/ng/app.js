@@ -8,6 +8,17 @@ angular.module('health', [
 		'health.controllers'
 	])
 
+	.run(['$rootScope', '$state',
+		function($rootScope, $state){
+			$rootScope.$state = $state;
+			$rootScope.$on('$stateChangeStart',
+				function(event, toState, toParams, fromState, fromParams){
+					// no overflow logic here pls. 
+				}
+			);
+		}
+	])
+
 	.config(['$stateProvider', '$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider){
 			$urlRouterProvider.otherwise('/');

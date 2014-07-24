@@ -1,11 +1,12 @@
 /* all app scss styles here */
 
+$cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+
 /* apply a natural box layout model to all elements */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
  }
 
-$cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
 #contact-actions{
 	margin-right: 1rem;

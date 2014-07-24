@@ -8,6 +8,7 @@ angular.module('health.directives', [])
 				link: function(scope, element){
 					// I probably need to detach this when the state
 					// changes as it is being double bound.
+					// this overflow: scroll thing is a bitch too.
 					angular.element(element).fullpage({
 						easing: $.bez([0.4, 0, 0.2, 1]),
 						onLeave: function(){
