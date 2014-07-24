@@ -21,6 +21,43 @@ angular.module('health', [
 				
 				.state('quote', {
 					url: '/quote',
+					templateUrl: 'partials/pages/quote2.html',
+					controller: 'SecondQuoteController'
+				})
+
+				.state('quote.type', {
+					url: '/get',
+					templateUrl: 'partials/quote/quote-type.html'
+				})
+
+				.state('quote.return', {
+					url: '/return',
+					templateUrl: 'partials/quote/quote-return.html'
+				})
+
+				.state('quote.policy', {
+					url: '/policy',
+					templateUrl: 'partials/quote/quote-policy.html'
+				})
+
+				.state('quote.location', {
+					url: '/location',
+					templateUrl: 'partials/quote/quote-location.html'
+				})
+
+				.state('quote.age-income', {
+					url: '/age',
+					templateUrl: 'partials/quote/quote-age-income.html'
+				})
+
+				.state('quote.priority', {
+					url: '/priority',
+					templateUrl: 'partials/quote/quote-priority.html'
+				})
+				
+				.state('quote2', {
+					// Other quote template.
+					url: '/quote2',
 					templateUrl: 'partials/pages/quote.html',
 					controller: 'QuoteController'
 				})

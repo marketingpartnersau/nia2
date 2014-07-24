@@ -77,20 +77,24 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
 	.inline-list{
 		margin-left: 0;
+		height: rem-calc(40px);
+		margin-bottom: 0;
 		
 		li{
 			width: 20%;
+			height: rem-calc(40px);
 			text-align: center;
 			margin: 0;
 			font-size: .8em;
-			line-height: 1.2em;
+			line-height: .4em;
+			cursor: pointer;
+			display: block;
+			padding-top: rem-calc(8px);
+			color: #fff;
+			-webkit-transition: background-color .3s linear;
 
-			
-
-			a{
-				display: block;
-				padding-top: rem-calc(8px);
-				color: #fff;
+			&.active{
+				background-color: #404040;
 			}
 		}
 	}
@@ -132,9 +136,15 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 					}
 
 					blockquote{
+						margin-left: 0;
 						p{
 							font-size: .6em;
 						}
+					}
+
+					img{
+						margin-top: 10px;
+						border-radius: 20px;
 					}
 				}	
 			}

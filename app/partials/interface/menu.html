@@ -1,19 +1,13 @@
 <nav class="bottom-bar" ng-controller="MenuBarController" ng-class="{open : uiStates.bottomDrawerOpen}">
       <ul class="top-level-links inline-list">
-        <li class="home"><a ui-sref="home"><i class="fa fa-home"></i><br>Home</a></li>
-        <li class="about"><a ui-sref="why-us"><i class="fa fa-question-circle"></i><br>Why us</a></li>
-        <li class="quote"><a ui-sref="quote"><i class="fa fa-search"></i><br>Quote</a></li>
-        <li class="customers"><a ui-sref="customers"><i class="fa fa-user"></i><br>Customers</a></li>
-        <li class="more"><a ng-click="toggleDrawer()"><i class="fa {{ uiStates.bottomDrawerOpen && 'fa-times' || 'fa-bars' }}"></i><br>{{ uiStates.bottomDrawerOpen && 'less' || 'more' }}</a></li>
+        <li ng-repeat="item in menuItems" class="{{item.slug}}" ui-sref="{{item.state}}" ui-sref-active="active" ng-click="uiStates.bottomDrawerOpen = false"><i class="fa {{item.icon}}"></i><br>{{item.name}}</li>
+        <li class="more" ng-click="toggleDrawer()"><i class="fa {{ uiStates.bottomDrawerOpen && 'fa-times' || 'fa-bars' }}"></i><br>{{ uiStates.bottomDrawerOpen && 'less' || 'more' }}</li>
       </ul>
 
       <div class="drawer">
-        <section id="customers-section">
-
-        </section>
         <section id="more-section">
           <ul class="no-bullet row">
-            <li class="small-12 columns" ng-repeat="item in items">
+            <li class="small-12 columns" ng-repeat="item in moreItems" ui-sref="{{item.state}}" ng-click="uiStates.bottomDrawerOpen = false">
               <h2>{{ item.name }} <i class="right fa fa-chevron-right"></i></h2>
               <p>{{ item.description }}</p>
             </li>

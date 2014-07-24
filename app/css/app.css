@@ -5239,17 +5239,23 @@ th.hide-for-touch {
   .bottom-bar.open {
     top: 5rem; }
   .bottom-bar .inline-list {
-    margin-left: 0; }
+    margin-left: 0;
+    height: 2.5rem;
+    margin-bottom: 0; }
     .bottom-bar .inline-list li {
       width: 20%;
+      height: 2.5rem;
       text-align: center;
       margin: 0;
       font-size: 0.8em;
-      line-height: 1.2em; }
-      .bottom-bar .inline-list li a {
-        display: block;
-        padding-top: 0.5rem;
-        color: #fff; }
+      line-height: 0.4em;
+      cursor: pointer;
+      display: block;
+      padding-top: 0.5rem;
+      color: #fff;
+      -webkit-transition: background-color 0.3s linear; }
+      .bottom-bar .inline-list li.active {
+        background-color: #404040; }
   .bottom-bar .drawer h2 {
     color: #fff; }
 
@@ -5273,8 +5279,13 @@ th.hide-for-touch {
         background: #eee; }
       #fullpage .section.testimonials ul li:nth-child(3) {
         background: #e5e5e5; }
-      #fullpage .section.testimonials ul li blockquote p {
-        font-size: 0.6em; }
+      #fullpage .section.testimonials ul li blockquote {
+        margin-left: 0; }
+        #fullpage .section.testimonials ul li blockquote p {
+          font-size: 0.6em; }
+      #fullpage .section.testimonials ul li img {
+        margin-top: 10px;
+        border-radius: 20px; }
   #fullpage .section.points {
     position: relative; }
     #fullpage .section.points .reasons {

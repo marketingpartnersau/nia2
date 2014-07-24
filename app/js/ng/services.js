@@ -26,10 +26,16 @@ angular.module('health.services', [])
 	.factory('SiteData', [
 		function(){
 			return {
+				menuItems: [
+					{name: 'Home', slug: 'home', icon: 'fa-home', state: 'home'},
+					{name: 'Why Us', slug: 'why-us', icon: 'fa-question-circle', state: 'why-us'},
+					{name: 'Quote', slug: 'quote', icon: 'fa-search', state: 'quote.type'},
+					{name: 'Claim', slug: 'claim', icon: 'fa-user', state: 'customers'}
+				],
 				moreMenuItems: [
-					{name: 'Blog', description: 'Read our stuff'},
-					{name: 'Claim Online', description: 'Claim right now'},
-					{name: '10 Second Quote', description: 'Swear to god!'}
+					{name: 'Customer Area', description: 'Everything you need', state: 'customers'},
+					{name: 'Blog', description: 'Read our stuff', state: 'blog'},
+					{name: '10 Second Quote', description: 'Swear to god!', state: 'quote2'}
 				]
 			};
 		}
@@ -65,6 +71,37 @@ angular.module('health.services', [])
 					]
 				},
 				input: {}
+			}
+		}
+	])
+
+	.service('QuoteData2', [
+		function(){
+			return {
+				options: {
+					policies: [
+						{ value: 'Sgl',   label: 'Single' },
+						{ value: 'Cpl',   label: 'Couple' },
+						{ value: 'Fam',   label: 'Family' },
+						{ value: 'SPFam', label: 'Single Parent' }
+					],
+					states: [
+						{ value: 'NSW',		label: 'New South Wales' },
+						{ value: 'VIC', 	label: 'Victoria' },
+						{ value: 'QLD', 	label: 'Queensland' },
+						{ value: 'TAS', 	label: 'Tasmania' },
+						{ value: 'ACT', 	label: 'Australian Capital Territory' },
+						{ value: 'NT',  	label: 'Northern Territory' },
+						{ value: 'SA',  	label: 'South Australia' },
+						{ value: 'WA',  	label: 'Western Australia' }
+					],
+					priorities: [
+						{value: 'cheap', 	label: 'The cheapest insurance'},
+						{value: 'tax', 		label: 'To save on tax'},
+						{value: 'family', 	label: 'To have more kids'},
+						{value: 'coverage', label: 'The best insurance'}
+					]
+				}
 			}
 		}
 	]);

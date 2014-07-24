@@ -42,10 +42,11 @@ angular.module('health.controllers', [])
 	.controller('MenuBarController', ['$scope', 'SiteData',
 		function($scope, SiteData){
 
-			$scope.items = SiteData.moreMenuItems;
+			$scope.menuItems = SiteData.menuItems;
+			$scope.moreItems = SiteData.moreMenuItems;
+
 
 			$scope.toggleDrawer = function(){
-				$scope.uiStates.topDrawerOpen = false;
 				if(!$scope.uiStates.bottomDrawerOpen){
 					$scope.uiStates.bottomDrawerOpen = true;
 				} else { 
@@ -58,6 +59,18 @@ angular.module('health.controllers', [])
 	.controller('HomeController', ['$scope', 'HomeData',
 		function($scope, HomeData){
 			$scope.data = HomeData;
+		}
+	])
+
+	.controller('SecondQuoteController', ['$scope', 'QuoteData2',
+		function($scope, QuoteData2){
+
+			$scope.options = QuoteData2.options;
+			$scope.formData = {};
+
+			$scope.getQuote = function(){
+				// on submit
+			};
 		}
 	])
 
