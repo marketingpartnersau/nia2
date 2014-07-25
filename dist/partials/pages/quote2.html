@@ -1,6 +1,15 @@
 <div class="row">
 	<form id="quote-form" ng-submit="getQuote()">
-		{{formData}}
+		<div class="small-12 columns summary">
+			<p>
+				<span class="placeholder" ng-hide="formData.policy">
+					Please start your quote
+				</span>
+				{{ formData.policy }} 
+				{{ formData.state && ' • ' + formData.state || '' }} 
+				{{ formData.priority && ' • ' + formData.priority || '' }}
+			</p>
+		</div>
 		<div class="small-12 columns" id="quote-views" ui-view></div>
 	</form>
 </div>

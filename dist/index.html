@@ -2,13 +2,13 @@
 <html class="no-js" lang="en" ng-app="health">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Foundation project</title>
     <link rel="stylesheet" href="css/libraries.min.css">
     <link rel="stylesheet" href="css/app.min.css">
     <script src="js/vendor/modernizr.min.js"></script>
   </head>
-  <body ng-controller="MainController">
+  <body ng-controller="MainController" ng-style="{ 'overflow-y' : overflowY.overflow }">
 
     <top-bar></top-bar>
     <bottom-bar></bottom-bar>

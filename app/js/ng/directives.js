@@ -23,7 +23,7 @@ angular.module('health.directives', [])
 						}
 					});
 				}, 
-				controller: function($scope){
+				controller: function(){
 					// console.log($scope);
 					// $scope.fullPage.moveTo(0);
 				}

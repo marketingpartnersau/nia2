@@ -5,5 +5,5 @@
 <p ng-hide="(formData.policy == 'Sgl') || (formData.policy == 'SPFam')">
 	<input type="text" ng-model="formData.partnerAge" placeholder="Partner's age"></p>
 <p>
-	<input type="text" ng-model="formData.income" placeholder="$70,000"></p>
-<p><button class="button" ui-sref="quote.priority">Next</button>
+	<input type="number" ng-model="formData.income" placeholder="$70,000"></p>
+<p><button class="button" ui-sref="quote.show">Get Quote</button>
