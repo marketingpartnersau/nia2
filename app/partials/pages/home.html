@@ -27,15 +27,14 @@
   <div class="section points">
     <div class="row reasons">
       <div class="reason">
-        <h3>Reasons to switch</h3>
-        <p>(Tap for more)</p>
+        <h3>Reasons to switch<br> <small>(tap for more)</small></h3>
       </div>
       <div class="reason" 
            ng-repeat="reason in data.reasons" 
            ng-init="showReason = false" 
            ng-class="{ 'show-reason' : showReason }" 
            ng-click="showReason = !showReason">
-        <h3>{{ reason.name }}</h3>
+        <h3>{{ reason.name }} <br> <i class="fa fa-chevron-down"></i></h3>
         <p>{{ reason.description }}</p>
       </div>
     </div>

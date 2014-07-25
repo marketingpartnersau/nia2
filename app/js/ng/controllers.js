@@ -2,15 +2,28 @@
 
 angular.module('health.controllers', [])
 
-	.controller('MainController', ['$scope',
-		function($scope){
+	.controller('MainController', ['$scope', '$rootScope',
+		function($scope, $rootScope){
+
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
 				topDrawerOpen: false,
 				modalIsVisible: {}
 			};
 
-			$scope.noOverflow = {'overflow-y' : 'scroll'};
+			$scope.$on('$stateChangeStart',
+				function(event, toState){
+					if(toState.name === 'home'){
+						$scope.overflowY = {overflow: 'hidden'};} 
+
+					else {
+						$scope.overflowY = {overflow: 'scroll'};}
+						// console.log($.fn.fullpage);
+						// $.fn.fullpage.destroy();
+				});
+
+			$scope.state = $rootScope.state;
+			window.overflowY = $scope.overflowY;
 
 			$scope.openModal = function(modal){
 				$scope.uiStates.modalIsVisible[modal] = !$scope.uiStates.modalIsVisible[modal];
@@ -64,7 +77,6 @@ angular.module('health.controllers', [])
 
 			$scope.options = QuoteData2.options;
 			$scope.formData = {};
-			
 
 			$scope.getQuote = function(){
 				// on submit

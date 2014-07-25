@@ -8,17 +8,6 @@ angular.module('health', [
 		'health.controllers'
 	])
 
-	.run(['$rootScope', '$state',
-		function($rootScope, $state){
-			$rootScope.$state = $state;
-			$rootScope.$on('$stateChangeStart',
-				function(event, toState, toParams, fromState, fromParams){
-					// no overflow logic here pls. 
-				}
-			);
-		}
-	])
-
 	.config(['$stateProvider', '$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider){
 			$urlRouterProvider.otherwise('/');
@@ -65,14 +54,9 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
-							next: 'age-income'
+							next: 'priority'
 						};
 					}
-				})
-
-				.state('quote.age-income', {
-					url: '/age',
-					templateUrl: 'partials/quote/quote.age-income.html'
 				})
 
 				.state('quote.priority', {
@@ -80,11 +64,22 @@ angular.module('health', [
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
-							title: 'Finally, what are you looking for?',
+							title: 'What are you looking for?',
 							type: 'priority',
-							next: 'show'
+							next: 'age-income'
 						};
 					} 
+				})
+
+				.state('quote.age-income', {
+					url: '/age',
+					templateUrl: 'partials/quote/quote.age-income.html',
+					controller: function($scope){
+						$scope.page = {
+							title: 'Lastly, some information about you.',
+							content: ''
+						};
+					}
 				})
 
 				.state('quote.show', {
