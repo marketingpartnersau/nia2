@@ -16,6 +16,7 @@ angular.module('health.services', [])
 					{name: 'Robyn, VIC', description: 'Many many thanks for your time and patience (over live chat assistance). I’m glad that I decided to join with your company, such pleasurable helpful people you are.'}
 				],
 				reasons: [
+					{name: 'Reasons to switch', description: 'We cool. We love online. We nice.'},
 					{name: 'We rock', description: 'We’re a new sort of health insurance, and we’ve got some of the best people in the business behind us.'},
 					{name: 'We love online', description: 'We don’t want to send receipts in by snail mail, and we definitely don’t want to visit anyone’s shop to wait inline and fill out forms.'},
 					{name: 'Customer service with a heart.', description: 'When you need to speak with someone, we are here for you.'}
@@ -36,7 +37,8 @@ angular.module('health.services', [])
 				moreMenuItems: [
 					{name: 'Customer Area', description: 'Everything you need', state: 'customers'},
 					{name: 'Blog', description: 'Read our stuff', state: 'blog'},
-					{name: '10 Second Quote', description: 'Swear to god!', state: 'quote2'}
+					{name: '10 Second Quote', description: 'Swear to god!', state: 'quote2'},
+					{name: 'Join now', description: 'Just for preview', state: 'join.start'}
 				]
 			};
 		}

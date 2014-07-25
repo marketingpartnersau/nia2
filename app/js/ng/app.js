@@ -95,6 +95,37 @@ angular.module('health', [
 					controller: 'QuoteFormController'
 				})
 
+				.state('join', {
+					url: '/join',
+					templateUrl: 'partials/pages/join.html',
+					controller: 'JoinController'
+				})
+
+				.state('join.start', {
+					url: '/start',
+					templateUrl: 'partials/join/join.start.html'
+				})
+
+				.state('join.license', {
+					url: '/license',
+					templateUrl: 'partials/join/join.license.html'
+				})
+
+				.state('join.medicare', {
+					url: '/medicare',
+					templateUrl: 'partials/join/join.medicare.html'
+				})
+
+				.state('join.current-insurance', {
+					url: '/current-insurance',
+					templateUrl: 'partials/join/join.current.html'
+				})
+
+				.state('join.thanks', {
+					url: '/thanks',
+					templateUrl: 'partials/join/join.complete.html'
+				})
+
 				.state('why-us', {
 					url: '/why-us',
 					templateUrl: 'partials/pages/why-us.html',

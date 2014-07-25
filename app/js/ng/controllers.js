@@ -18,8 +18,6 @@ angular.module('health.controllers', [])
 
 					else {
 						$scope.overflowY = {overflow: 'scroll'};}
-						// console.log($.fn.fullpage);
-						// $.fn.fullpage.destroy();
 				});
 
 			$scope.state = $rootScope.state;
@@ -42,8 +40,7 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('TopBarController', ['$scope',
-		function(){
-		//function($scope){
+		function($scope){
 			
 		}
 	])
@@ -97,9 +94,18 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('QuoteController', ['$scope',
-		function(){
-		//function($scope){
+		function($scope){
 			// business here motherfucker
+		}
+	])
+
+	.controller('JoinController', ['$scope',
+		function($scope){
+			$scope.signupData = {};
+
+			$scope.joinMember = function(){
+
+			};
 		}
 	])
 
