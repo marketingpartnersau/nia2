@@ -11,12 +11,14 @@ angular.module('health.directives', [])
 					// this overflow: scroll thing is a bitch too.
 					scope.fullpage = angular.element(element).fullpage({
 						easing: $.bez([0.4, 0, 0.2, 1]),
-						onLeave: function(){
-						//onLeave: function(left, entered, direction){
-							// Here you should add and remove
-							// animation classes to animate
-							// the slide content.
-						},
+						//onLeave: function(){
+						// onLeave: function(left, entered, direction){
+						// 	//console.log(left, entered, direction);
+						// 	// Here you should add and remove
+						// 	// animation classes to animate
+						// 	// the slide content.
+						// 	element.children().eq()
+						// },
 						afterRender: function(){
 							// loggin in this indicates it's being
 							// instantiated twice. That sucks.

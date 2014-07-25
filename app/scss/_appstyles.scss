@@ -141,6 +141,13 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 				li{
 					height: 33%;
 					background: #f6f6f6;
+					position: relative;
+
+					//hidden state
+					top: -20px;
+					opacity: 0;
+					-webkit-transition: all .3s $cubic-bezier;
+					-webkit-transition-delay: .5s;
 
 					&:nth-child(2){
 						background: #eee;
@@ -162,6 +169,22 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 						border-radius: 20px;
 					}
 				}	
+			}
+
+			&.active{
+				ul{
+					li{
+						opacity: 1;
+						top: 0;
+
+						&:nth-child(2){
+							-webkit-transition-delay: .6s;}
+
+						&:nth-child(3){
+							-webkit-transition-delay: .7s;}
+					}
+				}
+				//-website-transition-delay
 			}
 			
 		}

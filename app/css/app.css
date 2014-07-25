@@ -5285,7 +5285,12 @@ th.hide-for-touch {
     bottom: 40px; }
     #fullpage .section.testimonials ul li {
       height: 33%;
-      background: #f6f6f6; }
+      background: #f6f6f6;
+      position: relative;
+      top: -20px;
+      opacity: 0;
+      -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-transition-delay: 0.5s; }
       #fullpage .section.testimonials ul li:nth-child(2) {
         background: #eee; }
       #fullpage .section.testimonials ul li:nth-child(3) {
@@ -5297,6 +5302,13 @@ th.hide-for-touch {
       #fullpage .section.testimonials ul li img {
         margin-top: 10px;
         border-radius: 20px; }
+  #fullpage .section.testimonials.active ul li {
+    opacity: 1;
+    top: 0; }
+    #fullpage .section.testimonials.active ul li:nth-child(2) {
+      -webkit-transition-delay: 0.6s; }
+    #fullpage .section.testimonials.active ul li:nth-child(3) {
+      -webkit-transition-delay: 0.7s; }
   #fullpage .section.points {
     position: relative; }
     #fullpage .section.points .reasons {
