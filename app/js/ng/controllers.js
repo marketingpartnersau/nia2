@@ -11,6 +11,7 @@ angular.module('health.controllers', [])
 				modalIsVisible: {}
 			};
 
+			// WHY DID THIS STOP WORKING
 			$scope.$on('$stateChangeStart',
 				function(event, toState){
 					if(toState.name === 'home'){
@@ -18,7 +19,8 @@ angular.module('health.controllers', [])
 
 					else {
 						$scope.overflowY = {overflow: 'scroll'};}
-				});
+				}
+			);
 
 			$scope.state = $rootScope.state;
 			window.overflowY = $scope.overflowY;
