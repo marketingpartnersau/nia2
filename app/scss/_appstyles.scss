@@ -192,6 +192,12 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 		&.points{
 			position: relative;
 
+			&.active{
+				.reason{
+					-webkit-transform: scale(1);
+				}
+			}
+
 			.reasons{
 				position: absolute;
 				top: 0;
@@ -205,7 +211,9 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 				width: 50%;
 				float: left;
 				overflow: hidden;
-
+				-webkit-transition: all .3s $cubic-bezier;
+				-webkit-transition-delay: .5s;
+				-webkit-transform: scale(.8);
 
 				&:not(:first-child){
 					cursor: pointer;
@@ -224,14 +232,17 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
 				&:nth-child(2){
 					background: #eee;
+					-webkit-transition-delay: .6s;
 				}
 
 				&:nth-child(3){
 					background: #e5e5e5;
+					-webkit-transition-delay: .7s;
 				}
 
 				&:nth-child(4){
 					background: #ddd;
+					-webkit-transition-delay: .7s;
 				}
 
 				> *{

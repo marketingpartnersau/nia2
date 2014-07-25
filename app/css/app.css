@@ -5311,6 +5311,8 @@ th.hide-for-touch {
       -webkit-transition-delay: 0.7s; }
   #fullpage .section.points {
     position: relative; }
+    #fullpage .section.points.active .reason {
+      -webkit-transform: scale(1); }
     #fullpage .section.points .reasons {
       position: absolute;
       top: 0;
@@ -5322,6 +5324,9 @@ th.hide-for-touch {
       width: 50%;
       float: left;
       overflow: hidden;
+      -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-transition-delay: 0.5s;
+      -webkit-transform: scale(0.8);
       background: #f6f6f6; }
       #fullpage .section.points .reason:not(:first-child) {
         cursor: pointer;
@@ -5331,11 +5336,14 @@ th.hide-for-touch {
         #fullpage .section.points .reason:not(:first-child):hover i {
           margin-top: 1em; }
       #fullpage .section.points .reason:nth-child(2) {
-        background: #eee; }
+        background: #eee;
+        -webkit-transition-delay: 0.6s; }
       #fullpage .section.points .reason:nth-child(3) {
-        background: #e5e5e5; }
+        background: #e5e5e5;
+        -webkit-transition-delay: 0.7s; }
       #fullpage .section.points .reason:nth-child(4) {
-        background: #ddd; }
+        background: #ddd;
+        -webkit-transition-delay: 0.7s; }
       #fullpage .section.points .reason > * {
         height: 100%;
         margin: 0;
