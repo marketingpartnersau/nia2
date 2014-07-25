@@ -5312,7 +5312,8 @@ th.hide-for-touch {
   #fullpage .section.points {
     position: relative; }
     #fullpage .section.points.active .reason {
-      -webkit-transform: scale(1); }
+      -webkit-transform: scale(1);
+      opacity: 1; }
     #fullpage .section.points .reasons {
       position: absolute;
       top: 0;
@@ -5327,6 +5328,7 @@ th.hide-for-touch {
       -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-transition-delay: 0.5s;
       -webkit-transform: scale(0.8);
+      opacity: 0;
       background: #f6f6f6; }
       #fullpage .section.points .reason:not(:first-child) {
         cursor: pointer;

@@ -195,6 +195,7 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 			&.active{
 				.reason{
 					-webkit-transform: scale(1);
+					opacity: 1;
 				}
 			}
 
@@ -214,6 +215,7 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 				-webkit-transition: all .3s $cubic-bezier;
 				-webkit-transition-delay: .5s;
 				-webkit-transform: scale(.8);
+				opacity: 0;
 
 				&:not(:first-child){
 					cursor: pointer;
