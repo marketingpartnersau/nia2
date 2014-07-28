@@ -87,6 +87,12 @@ angular.module('health', [
 					templateUrl: 'partials/quote/quote.show.html',
 					controller: 'QuoteController'
 				})
+
+				// .state('products' {
+
+				// })
+
+				// .state('products.show/:product_id')
 				
 				.state('quote2', {
 					// Other quote template.
@@ -108,17 +114,25 @@ angular.module('health', [
 
 				.state('join.license', {
 					url: '/license',
-					templateUrl: 'partials/join/join.license.html'
+					templateUrl: 'partials/join/join.upload.html',
+					controller: function($scope){
+						$scope.page = {
+							title: 'Snap a photo of your license',
+							content: 'We use this to grab information such as your age and address',
+							type: 'license',
+							next: 'medicare'
+						}
+					}
 				})
 
 				.state('join.medicare', {
 					url: '/medicare',
-					templateUrl: 'partials/join/join.medicare.html'
+					templateUrl: 'partials/join/join.upload.html'
 				})
 
 				.state('join.current-insurance', {
 					url: '/current-insurance',
-					templateUrl: 'partials/join/join.current.html'
+					templateUrl: 'partials/join/join.upload.html'
 				})
 
 				.state('join.thanks', {

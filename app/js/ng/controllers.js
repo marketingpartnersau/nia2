@@ -87,7 +87,6 @@ angular.module('health.controllers', [])
 		function($scope, QuoteData){
 
 			$scope.quote = QuoteData;
-			window.scope = $scope.quote;
 
 			$scope.getQuote = function(){
 
@@ -108,6 +107,10 @@ angular.module('health.controllers', [])
 			$scope.joinMember = function(){
 
 			};
+
+			$scope.onFileSelect = function($files){
+
+			}
 		}
 	])
 

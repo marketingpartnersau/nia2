@@ -122,7 +122,8 @@ angular.module('health.services', [])
 						title: 'What are you after?',
 						type: 'priority'
 					}
-				}
+				},
+				formData: {}
 			};
 		}
 	]);
