@@ -137,9 +137,14 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 				right: 0;
 				bottom: 40px;
 
+				li.title,
+				li.readMore{
+					height: 20%;
+				}
 
-				li{
-					height: 33%;
+
+				li.testimonial{
+					height: 30%;
 					background: #f6f6f6;
 					position: relative;
 
@@ -149,11 +154,11 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 					-webkit-transition: all .3s $cubic-bezier;
 					-webkit-transition-delay: .5s;
 
-					&:nth-child(2){
+					&:nth-child(1){
 						background: #eee;
 					}
 
-					&:nth-child(3){
+					&:nth-child(2){
 						background: #e5e5e5;
 					}
 
@@ -656,9 +661,11 @@ perspective effects (not including the modals and the overlay).
 	}
 }
 .md-overlay.md-visible{
-	.md-close{
-		opacity: 1;
-	}
+	
+}
+
+.md-close.md-visible{
+	opacity: 1;
 }
 
 

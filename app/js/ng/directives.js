@@ -63,7 +63,8 @@ angular.module('health.directives', [])
 				transclude: 'element',
 				templateUrl: 'partials/interface/modal.html',
 				scope : {
-					show: '='
+					show: '=',
+					data: '@'
 				},
 				link: function(scope){
 					scope.hideModal = function(){

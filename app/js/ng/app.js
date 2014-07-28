@@ -17,6 +17,21 @@ angular.module('health', [
 					url: '/',
 					templateUrl: 'partials/pages/home.html',
 					controller: 'HomeController'
+					// Maybe use views here instead of nested
+					// states to get the testimonials and
+					// proof points working. Or not as it would
+					// be cool to get them accessible via URL.
+					// the issue here could also be reloading
+					// the home page when returning to home
+				})
+
+				.state('home.testimonials', {
+					url: '/testimonials',
+					onEnter: function($state){
+						// HOW TO GET THIS OPEN MODAL WORKING. 
+						// I think I need to create $modal service.
+						openModal('testimonials');
+					}
 				})
 				
 				.state('quote', {

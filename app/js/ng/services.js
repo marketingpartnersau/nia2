@@ -10,11 +10,6 @@ angular.module('health.services', [])
 					{name: 'Extras 50', description: 'All the extras, zero hospital'},
 					{name: 'High85', description: 'The best coverage in Australia'},
 				],
-				testimonials: [
-					{name: 'Megan, QLD', description: 'Impressed with the level of service received so far and it\'s never difficult to make the phone call for assistance.'},
-					{name: 'Lucy, NSW', description: 'I found the whole joining process really easy and hassle free! Just the way I like it.'},
-					{name: 'Robyn, VIC', description: 'Many many thanks for your time and patience (over live chat assistance). I’m glad that I decided to join with your company, such pleasurable helpful people you are.'}
-				],
 				reasons: [
 					{name: 'Reasons to switch', description: 'We cool. We love online. We nice.'},
 					{name: 'We rock', description: 'We’re a new sort of health insurance, and we’ve got some of the best people in the business behind us.'},
@@ -22,6 +17,27 @@ angular.module('health.services', [])
 					{name: 'Customer service with a heart.', description: 'When you need to speak with someone, we are here for you.'}
 				]
 			};
+		}
+	])
+
+	.factory('Testimonials', [
+		function(){
+			return {
+				testimonials: [
+					{name: 'Megan, QLD', description: 'Impressed with the level of service received so far and it\'s never difficult to make the phone call for assistance.'},
+					{name: 'Lucy, NSW', description: 'I found the whole joining process really easy and hassle free! Just the way I like it.'},
+					{name: 'Robyn, VIC', description: 'Many many thanks for your time and patience (over live chat assistance). I’m glad that I decided to join with your company, such pleasurable helpful people you are.'}
+				]
+			}
+		}
+	])
+
+	.factory('ProofData', [
+		function(){
+			return {
+				awards: [],
+				press: []
+			}
 		}
 	])
 

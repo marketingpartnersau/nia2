@@ -64,10 +64,25 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('HomeController', ['$scope', 'HomeData',
-		function($scope, HomeData){
+	.controller('HomeController', ['$scope', 'HomeData', 'Testimonials',
+		function($scope, HomeData, Testimonials){
+			console.log(Testimonials);
+			$scope.testimonials = Testimonials.testimonials;
 			$scope.data = HomeData;
 			$scope.noOverflow = {};
+		}
+	])
+
+	.controller('TestimonialsController', ['$scope', 'Testimonials',
+		function($scope, Testimonials){
+			$scope.testimonials = Testimonials.testimonia;
+		}
+	])
+
+	.controller('ProofController', ['$scope', 'ProofData',
+		function($scope, ProofData){
+			$scope.awards = ProofData.awards;
+			$scope.press = ProofData.press;
 		}
 	])
 

@@ -5283,23 +5283,25 @@ th.hide-for-touch {
     left: 0;
     right: 0;
     bottom: 40px; }
-    #fullpage .section.testimonials ul li {
-      height: 33%;
+    #fullpage .section.testimonials ul li.title, #fullpage .section.testimonials ul li.readMore {
+      height: 20%; }
+    #fullpage .section.testimonials ul li.testimonial {
+      height: 30%;
       background: #f6f6f6;
       position: relative;
       top: -20px;
       opacity: 0;
       -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-transition-delay: 0.5s; }
-      #fullpage .section.testimonials ul li:nth-child(2) {
+      #fullpage .section.testimonials ul li.testimonial:nth-child(1) {
         background: #eee; }
-      #fullpage .section.testimonials ul li:nth-child(3) {
+      #fullpage .section.testimonials ul li.testimonial:nth-child(2) {
         background: #e5e5e5; }
-      #fullpage .section.testimonials ul li blockquote {
+      #fullpage .section.testimonials ul li.testimonial blockquote {
         margin-left: 0; }
-        #fullpage .section.testimonials ul li blockquote p {
+        #fullpage .section.testimonials ul li.testimonial blockquote p {
           font-size: 0.8em; }
-      #fullpage .section.testimonials ul li img {
+      #fullpage .section.testimonials ul li.testimonial img {
         margin-top: 10px;
         border-radius: 20px; }
   #fullpage .section.testimonials.active ul li {
@@ -5638,7 +5640,7 @@ perspective effects (not including the modals and the overlay).
   transform: scale(1);
   opacity: 1; }
 
-.md-overlay.md-visible .md-close {
+.md-close.md-visible {
   opacity: 1; }
 
 /* COOL SELECT */
