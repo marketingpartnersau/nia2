@@ -65,7 +65,7 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('TopBarController', ['$scope',
-		function($scope){
+		function(){
 			
 		}
 	])
@@ -90,6 +90,7 @@ angular.module('health.controllers', [])
 	.controller('HomeController', ['$scope', 'HomeData', 'Testimonials', 'Proof',
 		function($scope, HomeData, Testimonials, Proof){
 			$scope.testimonials = Testimonials.testimonials;
+			$scope.proof = Proof;
 			$scope.data = HomeData;
 			$scope.noOverflow = {};
 		}
@@ -112,7 +113,7 @@ angular.module('health.controllers', [])
 				$scope.formData.coords = position.coords;
 				$scope.formData.geoCode = GeoCode.reverse($scope.formData.coords.lat, $scope.formData.coords.lng);
 				console.log($scope.formData);
-			}
+			};
 
 			$scope.getQuote = function(){
 				// on submit
@@ -133,7 +134,7 @@ angular.module('health.controllers', [])
 	])
 
 	.controller('QuoteController', ['$scope',
-		function($scope){
+		function(){
 			// business here motherfucker
 		}
 	])
@@ -144,7 +145,7 @@ angular.module('health.controllers', [])
 
 			$scope.joinMember = function(){
 
-			}
+			};
 		}
 	])
 

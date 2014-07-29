@@ -98,8 +98,8 @@ angular.module('health.directives', [])
 		}
 	])
 
-	.directive('imageUploadButton', ['$interval', '$timeout', '$state',
-		function($interval, $timeout, $state){
+	.directive('imageUploadButton', ['$interval', '$timeout',
+		function($interval, $timeout){
 			return {
 				restrict: 'E',
 				replace: true,
@@ -121,7 +121,7 @@ angular.module('health.directives', [])
 						scope.params.icon = 'spinner fa-spin';
 						scope.params.loading = true;
 						scope.progressTimer = $interval(scope.doProgress, 300);
-					}
+					};
 
 					scope.finishedUploading = function(){
 						scope.params.status = 'Thanks!';
@@ -133,7 +133,7 @@ angular.module('health.directives', [])
 								scope.callback();
 							}
 						}, 1000);
-					}
+					};
 
 					scope.doProgress = function(){
 						if(scope.params.progress === 100){
@@ -141,9 +141,9 @@ angular.module('health.directives', [])
 						} else if (scope.params.progress < 100) {
 							scope.params.progress = scope.params.progress+=10;
 						}
-					}
+					};
 				}
-			}
+			};
 		}
 	]);
 

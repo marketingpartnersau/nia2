@@ -1,0 +1,16 @@
+<div>
+	<h2>We look after our customers.</h2>
+	<p ng-click="dismiss()">See what they have to say.</p>
+	<ul class="no-bullet">
+		<li class="testimonial row" ng-repeat="testimonial in testimonials">
+			<div class="small-2 columns">
+	          <img src="http://placehold.it/30x30">
+	        </div>
+	        <div class="small-10 columns">
+	          <blockquote>
+	            <p>{{ testimonial.description }}<br><em>{{ testimonial.name }}</em></p>
+	          </blockquote>
+	        </div>
+		</li>
+	</ul>
+</div>

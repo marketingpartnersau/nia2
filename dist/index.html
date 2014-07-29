@@ -24,8 +24,9 @@
     <sexy-modal show="uiStates.modalIsVisible.support">
       <ng-include src="'partials/modals/support.html'"></ng-include>
     </sexy-modal>
-
-    <div class="md-overlay" ng-class="{ 'md-visible' : modalOpen }"><span ng-click="closeModal()" class="md-close">&nbsp;</span></div>
+    <sexy-modal show="uiStates.modalIsVisible.proof">
+      <ng-include src="'partials/modals/proof.html'"></ng-include>
+    </sexy-modal>
 
     <script src="js/vendor/libraries.min.js"></script>
     <script src="js/vendor/foundation.min.js"></script>

@@ -11,7 +11,11 @@
 
   <div class="section testimonials">
     <ul class="no-bullet">
-      <li class="testimonial row" ng-repeat="testimonial in data.testimonials">
+      <li class="title">
+        <h2>We back this with amazing customer service</h2>
+        <p>Just ask any of our 85,000+ customers</p>
+      </li>
+      <li class="testimonial row" ng-repeat="testimonial in testimonials | limitTo:2">
         <div class="small-2 columns">
           <img src="http://placehold.it/30x30">
         </div>
@@ -21,7 +25,30 @@
           </blockquote>
         </div>
       </li>
+      <li class="readmore">
+        <a class="button" class="fa fa-comment" ng-click="open('testimonials', 'Testimonials')">
+         Read more</a>
+      </li>
     </ul>
+  </div>
+
+  <div class="section awards">
+    <div class="title">
+      <h2>We've disrupted health insurance.</h2>
+    </div>
+    <div class="awards">
+      <ul>
+        <li ng-repeat="award in awards">
+
+        </li>
+      </ul>
+    </div>
+    <div class="press">
+      
+    </div>
+    <div class="readmore">
+      <a class="button" class="fa fa-comment" ng-click="openModal('proof')"> Read more</a>
+    </div>
   </div>
 
   <div class="section points">

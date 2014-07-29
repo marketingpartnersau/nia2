@@ -149,7 +149,7 @@ angular.module('health', [
 							next: function(){
 								$state.go('join.medicare');
 							}
-						}
+						};
 					}
 				})
 
@@ -164,7 +164,7 @@ angular.module('health', [
 							next: function(){
 								$state.go('join.current-insurance');
 							}
-						}
+						};
 					}
 				})
 
@@ -179,7 +179,7 @@ angular.module('health', [
 							next: function(){
 								$state.go('join.thanks');
 							}
-						}
+						};
 					}
 				})
 

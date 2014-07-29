@@ -29,7 +29,7 @@ angular.module('health.services', [])
 					{name: 'Lucy, NSW', description: 'I found the whole joining process really easy and hassle free! Just the way I like it.'},
 					{name: 'Robyn, VIC', description: 'Many many thanks for your time and patience (over live chat assistance). I’m glad that I decided to join with your company, such pleasurable helpful people you are.'}
 				]
-			}
+			};
 		}
 	])
 
@@ -38,7 +38,7 @@ angular.module('health.services', [])
 			return {
 				awards: [],
 				press: []
-			}
+			};
 		}
 	])
 
@@ -146,7 +146,7 @@ angular.module('health.services', [])
 	])
 
 	.service('GeoCode', function(){
-		return {}
+		return {};
 	});
 
 	// .service('GeoCode' ['$http', '$q',
