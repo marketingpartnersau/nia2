@@ -26,18 +26,21 @@
         </div>
       </li>
       <li class="readmore">
-        <a class="button" class="fa fa-comment" ui-sref="home.testimonials"> Read more</a>
+        <a class="button" class="fa fa-comment" ng-click="open('testimonials', 'Testimonials')">
+         Read more</a>
       </li>
     </ul>
   </div>
 
   <div class="section awards">
     <div class="title">
-      <h2>We've been making waves in the health insurance industry</h2>
+      <h2>We've disrupted health insurance.</h2>
     </div>
     <div class="awards">
       <ul>
-        
+        <li ng-repeat="award in awards">
+
+        </li>
       </ul>
     </div>
     <div class="press">

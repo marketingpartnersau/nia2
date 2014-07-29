@@ -96,6 +96,55 @@ angular.module('health.directives', [])
 				}
 			};
 		}
+	])
+
+	.directive('imageUploadButton', ['$interval', '$timeout', '$state',
+		function($interval, $timeout, $state){
+			return {
+				restrict: 'E',
+				replace: true,
+				templateUrl: 'partials/interface/progress-button.html',
+				scope: {
+					photo: '=',
+					callback: '&callbackFn'
+				},
+				link: function(scope, el, attr){
+					scope.params = {
+						status: 'Tap to capture',
+						icon: 'camera',
+						progress: 0,
+						loading: false
+					};
+
+					scope.onFileSelect = function(){
+						scope.params.status = 'Uploading...';
+						scope.params.icon = 'spinner fa-spin';
+						scope.params.loading = true;
+						scope.progressTimer = $interval(scope.doProgress, 300);
+					}
+
+					scope.finishedUploading = function(){
+						scope.params.status = 'Thanks!';
+						scope.params.icon = 'check';
+						scope.params.loading = false;
+						$interval.cancel(scope.progressTimer);
+						$timeout(function(){
+							if(typeof scope.callback === 'function'){
+								scope.callback();
+							}
+						}, 1000);
+					}
+
+					scope.doProgress = function(){
+						if(scope.params.progress === 100){
+							scope.finishedUploading();
+						} else if (scope.params.progress < 100) {
+							scope.params.progress = scope.params.progress+=10;
+						}
+					}
+				}
+			}
+		}
 	]);
 
 	// .directive('coolSelect', ['CoolSelect',

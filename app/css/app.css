@@ -5423,7 +5423,7 @@ th.hide-for-touch {
   #join-form [ui-view] {
     padding-top: 3.75rem;
     padding-bottom: 3.75rem; }
-  #join-form .progress {
+  #join-form .join-progress {
     position: fixed;
     top: 2.5rem;
     left: 0;
@@ -5434,7 +5434,7 @@ th.hide-for-touch {
     border-bottom: 1px solid #eee;
     text-align: center;
     z-index: 9; }
-    #join-form .progress a {
+    #join-form .join-progress a {
       display: inline-block;
       line-height: 1.625rem;
       background: #eee;
@@ -5442,10 +5442,10 @@ th.hide-for-touch {
       height: 26px;
       border-radius: 13px;
       font-size: 0.8em; }
-      #join-form .progress a.active {
+      #join-form .join-progress a.active {
         color: #fff;
         background-color: #202020; }
-        #join-form .progress a.active + a, #join-form .progress a.active + a + a, #join-form .progress a.active + a + a + a, #join-form .progress a.active + a + a + a + a {
+        #join-form .join-progress a.active + a, #join-form .join-progress a.active + a + a, #join-form .join-progress a.active + a + a + a, #join-form .join-progress a.active + a + a + a + a {
           opacity: 0.5; }
 
 /* Page Transitions */
@@ -5642,6 +5642,100 @@ perspective effects (not including the modals and the overlay).
 
 .md-close.md-visible {
   opacity: 1; }
+
+/* PROGRESS BUTTON */
+/* General styles for all types of buttons */
+.progress-button {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  outline: none;
+  border: none;
+  background: #1d9650;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1em;
+  line-height: 4;
+  cursor: pointer; }
+  .progress-button:hover {
+    color: #eee; }
+
+.progress-button[disabled], .progress-button[disabled].state-loading {
+  cursor: default; }
+
+.progress-button .content {
+  position: relative;
+  display: block; }
+
+.progress-button .content::before, .progress-button .content::after {
+  position: absolute;
+  right: 20px;
+  color: #0e7138;
+  font-family: "icomoon";
+  opacity: 0;
+  -webkit-transition: opacity 0.3s 0.3s;
+  transition: opacity 0.3s 0.3s; }
+
+.progress-button .content::before {
+  content: "\e600";
+  /* Checkmark for success */ }
+
+.progress-button .content::after {
+  content: "\e601";
+  /* Cross for error */ }
+
+.progress-button.state-success .content::before, .progress-button.state-error .content::after {
+  opacity: 1; }
+
+.notransition {
+  -webkit-transition: none !important;
+  transition: none !important; }
+
+.progress-button .progress {
+  background: #148544; }
+
+.progress-button .progress-inner {
+  position: absolute;
+  left: 0;
+  background: #0e7138; }
+
+.progress-button[data-horizontal] .progress-inner {
+  top: 0;
+  width: 0;
+  height: 100%;
+  -webkit-transition: width 0.3s, opacity 0.3s;
+  transition: width 0.3s, opacity 0.3s; }
+
+/* slide down */
+/* ====================== */
+.progress-button[data-style="slide-down"] {
+  padding: 0;
+  overflow: visible;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.progress-button[data-style="slide-down"] .content {
+  z-index: 10;
+  padding: 0 20px;
+  background: #1d9650; }
+
+.progress-button input[type="file"] {
+  position: absolute;
+  z-index: 20; }
+
+.progress-button[data-style="slide-down"] .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: transform 0.2s; }
+
+.progress-button[data-style="slide-down"].state-loading .progress {
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px); }
 
 /* COOL SELECT */
 /* Default custom select styles */

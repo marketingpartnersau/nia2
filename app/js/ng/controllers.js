@@ -2,8 +2,8 @@
 
 angular.module('health.controllers', [])
 
-	.controller('MainController', ['$scope', '$rootScope',
-		function($scope, $rootScope){
+	.controller('MainController', ['$scope', '$rootScope', '$modal', '$log',
+		function($scope, $rootScope, $modal, $log){
 
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
@@ -38,6 +38,29 @@ angular.module('health.controllers', [])
 				});
 				$scope.modalOpen = false;
 			};
+
+			// THIS IS USING UI.BOOTSTRAP.MODAL
+
+			$scope.open = function(template, data){
+				console.log(template, data);
+				var modalInstance = $modal.open({
+					templateUrl: 'partials/modals/' + template + '.html',
+					controller: function($scope, $modalInstance, data){
+						console.log(data);
+						$scope.data = data;
+						$scope.close = function(){
+							$modalInstance.close();
+						};
+					},
+					resolve: { data: data }
+				});
+
+				modalInstance.result.then(function(result){
+					$scope.result = result;
+				}, function(){
+					$log.info('Modal dismissed at ' + new Date());
+				});
+			};
 		}
 	])
 
@@ -64,33 +87,32 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('HomeController', ['$scope', 'HomeData', 'Testimonials',
-		function($scope, HomeData, Testimonials){
-			console.log(Testimonials);
+	.controller('HomeController', ['$scope', 'HomeData', 'Testimonials', 'Proof',
+		function($scope, HomeData, Testimonials, Proof){
 			$scope.testimonials = Testimonials.testimonials;
 			$scope.data = HomeData;
 			$scope.noOverflow = {};
 		}
 	])
 
-	.controller('TestimonialsController', ['$scope', 'Testimonials',
-		function($scope, Testimonials){
-			$scope.testimonials = Testimonials.testimonia;
-		}
-	])
-
-	.controller('ProofController', ['$scope', 'ProofData',
-		function($scope, ProofData){
-			$scope.awards = ProofData.awards;
-			$scope.press = ProofData.press;
-		}
-	])
-
-	.controller('SecondQuoteFormController', ['$scope', 'QuoteData2',
-		function($scope, QuoteData2){
+	.controller('SecondQuoteFormController', ['$scope', 'QuoteData2', 'GeoCode',
+		function($scope, QuoteData2, GeoCode){
 
 			$scope.options = QuoteData2.options;
+			$scope.geocode = GeoCode;
 			$scope.formData = {};
+
+			$scope.getLocation = function(){
+				if(navigator.geolocation){
+					navigator.geolocation.getCurrentPosition($scope.savePosition);
+				}
+			};
+
+			$scope.savePosition = function(position){
+				$scope.formData.coords = position.coords;
+				$scope.formData.geoCode = GeoCode.reverse($scope.formData.coords.lat, $scope.formData.coords.lng);
+				console.log($scope.formData);
+			}
 
 			$scope.getQuote = function(){
 				// on submit
@@ -98,6 +120,7 @@ angular.module('health.controllers', [])
 		}
 	])
 
+	// THIS ONE IS SORTA REDUNDANT
 	.controller('QuoteFormController', ['$scope', 'QuoteData',
 		function($scope, QuoteData){
 
@@ -121,11 +144,19 @@ angular.module('health.controllers', [])
 
 			$scope.joinMember = function(){
 
-			};
-
-			$scope.onFileSelect = function($files){
-
 			}
+		}
+	])
+
+	.controller('BlogController', ['$scope', '$http',
+		function($scope, $http){
+			$http
+				.jsonp('http://nia.staging.wpengine.com/api/get_recent_posts/?callback=JSON_CALLBACK')
+				.success(function(response){
+					$scope.posts = response.posts;
+					console.log($scope.posts);
+				});
+
 		}
 	])
 

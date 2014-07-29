@@ -1,6 +1,4 @@
 <h2>{{ page.title }}</h2>
 <p>{{ page.content }}</p>
-<label class="upload-button" for="upload-{{ page.type }}">
-	<i class="fa fa-camera"></i> <span>Take a photo</span>
-	<input type="file" name="upload-{{ page.type }}" ng-file-select="onFileSelect($files)">
-</label>
+
+<image-upload-button photo="signupData.license" callback-fn="page.next()"></image-upload-button>

@@ -1,0 +1,14 @@
+<a class="progress-button" 
+		data-style="slide-down" 
+		data-style="fill" 
+		data-horizontal 
+		ng-file-select="onFileSelect($files)"
+		ng-class="{ 'state-loading' : params.loading }"
+		name="upload-{{ page.type }}">
+    <span class="progress-wrap">
+        <span class="content"><i class="fa fa-{{ params.icon }}"></i> <span>{{ params.status }}</span></span>
+        <span class="progress">
+            <span class="progress-inner" style="opacity: 1;" ng-style="{ width: (params.progress + '%')}"></span>
+        </span>
+    </span>
+</a>

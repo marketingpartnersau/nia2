@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('health.services', [])
+
 	.factory('HomeData', [
 		function(){
 			return {
@@ -32,7 +33,7 @@ angular.module('health.services', [])
 		}
 	])
 
-	.factory('ProofData', [
+	.factory('Proof', [
 		function(){
 			return {
 				awards: [],
@@ -142,7 +143,43 @@ angular.module('health.services', [])
 				formData: {}
 			};
 		}
-	]);
+	])
+
+	.service('GeoCode', function(){
+		return {}
+	});
+
+	// .service('GeoCode' ['$http', '$q',
+	// 	function($http, $q){
+	// 		return {
+	// 			address: function(address){
+	// 				var encodedAddress = encodeURIComponent(address);
+	// 				return $http.get( 'https://maps.googleapis.com/maps/api/geocode/json?address=' + encodedAddress )
+	// 					.then(function(response){
+	// 						if(typeof response.data === 'object'){
+	// 							return response.data;
+	// 						} else {
+	// 							return $q.reject(response.data);
+	// 						}
+	// 					}, function(response){
+	// 						return $q.reject(response.data);
+	// 				});
+	// 			},
+	// 			reverse: function(lat,lng){
+	// 				return $http.get( 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng )
+	// 					.then(function(response){
+	// 						if (typeof response.data === 'object'){
+	// 							return response.data;
+	// 						} else {
+	// 							return $q.reject(response.data);
+	// 						}
+	// 					}, function(response){
+	// 						return $q.reject(response.data);
+	// 				});
+	// 			}
+	// 		}
+	// 	}
+	// ]);
 
 	// .service('CoolSelect', [
 	// 	function(){

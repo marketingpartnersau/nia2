@@ -3,9 +3,11 @@
 angular.module('health', [
 		'ngAnimate',
 		'ui.router',
+		'ui.bootstrap.modal',
+		'angularFileUpload',
 		'health.directives',
 		'health.services',
-		'health.controllers'
+		'health.controllers',
 	])
 
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -25,14 +27,23 @@ angular.module('health', [
 					// the home page when returning to home
 				})
 
-				.state('home.testimonials', {
-					url: '/testimonials',
-					onEnter: function($state){
-						// HOW TO GET THIS OPEN MODAL WORKING. 
-						// I think I need to create $modal service.
-						openModal('testimonials');
-					}
-				})
+				// .state('testimonials', {
+				// 	url: '/testimonials',
+				// 	onEnter: function($state, $modal){
+				// 		var modalInstance = $modal.open({
+				// 			templateUrl: 'partials/modals/testimonials.html',
+				// 			resolve: {
+				// 				testimonials: 'Testimonials'
+				// 			},
+				// 			controller: ['$scope', '$modalInstance', 'Testimonials',
+				// 			function($scope, $modalInstance, Testimonials){
+				// 				$scope.testimonials = Testimonials.testimonials;
+				// 			}]
+				// 		}).result.then(function(result){
+				// 			$state.transitionTo(result);
+				// 		});
+				// 	}
+				// })
 				
 				.state('quote', {
 					url: '/quote',
@@ -130,29 +141,51 @@ angular.module('health', [
 				.state('join.license', {
 					url: '/license',
 					templateUrl: 'partials/join/join.upload.html',
-					controller: function($scope){
+					controller: function($scope, $state){
 						$scope.page = {
 							title: 'Snap a photo of your license',
 							content: 'We use this to grab information such as your age and address',
 							type: 'license',
-							next: 'medicare'
+							next: function(){
+								$state.go('join.medicare');
+							}
 						}
 					}
 				})
 
 				.state('join.medicare', {
 					url: '/medicare',
-					templateUrl: 'partials/join/join.upload.html'
+					templateUrl: 'partials/join/join.upload.html',
+					controller: function($scope, $state){
+						$scope.page = {
+							title: 'Next, your medicare card',
+							content: 'We can grab your other policy holders from this.',
+							type: 'medicare',
+							next: function(){
+								$state.go('join.current-insurance');
+							}
+						}
+					}
 				})
 
 				.state('join.current-insurance', {
 					url: '/current-insurance',
-					templateUrl: 'partials/join/join.upload.html'
+					templateUrl: 'partials/join/join.upload.html',
+					controller: function($scope, $state){
+						$scope.page = {
+							title: 'Now your current health insurance card',
+							content: 'Be sure to take a photo of the side with your policy details on it! This also helps us switch you faster.',
+							type: 'current-insurance',
+							next: function(){
+								$state.go('join.thanks');
+							}
+						}
+					}
 				})
 
 				.state('join.thanks', {
 					url: '/thanks',
-					templateUrl: 'partials/join/join.complete.html'
+					templateUrl: 'partials/join/join.thanks.html'
 				})
 
 				.state('why-us', {
@@ -167,7 +200,8 @@ angular.module('health', [
 
 				.state('blog', {
 					url: '/blog',
-					template: '<h2>Blog will go here...</h2>'
+					templateUrl: 'partials/pages/blog.html',
+					controller: 'BlogController'
 				});
 		}
 	])
