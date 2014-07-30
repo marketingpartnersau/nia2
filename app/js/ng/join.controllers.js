@@ -11,14 +11,16 @@ angular.module('health.joincontrollers', [])
 					windowClass: 'product-view',
 					resolve: {
 						Product: function(){
+							// Grab the resource with ID above.
 							return 'product';
-							// return Product.find(id);
 						}
 					},
 					controller: function($scope, Product){
-
+						// This will be a dynamicly 
+						// grabbed product to show
+						console.log(id, $scope, Product);
 					}
-				})
+				});
 			};
 
 			$scope.joinMember = function(){
@@ -40,7 +42,7 @@ angular.module('health.joincontrollers', [])
 			};
 
 			$scope.after = function(){
-				var modalInstance = $modal.open({
+				$modal.open({
 					templateUrl: 'partials/join/modal.correct-address.html',
 					controller: function($scope){
 						$scope.correct_address = true;
@@ -77,7 +79,7 @@ angular.module('health.joincontrollers', [])
 			};
 
 			$scope.after = function(){
-				var modalInstance = $modal.open({
+				$modal.open({
 					templateUrl: 'partials/join/modal.medicare-holders.html',
 					controller: function($scope){
 						$scope.steps = {
@@ -93,23 +95,23 @@ angular.module('health.joincontrollers', [])
 
 						$scope.addPerson = function(){
 							$scope.areYou.details.push({});
-						}
+						};
 
 						$scope.accept = function(){
 							$scope.$close($scope.areYou);
 							$timeout($scope.next, 700);
-						}
+						};
 
 						$scope.next = function(){
 							$state.go('join.current-insurance');
-						}
+						};
 					}
 				})
 				.result.then(function(areYou){
 					$scope.signupData.callToRemove = areYou.removingPeople;
 					$scope.signupData.additionalHolders = areYou.details;
 				});
-			}
+			};
 		}
 	])
 
@@ -122,7 +124,7 @@ angular.module('health.joincontrollers', [])
 			};
 
 			$scope.after = function(){
-				var modalInstance = $modal.open({
+				$modal.open({
 					templateUrl: 'partials/join/modal.moving-all.html',
 					controller: function($scope){
 						$scope.accept = function(moveAll){
@@ -133,11 +135,11 @@ angular.module('health.joincontrollers', [])
 							}
 
 							$timeout($scope.next, 700);
-						}
+						};
 
 						$scope.next = function(){
 							$state.go('join.thanks');
-						}
+						};
 					}
 				}).result.then(function(result){
 					$scope.signupData.movingAllFromOld = result;
@@ -146,4 +148,4 @@ angular.module('health.joincontrollers', [])
 
 
 		}
-	])
+	]);

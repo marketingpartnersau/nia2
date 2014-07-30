@@ -1,13 +1,16 @@
 <div class="row">
 	<form id="quote-form" ng-submit="getQuote()">
-		<div class="small-12 columns summary">
+		<div class="summary">
 			<p>
-				<span class="placeholder" ng-hide="formData.policy">
+				<span class="placeholder" ng-hide="formData.selections.policy">
 					Please start your quote
 				</span>
-				{{ formData.policy }} 
-				{{ formData.state && ' • ' + formData.state || '' }} 
-				{{ formData.priority && ' • ' + formData.priority || '' }}
+
+				<quote-paramater param="policy" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="state" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="priority" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="age" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="income" value="formData.selections.policy"></quote-parameter>
 			</p>
 		</div>
 		<div class="small-12 columns" id="quote-views" ui-view></div>

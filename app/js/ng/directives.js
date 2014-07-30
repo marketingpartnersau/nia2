@@ -96,7 +96,7 @@ angular.module('health.directives', [])
 					photo: '=',
 					callback: '&callbackFn'
 				},
-				link: function(scope, el, attr){
+				link: function(scope){
 					scope.params = {
 						status: 'Tap to capture',
 						icon: 'camera',
@@ -145,6 +145,6 @@ angular.module('health.directives', [])
 					param: '@',
 					value: '='
 				}
-			}
+			};
 		}
 	]);

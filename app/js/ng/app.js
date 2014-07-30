@@ -121,7 +121,7 @@ angular.module('health', [
 							type: 'income',
 							next: 'show',
 							policy: function(){
-								if($scope.formData.policy == 'Sgl'){
+								if($scope.formData.policy === 'Sgl'){
 									return 'single';
 								} else {
 									return 'house';

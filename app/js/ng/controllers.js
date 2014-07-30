@@ -2,8 +2,8 @@
 
 angular.module('health.controllers', [])
 
-	.controller('MainController', ['$scope', '$rootScope', '$modal', '$log',
-		function($scope, $rootScope, $modal, $log){
+	.controller('MainController', ['$scope', '$rootScope',
+		function($scope, $rootScope){
 
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
@@ -32,10 +32,10 @@ angular.module('health.controllers', [])
 				$modal.open({
 					templateUrl: 'partials/modals/support.html',
 					controller: 'SupportPopupController'
-				}).result.then(function(result){
+				}).result.then(function(){
 
 				});
-			}
+			};
 		}
 	])
 
@@ -89,7 +89,7 @@ angular.module('health.controllers', [])
 						$scope.awards = Proof.awards;
 						$scope.press = Proof.press;
 					}
-				})
+				});
 			};
 		}
 	])
