@@ -1,9 +1,25 @@
 'use strict';
 
 angular.module('health.joincontrollers', [])
-	.controller('JoinController', ['$scope',
-		function($scope){
+	.controller('JoinController', ['$scope', '$modal',
+		function($scope, $modal){
 			$scope.signupData = {};
+
+			$scope.viewProduct = function(id){
+				$modal.open({
+					templateUrl: 'partials/join/modal.view-product.html',
+					windowClass: 'product-view',
+					resolve: {
+						Product: function(){
+							return 'product';
+							// return Product.find(id);
+						}
+					},
+					controller: function($scope, Product){
+
+					}
+				})
+			};
 
 			$scope.joinMember = function(){
 

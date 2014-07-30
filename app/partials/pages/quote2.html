@@ -6,9 +6,11 @@
 					Please start your quote
 				</span>
 
-				<a ng-repeat="(sel, selection) in formData.selections">
-					{{ selection }}
-				</a>
+				<quote-paramater param="policy" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="state" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="priority" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="age" value="formData.selections.policy"></quote-parameter>
+				<quote-paramater param="income" value="formData.selections.policy"></quote-parameter>
 			</p>
 		</div>
 		<div class="small-12 columns" id="quote-views" ui-view></div>

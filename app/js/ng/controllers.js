@@ -8,7 +8,6 @@ angular.module('health.controllers', [])
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
 				topDrawerOpen: false,
-				modalIsVisible: {}
 			};
 
 			// WHY DID THIS STOP WORKING
@@ -24,51 +23,19 @@ angular.module('health.controllers', [])
 
 			$scope.state = $rootScope.state;
 			window.overflowY = $scope.overflowY;
-
-			$scope.openModal = function(modal){
-				$scope.uiStates.modalIsVisible[modal] = !$scope.uiStates.modalIsVisible[modal];
-				$scope.modalOpen = true;
-			};
-
-			$scope.closeModal = function(){
-				angular.forEach($scope.uiStates.modalIsVisible, function(state, modal){
-					if(state){
-						$scope.uiStates.modalIsVisible[modal] = false;	
-					}
-				});
-				$scope.modalOpen = false;
-			};
-
-			// THIS IS USING UI.BOOTSTRAP.MODAL
-
-			$scope.open = function(template, data){
-				console.log(template, data);
-				var modalInstance = $modal.open({
-					templateUrl: 'partials/modals/' + template + '.html',
-					controller: function($scope, $modalInstance, data){
-						console.log(data);
-						$scope.data = data;
-						$scope.close = function(){
-							$modalInstance.close();
-						};
-					},
-
-					// THIS DOESNT WORK :(
-					resolve: { data: data }
-				});
-
-				modalInstance.result.then(function(result){
-					$scope.result = result;
-				}, function(){
-					$log.info('Modal dismissed at ' + new Date());
-				});
-			};
 		}
 	])
 
-	.controller('TopBarController', ['$scope',
-		function(){
-			
+	.controller('TopBarController', ['$scope', '$modal',
+		function($scope, $modal){
+			$scope.openSupport = function(){
+				$modal.open({
+					templateUrl: 'partials/modals/support.html',
+					controller: 'SupportPopupController'
+				}).result.then(function(result){
+
+				});
+			}
 		}
 	])
 
@@ -89,12 +56,41 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('HomeController', ['$scope', 'HomeData', 'Testimonials', 'Proof',
-		function($scope, HomeData, Testimonials, Proof){
+	.controller('HomeController', ['$scope', '$modal', 'HomeData', 'Testimonials', 'Proof',
+		function($scope, $modal, HomeData, Testimonials, Proof){
 			$scope.testimonials = Testimonials.testimonials;
 			$scope.proof = Proof;
 			$scope.data = HomeData;
 			$scope.noOverflow = {};
+
+			$scope.openTestimonials = function(){
+				$modal.open({
+					templateUrl: 'partials/modals/testimonials.html',
+					resolve: {
+						testimonials: function(){
+							return Testimonials.testimonials;	
+						}
+					},
+					controller: function($scope, testimonials){
+						$scope.testimonials = testimonials;
+					}
+				});
+			};
+
+			$scope.openProofs = function(){
+				$modal.open({
+					templateUrl: 'partials/modals/proof.html',
+					resolve: {
+						Proof: function(){
+							return Proof;
+						}
+					},
+					controller: function($scope, Proof){
+						$scope.awards = Proof.awards;
+						$scope.press = Proof.press;
+					}
+				})
+			};
 		}
 	])
 
@@ -160,6 +156,12 @@ angular.module('health.controllers', [])
 	.controller('ContactPopupController', ['$scope',
 		function(){
 		//function($scope){
+
+		}
+	])
+
+	.controller('SupportPopupController', ['$scope',
+		function(){
 
 		}
 	]);

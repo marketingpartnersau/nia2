@@ -6,28 +6,16 @@ angular.module('health.directives', [])
 			return {
 				restrict: 'A',
 				link: function(scope, element){
-					// I probably need to detach this when the state
+					// I need to detach this when the state
 					// changes as it is being double bound.
 					// this overflow: scroll thing is a bitch too.
 					scope.fullpage = angular.element(element).fullpage({
 						easing: $.bez([0.4, 0, 0.2, 1]),
-						//onLeave: function(){
-						// onLeave: function(left, entered, direction){
-						// 	//console.log(left, entered, direction);
-						// 	// Here you should add and remove
-						// 	// animation classes to animate
-						// 	// the slide content.
-						// 	element.children().eq()
-						// },
 						afterRender: function(){
-							// loggin in this indicates it's being
+							// c.logging in this indicates it's being
 							// instantiated twice. That sucks.
 						}
 					});
-				}, 
-				controller: function(){
-					// console.log($scope);
-					// $scope.fullPage.moveTo(0);
 				}
 			};
 		}
@@ -145,41 +133,18 @@ angular.module('health.directives', [])
 				}
 			};
 		}
+	])
+	
+	.directive('quoteParameter', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				templateUrl: 'partials/interface/quote-parameter.html',
+				scope: {
+					param: '@',
+					value: '='
+				}
+			}
+		}
 	]);
-
-	// .directive('coolSelect', ['CoolSelect',
-	// 	function(CoolSelect){
-	// 		return {
-	// 			restrict: 'E',
-	// 			replace: true,
-	// 			templateUrl: 'partials/interface/select.html',
-	// 			scope: {
-	// 				options: '=',
-	// 				userinput: '=',
-	// 				label: '@',
-	// 				open: '='
-	// 			},
-	// 			controller: function($scope){
-
-	// 				$scope.states = CoolSelect.isOpen;
-
-	// 				$scope.toggleSelect = function(){
-	// 					var originalState = $scope.open;
-
-	// 					angular.forEach($scope.states, function(k,v){
-	// 						k = false;
-	// 					});
-
-	// 					$scope.open = !originalState;
-	// 				};
-
-	// 				$scope.updateSelect = function(option){
-	// 					$scope.userinput = option;
-	// 					$scope.open = false;
-	// 					$scope.label = option.label;
-	// 				};
-
-	// 			}
-	// 		};
-	// 	}
-	// ]);
