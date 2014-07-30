@@ -23,9 +23,6 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 	}
 }
 
-.drawer{
-}
-
 .header-bar{
 	background-color: #202020;
 	position: fixed;
@@ -347,14 +344,28 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 		top: rem-calc(40px);
 		left: 0;
 		width: 100%;
+		z-index: 99;
 
 		height: rem-calc(40px);
 		background: #fff;
 		border-bottom: 1px solid #eee;
+		box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 
 		p{
 			line-height: rem-calc(40px);
 			margin-bottom: 0;
+
+			a{
+				width: 20%;
+				display: inline-block;
+				text-align: center;
+				border-right: 1px solid #ddd;
+				font-size: .8em;
+
+				&:last-child{
+					border-right: none;
+				}
+			}
 		}
 
 		.placeholder{

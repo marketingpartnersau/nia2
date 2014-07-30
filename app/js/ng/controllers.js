@@ -52,6 +52,8 @@ angular.module('health.controllers', [])
 							$modalInstance.close();
 						};
 					},
+
+					// THIS DOESNT WORK :(
 					resolve: { data: data }
 				});
 
@@ -101,7 +103,11 @@ angular.module('health.controllers', [])
 
 			$scope.options = QuoteData2.options;
 			$scope.geocode = GeoCode;
-			$scope.formData = {};
+			$scope.formData = {
+				selections: {}
+			};
+
+			window.formdata = $scope.formData;
 
 			$scope.getLocation = function(){
 				if(navigator.geolocation){
@@ -136,16 +142,6 @@ angular.module('health.controllers', [])
 	.controller('QuoteController', ['$scope',
 		function(){
 			// business here motherfucker
-		}
-	])
-
-	.controller('JoinController', ['$scope',
-		function($scope){
-			$scope.signupData = {};
-
-			$scope.joinMember = function(){
-
-			};
 		}
 	])
 

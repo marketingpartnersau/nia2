@@ -5405,12 +5405,22 @@ th.hide-for-touch {
     top: 2.5rem;
     left: 0;
     width: 100%;
+    z-index: 99;
     height: 2.5rem;
     background: #fff;
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); }
     #quote-form .summary p {
       line-height: 2.5rem;
       margin-bottom: 0; }
+      #quote-form .summary p a {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px solid #ddd;
+        font-size: 0.8em; }
+        #quote-form .summary p a:last-child {
+          border-right: none; }
     #quote-form .summary .placeholder {
       font-size: 0.8em;
       color: #ccc; }

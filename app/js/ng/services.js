@@ -92,7 +92,7 @@ angular.module('health.services', [])
 						{value: 'tax', 		label: 'To save on tax'},
 						{value: 'family', 	label: 'To have more kids'},
 						{value: 'coverage', label: 'The best insurance'}
-					]
+					],
 				},
 				input: {}
 			};
@@ -124,7 +124,27 @@ angular.module('health.services', [])
 						{value: 'tax', 		label: 'To save on tax'},
 						{value: 'family', 	label: 'To have more kids'},
 						{value: 'coverage', label: 'The best insurance'}
-					]
+					],
+					age: [
+						{value: '18', 		label: 'Under 31'},
+						{value: '31', 		label: 'Between 31 and 38'},
+						{value: '38', 		label: 'Between 38 and 55'},
+						{value: '55', 		label: 'Older than 55'}
+					],
+					income: {
+						single: [
+							{value: 'tier1', 	label: 'Less than $90k'},
+							{value: 'tier2', 	label: 'Between $90k and $102k'},
+							{value: 'tier3', 	label: 'Between $102k and $136k'},
+							{value: 'tier4', 	label: 'More than $136k'}
+						],
+						house: [
+							{value: 'tier1', 	label: 'Less than $180k'},
+							{value: 'tier2', 	label: 'Between $180k and $204k'},
+							{value: 'tier3', 	label: 'Between $204k and $272k'},
+							{value: 'tier4', 	label: 'More than $272k'}
+						]
+					}
 				},
 				pages: {
 					policy: { 

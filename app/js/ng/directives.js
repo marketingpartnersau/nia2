@@ -120,7 +120,7 @@ angular.module('health.directives', [])
 						scope.params.status = 'Uploading...';
 						scope.params.icon = 'spinner fa-spin';
 						scope.params.loading = true;
-						scope.progressTimer = $interval(scope.doProgress, 300);
+						scope.progressTimer = $interval(scope.doProgress, 200);
 					};
 
 					scope.finishedUploading = function(){

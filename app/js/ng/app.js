@@ -8,6 +8,7 @@ angular.module('health', [
 		'health.directives',
 		'health.services',
 		'health.controllers',
+		'health.joincontrollers',
 	])
 
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -92,18 +93,40 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What are you looking for?',
 							type: 'priority',
-							next: 'age-income'
+							next: 'age'
 						};
 					} 
 				})
 
-				.state('quote.age-income', {
+				.state('quote.age', {
 					url: '/age',
-					templateUrl: 'partials/quote/quote.age-income.html',
+					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
-							title: 'Lastly, some information about you.',
-							content: ''
+							title: 'How old are you?',
+							content: 'If a couple, please pick the oldest out of you. Sorry to be rude - it helps us recommend you better.',
+							type: 'age',
+							next: 'income'
+						};
+					}
+				})
+
+				.state('quote.income', {
+					url: '/age',
+					templateUrl: 'partials/quote/quote.income-select.html',
+					controller: function($scope){
+						 $scope.page = {
+							title: 'How much do you earn?',
+							content: 'We use this to give you an accurate rebate.',
+							type: 'income',
+							next: 'show',
+							policy: function(){
+								if($scope.formData.policy == 'Sgl'){
+									return 'single';
+								} else {
+									return 'house';
+								}
+							}
 						};
 					}
 				})
@@ -141,46 +164,19 @@ angular.module('health', [
 				.state('join.license', {
 					url: '/license',
 					templateUrl: 'partials/join/join.upload.html',
-					controller: function($scope, $state){
-						$scope.page = {
-							title: 'Snap a photo of your license',
-							content: 'We use this to grab information such as your age and address',
-							type: 'license',
-							next: function(){
-								$state.go('join.medicare');
-							}
-						};
-					}
+					controller: 'JoinLicenseController'
 				})
 
 				.state('join.medicare', {
 					url: '/medicare',
 					templateUrl: 'partials/join/join.upload.html',
-					controller: function($scope, $state){
-						$scope.page = {
-							title: 'Next, your medicare card',
-							content: 'We can grab your other policy holders from this.',
-							type: 'medicare',
-							next: function(){
-								$state.go('join.current-insurance');
-							}
-						};
-					}
+					controller: 'JoinMedicareController'
 				})
 
 				.state('join.current-insurance', {
 					url: '/current-insurance',
 					templateUrl: 'partials/join/join.upload.html',
-					controller: function($scope, $state){
-						$scope.page = {
-							title: 'Now your current health insurance card',
-							content: 'Be sure to take a photo of the side with your policy details on it! This also helps us switch you faster.',
-							type: 'current-insurance',
-							next: function(){
-								$state.go('join.thanks');
-							}
-						};
-					}
+					controller: 'JoinCurrentController'
 				})
 
 				.state('join.thanks', {
