@@ -1,1 +1,23 @@
-<h2>We recommend...</h2>
+<p class="small-12 columns above-recs hide-on-flip">Based on what you've told us, we think these are the best products for you. You can see all products by <a>clicking here</a>.</p>
+
+<div class="small-12 columns carousel-container">
+	<ul rn-carousel class="products">
+		<li ng-repeat="product in products">
+			<div class="flip">
+				<div class="card">
+					<div class="front">
+						<h3>{{product.name}}</h3>
+						<p>{{product.description}} <br>
+						<strong>$18.40 per week</strong></p>
+						<a class="button" ng-click="uiStates.cardFlipped = !uiStates.cardFlipped">See details</a>
+					</div>
+					<div class="back">
+						<h2>{{ product.name }} details</h2>
+						some stuff here...
+						<a class="button" ng-click="uiStates.cardFlipped = !uiStates.cardFlipped">hide details</a>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

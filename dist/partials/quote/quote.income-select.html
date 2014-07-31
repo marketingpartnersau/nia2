@@ -1,19 +1,21 @@
-<h2>{{ page.title }}</h2>
-<div class="page-content" ng-show="page.content">{{ page.content }}</div>
+<div class="small-12 columns">
+	<h2>{{ page.title }}</h2>
+	<div class="page-content" ng-show="page.content">{{ page.content }}</div>
 
-<label 
-	ng-repeat="option in options[page.type][page.policy()]" 
-	for="{{ page.type }}-{{ option.value | lowercase }}" 
-	ui-sref="quote.{{page.next}}" 
-	ng-click="formData.selections[page.type] = option.value" 
-	ng-class="{ 'selected' : formData[page.type] === option.value }">
+	<label 
+		ng-repeat="option in options[page.type][page.policy()]" 
+		for="{{ page.type }}-{{ option.value | lowercase }}" 
+		ui-sref="quote.{{page.next}}" 
+		ng-click="formData.selections[page.type] = option.value" 
+		ng-class="{ 'selected' : formData[page.type] === option.value }">
 
-	{{ option.label }}
+		{{ option.label }}
 
-	<input 
-		type="radio" 
-		ng-model="formData.selections[page.type]" 
-		value="{{ option.value }}" 
-		id="{{page.type}}-{{ option.value | lowercase }}" 
-		name="{{ page.type }}-{{ option.value | lowercase }}">
-</label>
+		<input 
+			type="radio" 
+			ng-model="formData.selections[page.type]" 
+			value="{{ option.value }}" 
+			id="{{page.type}}-{{ option.value | lowercase }}" 
+			name="{{ page.type }}-{{ option.value | lowercase }}">
+	</label>
+</div>
