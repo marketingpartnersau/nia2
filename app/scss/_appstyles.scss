@@ -339,12 +339,75 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 		}
 	}
 
+	&.card-flipped{
+		.summary{
+			opacity: 0;
+		}
+
+		.hide-on-flip{
+			opacity: 0;
+		}
+
+		.carousel-container{
+			-webkit-transform: translate3d(0,rem-calc(-140px),0);
+					transform: translate3d(0,rem-calc(-140px),0);
+		}
+
+		.card{
+			transform: rotateY(180deg);
+		}
+	}
+
+	.flip{
+				perspective: 1000;
+		-webkit-perspective: 1000;
+	}
+
+	.flip,
+	.card,
+	.front,
+	.back{
+		height: 400px;
+	}
+
+	.card{
+		transition: 0.3s;
+		transform-style: preserve-3d;
+
+		position: relative;
+	}
+
+	.front,
+	.back{
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		background-color: #eee;
+		padding: .3em;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.front{
+		z-index: 2;
+	}
+
+	.back{
+		-webkit-transform: rotateY(180deg);
+	}
+
 	.summary{
 		position: fixed;
 		top: rem-calc(40px);
 		left: 0;
 		width: 100%;
 		z-index: 99;
+		overflow: hidden;
+
+		-webkit-transition: opacity .3s $cubic-bezier;
+				transition: opacity .3s $cubic-bezier;
 
 		height: rem-calc(40px);
 		background: #fff;
@@ -372,11 +435,23 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 			font-size: .8em;
 			color: #ccc;
 		}
+
+		.above-recs{
+			height: rem-calc(80px);
+		}
 	}
 
 	[ui-view]{
 		padding-top: rem-calc(60px);
 		padding-bottom: rem-calc(60px);
+
+		p{
+			transition: opacity .3s $cubic-bezier;
+		}
+
+		.carousel-container{
+			transition: all .3s $cubic-bezier;
+		}
 	}
 }
 
@@ -1285,12 +1360,6 @@ div.cs-skin-underline {
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden; }
-
-.rn-carousel-slide .card{
-	margin: .3rem;
-	background-color: #eee;
-	padding: 0.9375rem;
-}
 
 /* indicators */
 .rn-carousel-indicator {

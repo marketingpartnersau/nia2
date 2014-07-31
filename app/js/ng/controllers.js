@@ -105,6 +105,10 @@ angular.module('health.controllers', [])
 
 			$scope.products = Products.products;
 
+			$scope.uiState = {
+				cardFlipped: false
+			}
+
 			window.formdata = $scope.formData;
 
 			$scope.getLocation = function(){
@@ -122,6 +126,11 @@ angular.module('health.controllers', [])
 			$scope.getQuote = function(){
 				// on submit
 			};
+
+			$scope.flipCard = function(){
+				// (#quote-form)
+
+			}
 		}
 	])
 

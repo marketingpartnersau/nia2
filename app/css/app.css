@@ -5400,12 +5400,46 @@ th.hide-for-touch {
     #quote-form label [type="radio"] {
       opacity: 0;
       position: absolute; }
+  #quote-form.card-flipped .summary {
+    opacity: 0; }
+  #quote-form.card-flipped .hide-on-flip {
+    opacity: 0; }
+  #quote-form.card-flipped .carousel-container {
+    -webkit-transform: translate3d(0, -8.75rem, 0);
+    transform: translate3d(0, -8.75rem, 0); }
+  #quote-form.card-flipped .card {
+    transform: rotateY(180deg); }
+  #quote-form .flip {
+    perspective: 1000;
+    -webkit-perspective: 1000; }
+  #quote-form .flip, #quote-form .card, #quote-form .front, #quote-form .back {
+    height: 400px; }
+  #quote-form .card {
+    transition: 0.3s;
+    transform-style: preserve-3d;
+    position: relative; }
+  #quote-form .front, #quote-form .back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #eee;
+    padding: 0.3em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+  #quote-form .front {
+    z-index: 2; }
+  #quote-form .back {
+    -webkit-transform: rotateY(180deg); }
   #quote-form .summary {
     position: fixed;
     top: 2.5rem;
     left: 0;
     width: 100%;
     z-index: 99;
+    overflow: hidden;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 2.5rem;
     background: #fff;
     border-bottom: 1px solid #eee;
@@ -5424,9 +5458,15 @@ th.hide-for-touch {
     #quote-form .summary .placeholder {
       font-size: 0.8em;
       color: #ccc; }
+    #quote-form .summary .above-recs {
+      height: 5rem; }
   #quote-form [ui-view] {
     padding-top: 3.75rem;
     padding-bottom: 3.75rem; }
+    #quote-form [ui-view] p {
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    #quote-form [ui-view] .carousel-container {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .md-modal.product-view .md-content > div {
   padding: 0; }
@@ -6088,11 +6128,6 @@ div.cs-skin-underline {
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden; }
-
-.rn-carousel-slide .card {
-  margin: 0.3rem;
-  background-color: #eee;
-  padding: 0.9375rem; }
 
 /* indicators */
 .rn-carousel-indicator {

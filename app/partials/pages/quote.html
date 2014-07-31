@@ -1,5 +1,5 @@
 <div class="row">
-	<form id="quote-form" ng-submit="getQuote()">
+	<form id="quote-form" ng-submit="getQuote()" ng-class="{ 'card-flipped' : uiStates.cardFlipped }">
 		<div class="summary">
 			<p>
 				<span class="placeholder" ng-hide="formData.selections.policy">
