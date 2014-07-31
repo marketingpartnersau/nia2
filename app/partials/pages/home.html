@@ -5,6 +5,7 @@
         <h1>G'day Australia. We're health.com.au</h1>
         <h2>We’ve got a new take on health insurance.</h2>
         <p>Simple products, understandable coverage and great prices. All online.</p>
+        <p><a ui-sref="quote.policy" class="button">Get a quote</a></p>
       </div>
     </div>
   </div>
@@ -99,6 +100,19 @@
         <p>
           <a ui-sref="quote.get" class="button">Get a quote</a>
         </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section quote">
+    <div class="row">
+      <div class="small-12 columns">
+        <h3>Get a quote</h3>
+        <p>Ready to make the switch? Grab a quick quote to see what you can get.</p>
+        <a class="button" ui-sref="quote.location({policy: 'Sgl'})">Single</a>
+        <a class="button" ui-sref="quote.location({policy: 'Cpl'})">Couple</a>
+        <a class="button" ui-sref="quote.location({policy: 'Fam'})">Family</a>
+        <a class="button" ui-sref="quote.location({policy: 'SPFam'})">Single Parent</a>
       </div>
     </div>
   </div>

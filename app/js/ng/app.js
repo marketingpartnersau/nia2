@@ -5,6 +5,7 @@ angular.module('health', [
 		'ui.router',
 		'ui.bootstrap.modal',
 		'angularFileUpload',
+		'angular-carousel',
 		'health.directives',
 		'health.services',
 		'health.controllers',
@@ -48,8 +49,8 @@ angular.module('health', [
 				
 				.state('quote', {
 					url: '/quote',
-					templateUrl: 'partials/pages/quote2.html',
-					controller: 'SecondQuoteFormController'
+					templateUrl: 'partials/pages/quote.html',
+					controller: 'QuoteFormController'
 				})
 
 				.state('quote.type', {
@@ -69,7 +70,8 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What best describes you?',
 							type: 'policy',
-							next: 'location'
+							next: 'location',
+							return: true
 						};
 					}
 				})
@@ -81,7 +83,7 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
-							next: 'priority'
+							next: 'age'
 						};
 					}
 				})
@@ -93,7 +95,7 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What are you looking for?',
 							type: 'priority',
-							next: 'age'
+							next: 'show'
 						};
 					} 
 				})
@@ -119,7 +121,7 @@ angular.module('health', [
 							title: 'How much do you earn?',
 							content: 'We use this to give you an accurate rebate.',
 							type: 'income',
-							next: 'show',
+							next: 'type',
 							policy: function(){
 								if($scope.formData.policy === 'Sgl'){
 									return 'single';

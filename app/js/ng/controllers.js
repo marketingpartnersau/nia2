@@ -5,6 +5,8 @@ angular.module('health.controllers', [])
 	.controller('MainController', ['$scope', '$rootScope',
 		function($scope, $rootScope){
 
+			window.scope = $scope;
+
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
 				topDrawerOpen: false,
@@ -15,13 +17,11 @@ angular.module('health.controllers', [])
 				function(event, toState){
 					if(toState.name === 'home'){
 						$scope.overflowY = {overflow: 'hidden'};} 
-
 					else {
 						$scope.overflowY = {overflow: 'scroll'};}
 				}
 			);
 
-			$scope.state = $rootScope.state;
 			window.overflowY = $scope.overflowY;
 		}
 	])
@@ -94,14 +94,16 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('SecondQuoteFormController', ['$scope', 'QuoteData2', 'GeoCode',
-		function($scope, QuoteData2, GeoCode){
+	.controller('QuoteFormController', ['$scope', 'QuoteData', 'GeoCode', 'Products',
+		function($scope, QuoteData2, GeoCode, Products){
 
 			$scope.options = QuoteData2.options;
 			$scope.geocode = GeoCode;
 			$scope.formData = {
 				selections: {}
 			};
+
+			$scope.products = Products.products;
 
 			window.formdata = $scope.formData;
 
@@ -124,7 +126,7 @@ angular.module('health.controllers', [])
 	])
 
 	// THIS ONE IS SORTA REDUNDANT
-	.controller('QuoteFormController', ['$scope', 'QuoteData',
+	.controller('SecondQuoteFormController', ['$scope', 'QuoteData',
 		function($scope, QuoteData){
 
 			$scope.quote = QuoteData;

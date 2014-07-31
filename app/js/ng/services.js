@@ -48,7 +48,7 @@ angular.module('health.services', [])
 				menuItems: [
 					{name: 'Home', slug: 'home', icon: 'fa-home', state: 'home'},
 					{name: 'Why Us', slug: 'why-us', icon: 'fa-question-circle', state: 'why-us'},
-					{name: 'Quote', slug: 'quote', icon: 'fa-search', state: 'quote.type'},
+					{name: 'Quote', slug: 'quote', icon: 'fa-search', state: 'quote.policy'},
 					{name: 'Claim', slug: 'claim', icon: 'fa-user', state: 'customers'}
 				],
 				moreMenuItems: [
@@ -62,10 +62,10 @@ angular.module('health.services', [])
 	])
 
 	.factory('BlogData', [
-
+		function(){}
 	])
 
-	.service('QuoteData', [
+	.service('QuoteData2', [
 		function(){
 			//Anything here?
 
@@ -99,7 +99,7 @@ angular.module('health.services', [])
 		}
 	])
 
-	.service('QuoteData2', [
+	.service('QuoteData', [
 		function(){
 			return {
 				options: {
@@ -165,9 +165,21 @@ angular.module('health.services', [])
 		}
 	])
 
-	.service('GeoCode', function(){
-		return {};
-	});
+	.factory('Products', [
+		function(){
+			return {
+				products: [
+					{"id": 46, "code": "V500V65", "code2": "V65", "name": "Vitality 65", "nicename": "Vitality65", "description": "If children aren’t an issue any more, then Vitality 65 offers peace of mind with a wide range of hospital and extras benefits.", "created_at": "2014-06-23 08:55:13", "updated_at": "2014-06-22 22:55:13", "slug": "vitality65", "nicename_slug": "vitality65"},
+					{"id": 61,"sort": 53,"code": "CWHC250M65","code2": "HCM65","name": "HeartCare Hospital with Middle Extras 65","nicename": "","description": "HeartCare is perfect if you want the added safety of cover for your heart. And 65% back on a wide range of Extras at your choice of provider.","slug": "heartcarehospitalwithmiddleextras65","nicename_slug": ""},
+					{"id":31,"status":"active","sort":97,"code":"H500H85","code2":"H85","name":"High Hospital with High Extras 85","nicename":"High85","description":"Peace of mind Hospital cover. And 85% back on a long list of Extras with your provider, not ours.","extra_back":85,"extras_value":5250,"excess":500,"age_min":25,"age_max":100,"comparable":"High","created_at":"2014-06-23 08:53:17","updated_at":"2014-06-22 22:53:17","type_slug":"","slug":"highhospitalwithhighextras85","nicename_slug":"high85"}
+				]
+			};
+		}
+	])
+
+	.service('GeoCode', [
+		function(){}
+	])
 
 	// .service('GeoCode' ['$http', '$q',
 	// 	function($http, $q){
@@ -197,14 +209,6 @@ angular.module('health.services', [])
 	// 						return $q.reject(response.data);
 	// 				});
 	// 			}
-	// 		}
-	// 	}
-	// ]);
-
-	// .service('CoolSelect', [
-	// 	function(){
-	// 		return {
-	// 			isOpen: {}
 	// 		}
 	// 	}
 	// ]);

@@ -6,15 +6,14 @@ angular.module('health.directives', [])
 			return {
 				restrict: 'A',
 				link: function(scope, element){
-					// I need to detach this when the state
-					// changes as it is being double bound.
-					// this overflow: scroll thing is a bitch too.
 					scope.fullpage = angular.element(element).fullpage({
-						easing: $.bez([0.4, 0, 0.2, 1]),
-						afterRender: function(){
-							// c.logging in this indicates it's being
-							// instantiated twice. That sucks.
-						}
+						easing: $.bez([0.4, 0, 0.2, 1])
+					});
+				},
+				controller: function($scope){
+					console.log($scope);
+					$scope.$on('$stateChangeStart', function(event, toState){
+						//$.fn.fullpage.destroy();
 					});
 				}
 			};
