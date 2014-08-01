@@ -1,0 +1,115 @@
+#quote-form{
+	position: relative;
+
+	label{
+		text-transform: uppercase;
+		border-bottom: 1px solid #eee;
+		color: blue;
+		padding: .5em 0;
+
+		[type="radio"]{
+			opacity: 0;
+			position: absolute;
+		}
+	}
+
+	&.card-flipped{
+		.summary{
+			opacity: 0;
+		}
+
+		.hide-on-flip{
+			opacity: 0;
+		}
+
+		.carousel-container{
+			-webkit-transform: translate3d(0,rem-calc(-140px),0);
+					transform: translate3d(0,rem-calc(-140px),0);
+		}
+	}
+
+	.card{
+		transition: 0.3s;
+		transform-style: preserve-3d;
+
+		position: relative;
+	}
+
+	.summary{
+		position: fixed;
+		top: rem-calc(40px);
+		left: 0;
+		width: 100%;
+		z-index: 99;
+		overflow: hidden;
+
+		-webkit-transition: opacity .3s $cubic-bezier;
+				transition: opacity .3s $cubic-bezier;
+
+		height: rem-calc(40px);
+		background: #fff;
+		border-bottom: 1px solid #eee;
+		box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+
+		p{
+			line-height: rem-calc(40px);
+			height: rem-calc(40px);
+			margin-bottom: 0;
+
+			a{
+				width: 20%;
+				height: 100%;
+				display: block;
+				float: left;
+				text-align: center;
+				line-height: 1em;
+				border-right: 1px solid #ddd;
+				font-size: .8em;
+				position: relative;
+
+				span{
+					position: absolute;
+					top: 4px;
+					left: 0;
+					right: 0;
+					height: 1em;
+				}
+
+				strong{
+					display: block;
+					position: absolute;
+					bottom: 6px;
+					left: 0;
+					right: 0;
+					color: $primary-color;
+				}
+
+				&:last-child{
+					border-right: none;
+				}
+			}
+		}
+
+		.placeholder{
+			font-size: .8em;
+			color: #ccc;
+		}
+
+		.above-recs{
+			height: rem-calc(80px);
+		}
+	}
+
+	[ui-view]{
+		padding-top: rem-calc(60px);
+		padding-bottom: rem-calc(60px);
+
+		p{
+			transition: opacity .3s $cubic-bezier;
+		}
+
+		.carousel-container{
+			transition: all .3s $cubic-bezier;
+		}
+	}
+}

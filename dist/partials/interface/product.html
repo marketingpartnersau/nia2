@@ -1,0 +1,57 @@
+<div class="product">
+	<header class="row">
+		<div class="small-12 columns">
+			<h3>{{ product.name }}</h3>
+		</div>
+	</header>
+	<div class="row options">
+		<div class="small-6 columns extra-back">
+			<button-group 
+				options="product.options.extra_back"
+				model="productMeta.extra_back"
+				text="Back on extras">
+			</button-group>
+		</div>
+		<div class="small-6 columns excess">
+			<button-group 
+				options="product.options.excess"
+				model="productMeta.excess"
+				text="Hospital Excess">
+			</button-group>
+		</div>
+	</div>
+	<div class="row price">
+		<div class="small-3 columns dollars">
+			<strong>${{ productMeta.price }}</strong>
+		</div>
+		<div class="small-9 columns collapse">
+			<button-group 
+				options="product.options.frequency"
+				model="frequency"
+				text="">
+			</button-group>
+		</div>
+	</div>
+	<div class="row description">
+		<hr>
+		<div class="small-12 columns">
+			<p>{{product.description}}</p>
+		</div>
+	</div>
+	<div class="row inclusions">
+		<ul class="tabs inline-list">
+			<li class="active">Extras</li>
+			<li>Hospitals</li>
+		</ul>
+		<div class="extras">
+			<ul class="no-bullet">
+				<li><i class="fa fa-ambulance"></i> Emergency Ambulance <span>FREE</span></li>
+				<li ng-repeat="extra in product.extras" ng-class="{ inclusive : extra.isSublimit }">
+					<i class="fa fa-check" ng-hide="extra.isSublimit"></i> 
+					{{extra.name}} 
+					<span ng-show="extra.value !== ''">${{extra.value}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

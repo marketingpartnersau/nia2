@@ -1,0 +1,645 @@
+#contact-actions{
+	margin-right: 1rem;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 100;
+	li{
+		line-height: rem-calc(40px);
+
+		a{
+			color: #fff;
+		}
+	}
+}
+
+.header-bar{
+	background-color: #202020;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	z-index: 90;
+
+	h1{
+		text-transform: uppercase;
+		font-size: 1em;
+		line-height: rem-calc(40px);
+		font-weight: bold;
+		margin: 0;
+		margin-left: .5em;
+
+		a{
+			color: #fff;
+		}
+	}
+}
+
+.top.drawer{
+	position: fixed;
+	height: 100%;
+	top: -100%;
+	left: 0;
+	right: 0;
+	z-index: 98;
+	transition: top .3s $cubic-bezier;
+
+	background-color: #eee;
+
+	&.open{
+		top: rem-calc(40px);
+	}
+}
+
+.bottom-bar{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 100%;
+	margin-top: rem-calc(-40px);
+	height: 100%;
+	background-color: #202020;
+	color: #fff;
+	z-index: 99;
+	transition: top .3s $cubic-bezier;
+
+	&.open{
+		top: rem-calc(80px);
+	}
+
+	.inline-list{
+		margin-left: 0;
+		height: rem-calc(40px);
+		margin-bottom: 0;
+		
+		li{
+			width: 20%;
+			height: rem-calc(40px);
+			text-align: center;
+			margin: 0;
+			font-size: .8em;
+			line-height: .4em;
+			cursor: pointer;
+			display: block;
+			padding-top: rem-calc(8px);
+			color: #fff;
+			-webkit-transition: background-color .3s linear;
+
+			&.active{
+				background-color: #404040;
+			}
+		}
+	}
+
+	.drawer{
+		h2{
+			color: #fff;
+		}
+	}
+}
+
+
+
+
+
+/* Page Transitions */
+
+.well[ui-view]{
+ height: 100%;
+ -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */ 
+    -moz-box-sizing: border-box; /* <=28 */
+    	box-sizing: border-box;
+ 		padding: rem-calc(40px) 0 0; 
+}
+
+.ui-view-container {
+  position: relative;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .3s $cubic-bezier;
+	-moz-transition:all .3s $cubic-bezier;
+	-o-transition:all .3s $cubic-bezier;
+	transition:all .3s $cubic-bezier;
+}
+
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(50px, 0, 0);
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave {
+  opacity: 1; 
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+  opacity: 0;
+  /*padding-left: 100px;*/
+  -webkit-transform:translate3d(-100px, 0, 0);
+  -moz-transform:translate3d(-100px, 0, 0);
+  transform:translate3d(-100px, 0, 0);
+}
+
+
+/* PROGRESS BUTTON */
+
+/* General styles for all types of buttons */
+.progress-button {
+	position: relative;
+	display: inline-block;
+	padding: 0 20px;
+	outline: none;
+	border: none;
+	background: #1d9650;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 1em;
+	line-height: 4;
+	cursor: pointer;
+
+	&:hover{
+		color: #eee;
+	}
+}
+
+.progress-button[disabled],
+.progress-button[disabled].state-loading {
+	cursor: default;
+}
+
+.progress-button .content {
+	position: relative;
+	display: block;
+}
+
+.progress-button .content::before,
+.progress-button .content::after  {
+	position: absolute;
+	right: 20px;
+	color: #0e7138;
+	font-family: "icomoon";
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.3s;
+	transition: opacity 0.3s 0.3s;
+}
+
+.progress-button .content::before {
+	content: "\e600"; /* Checkmark for success */
+}
+
+.progress-button .content::after {
+	content: "\e601"; /* Cross for error */
+}
+
+.progress-button.state-success .content::before,
+.progress-button.state-error .content::after {
+	opacity: 1;
+}
+
+.notransition {
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+
+.progress-button .progress {
+	background: #148544;
+}
+
+.progress-button .progress-inner {
+	position: absolute;
+	left: 0;
+	background: #0e7138;
+}
+
+.progress-button[data-horizontal] .progress-inner {
+	top: 0;
+	width: 0;
+	height: 100%;
+	-webkit-transition: width 0.3s, opacity 0.3s;
+	transition: width 0.3s, opacity 0.3s;
+}
+
+/* slide down */
+/* ====================== */
+
+.progress-button[data-style="slide-down"] {
+	padding: 0;
+	overflow: visible;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.progress-button[data-style="slide-down"] .content {
+	z-index: 10;
+	padding: 0 20px;
+	background: #1d9650;
+}
+
+.progress-button input[type="file"]{
+	position: absolute;
+	z-index: 20;
+}
+
+.progress-button[data-style="slide-down"] .progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+.progress-button[data-style="slide-down"].state-loading .progress {
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+/* COOL SELECT */
+
+/* Default custom select styles */
+div.cs-select {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: left;
+	background: #fff;
+	z-index: 100;
+	width: 100%;
+	max-width: 500px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+div.cs-select:focus {
+	outline: none; /* For better accessibility add a style for this in your skin */
+}
+
+.cs-select select {
+	display: none;
+}
+
+.cs-select span {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	padding: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Placeholder and selected option */
+.cs-select > span {
+	padding-right: 3em;
+}
+
+// .cs-select > span::after,
+// .cs-select .cs-selected span::after {
+// 	speak: none;
+// 	position: absolute;
+// 	top: 50%;
+// 	-webkit-transform: translateY(-50%);
+// 	transform: translateY(-50%);
+// 	-webkit-font-smoothing: antialiased;
+// 	-moz-osx-font-smoothing: grayscale;
+// }
+
+// .cs-select > span::after {
+// 	content: '\25BE';
+// 	right: 1em;
+// }
+
+// .cs-select .cs-selected span::after {
+// 	content: '\2713';
+// 	margin-left: 1em;
+// }
+
+.cs-select.cs-active > span::after {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(180deg);
+}
+
+/* Options */
+.cs-select .cs-options {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	visibility: hidden;
+}
+
+.cs-select.cs-active .cs-options {
+	visibility: visible;
+}
+
+.cs-active ~ .cs-select,
+.cs-select:hover ~ .cs-select{
+	z-index: 90;
+}
+
+.cs-select .cs-placeholder{
+	z-index: 99;
+}
+
+.cs-select ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.cs-select ul span {
+	padding: 1em;
+}
+
+.cs-select ul li.cs-focus span {
+	background-color: #ddd;
+}
+
+/* Optgroup and optgroup label */
+.cs-select li.cs-optgroup ul {
+	padding-left: 1em;
+}
+
+.cs-select li.cs-optgroup > span {
+	cursor: default;
+}
+
+// @font-face {
+// 	font-family: 'icomoon';
+// 	src:url('../fonts/icomoon/icomoon.eot?-rdnm34');
+// 	src:url('../fonts/icomoon/icomoon.eot?#iefix-rdnm34') format('embedded-opentype'),
+// 		url('../fonts/icomoon/icomoon.woff?-rdnm34') format('woff'),
+// 		url('../fonts/icomoon/icomoon.ttf?-rdnm34') format('truetype'),
+// 		url('../fonts/icomoon/icomoon.svg?-rdnm34#icomoon') format('svg');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+div.cs-skin-underline {
+	background: transparent;
+	font-size: 1.8em;
+	max-width: 400px;
+}
+
+@media screen and (max-width: 30em) {
+	div.cs-skin-underline { font-size: 1.2em; }
+}
+
+.cs-skin-underline > span {
+	padding: 0.5em 3em 0.5em 0.5em;
+	border-bottom: 3px solid #000;
+	border-color: inherit;
+	font-weight: bold;
+}
+
+.cs-skin-underline > span i {
+	// font-family: 'icomoon';
+	content: '\e003';
+	right: 0.9em;
+	top: 1em;
+	position: absolute;
+	-webkit-transform: translate3d(0,-50%,0) rotate3d(0,0,1,45deg);
+	transform: translate3d(0,-50%,0) rotate3d(0,0,1,45deg);
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.cs-skin-underline.cs-active > span i {
+	-webkit-transform: translate3d(0,-50%,0) rotate3d(0,0,1,270deg);
+	transform: translate3d(0,-50%,0) rotate3d(0,0,1,270deg);
+}
+
+.cs-skin-underline .cs-options {
+	background: #bbc7c8;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.4s, visibility 0s 0.7s;
+	transition: opacity 0.3s 0.4s, visibility 0s 0.7s;
+}
+
+.cs-skin-underline.cs-active .cs-options {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.cs-skin-underline ul span {
+	position: relative;
+	text-transform: uppercase;
+	font-size: 66%;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 1.2em 0.8em;
+	opacity: 0;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.cs-select ul span::after {
+	content: '';
+	opacity: 0;
+}
+
+.cs-select .cs-selected span::after {
+	// font-family: 'icomoon';
+	content: '\e010';
+	opacity: 1;
+	-webkit-transition: opacity 0.3s 0.7s;
+	transition: opacity 0.3s 0.7s;
+}
+
+.cs-skin-underline ul span::before {
+	content: '';
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background-color: #fff;
+	-webkit-transform: translate3d(200%,0,0);
+	transform: translate3d(200%,0,0);
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+.cs-skin-underline.cs-active ul span,
+.cs-skin-underline.cs-active ul span::before {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.cs-skin-underline li:nth-child(5) span,
+.cs-skin-underline li:nth-child(5) span::before,
+.cs-skin-underline.cs-active li:first-child span,
+.cs-skin-underline.cs-active li:first-child span::before {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.cs-skin-underline li:nth-child(4) span,
+.cs-skin-underline li:nth-child(4) span::before,
+.cs-skin-underline.cs-active li:nth-child(2) span,
+.cs-skin-underline.cs-active li:nth-child(2) span::before {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.cs-skin-underline li:nth-child(3) span,
+.cs-skin-underline li:nth-child(3) span::before {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.cs-skin-underline li:nth-child(2) span,
+.cs-skin-underline li:nth-child(2) span::before,
+.cs-skin-underline.cs-active li:nth-child(4) span,
+.cs-skin-underline.cs-active li:nth-child(4) span::before {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+.cs-skin-underline li:first-child span,
+.cs-skin-underline li:first-child span::before,
+.cs-skin-underline.cs-active li:nth-child(5) span,
+.cs-skin-underline.cs-active li:nth-child(5) span::before {
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.cs-skin-underline li:first-child span,
+.cs-skin-underline li:first-child span::before,
+.cs-skin-underline.cs-active li:nth-child(6) span,
+.cs-skin-underline.cs-active li:nth-child(6) span::before {
+	-webkit-transition-delay: 0.25s;
+	transition-delay: 0.25s;
+}
+
+.cs-skin-underline li:first-child span,
+.cs-skin-underline li:first-child span::before,
+.cs-skin-underline.cs-active li:nth-child(7) span,
+.cs-skin-underline.cs-active li:nth-child(7) span::before {
+	-webkit-transition-delay: 0.30s;
+	transition-delay: 0.30s;
+}
+
+.cs-skin-underline li:first-child span,
+.cs-skin-underline li:first-child span::before,
+.cs-skin-underline.cs-active li:nth-child(8) span,
+.cs-skin-underline.cs-active li:nth-child(8) span::before {
+	-webkit-transition-delay: 0.35s;
+	transition-delay: 0.35s;
+} /* more items require more delay declarations */
+
+.cs-skin-underline .cs-options li span:hover,
+.cs-skin-underline .cs-options li.cs-focus span,
+.cs-skin-underline li.cs-selected span {
+	color: #566473;
+	background: transparent;
+}
+
+/* ---------------- CAROUSEL -----------------  */
+
+/* variables */
+/* general */
+.rn-carousel-container {
+  overflow: hidden;
+  position: relative;
+  -ms-touch-action: none;
+  touch-action: none; }
+
+.rn-carousel-slides {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  white-space: nowrap;
+  overflow: visible;
+  padding: 0;
+  margin: 0; }
+
+/* IE 9 */
+:root .rn-carousel-slides {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  position: relative;
+  white-space: nowrap;
+  overflow: visible;
+  padding: 0;
+  margin: 0; }
+
+.rn-carousel-slide {
+  white-space: normal;
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+/* indicators */
+.rn-carousel-indicator {
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  bottom: 0;
+  cursor: pointer; }
+  .rn-carousel-indicator span {
+    -webkit-transition: color .2s ease-out;
+    transition: color .2s ease-out;
+    padding: 0 5px;
+    color: #333; }
+    .rn-carousel-indicator span:before {
+      content: "\25cf"; }
+    .rn-carousel-indicator span.ng-leave {
+      -webkit-transition: none !important;
+      transition: none !important; }
+  .rn-carousel-indicator .active {
+    color: white; }
+
+/* controls */
+.rn-carousel-control {
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  opacity: 0.75;
+  cursor: pointer; }
+  .rn-carousel-control:hover {
+    opacity: 1; }
+  .rn-carousel-control.rn-carousel-control-prev {
+    left: 0.5em; }
+    .rn-carousel-control.rn-carousel-control-prev:before {
+      content: "<"; }
+  .rn-carousel-control.rn-carousel-control-next {
+    right: 0.5em; }
+    .rn-carousel-control.rn-carousel-control-next:before {
+      content: ">"; }

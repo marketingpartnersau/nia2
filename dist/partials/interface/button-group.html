@@ -1,0 +1,11 @@
+<div class="button-group">
+	<span>
+		<a 
+		  ng-repeat="option in options"
+		  ng-class="{ active : model == option }"
+		  ng-click="model = option">
+			{{ option }}
+		</a>
+	</span>
+	<small ng-show="text">{{ text }}</small>
+</div>

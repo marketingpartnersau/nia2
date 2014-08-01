@@ -169,9 +169,258 @@ angular.module('health.services', [])
 		function(){
 			return {
 				products: [
-					{"id": 46, "code": "V500V65", "code2": "V65", "name": "Vitality 65", "nicename": "Vitality65", "description": "If children aren’t an issue any more, then Vitality 65 offers peace of mind with a wide range of hospital and extras benefits.", "created_at": "2014-06-23 08:55:13", "updated_at": "2014-06-22 22:55:13", "slug": "vitality65", "nicename_slug": "vitality65"},
-					{"id": 61,"sort": 53,"code": "CWHC250M65","code2": "HCM65","name": "HeartCare Hospital with Middle Extras 65","nicename": "","description": "HeartCare is perfect if you want the added safety of cover for your heart. And 65% back on a wide range of Extras at your choice of provider.","slug": "heartcarehospitalwithmiddleextras65","nicename_slug": ""},
-					{"id":31,"status":"active","sort":97,"code":"H500H85","code2":"H85","name":"High Hospital with High Extras 85","nicename":"High85","description":"Peace of mind Hospital cover. And 85% back on a long list of Extras with your provider, not ours.","extra_back":85,"extras_value":5250,"excess":500,"age_min":25,"age_max":100,"comparable":"High","created_at":"2014-06-23 08:53:17","updated_at":"2014-06-22 22:53:17","type_slug":"","slug":"highhospitalwithhighextras85","nicename_slug":"high85"}
+					{
+						id: 1,
+						name: 'Basic Hospital with Middle Extras',
+						description: 'If children aren’t an issue any more, then Vitality 65 offers peace of mind with a wide range of hospital and extras benefits.',
+						hospitals: [
+							{ name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Appendix', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Psychiatric Services', slug: 'cardio', coverage: 'restricted' },
+							{ name: 'Pregnancy Related Services', slug: 'cardio', coverage: 'none' },
+							{ name: 'Joint replacement, including spine, with prostheses', slug: 'cardio', coverage: 'none' },
+							{ name: 'Cataracts and eye lens procedures', slug: 'cardio', coverage: 'none' },
+							{ name: 'Dialysis for Chronic Kidney Failure', slug: 'cardio', coverage: 'none' },
+							{ name: 'Bariatric Surgery', slug: 'cardio', coverage: 'none' },
+							{ name: 'Assisted Reproductive Services', slug: 'cardio', coverage: 'none' },
+							{ name: 'Spinal Fusion', slug: 'cardio', coverage: 'none' },
+							{ name: 'Podiatric Surgery', slug: 'cardio', coverage: 'none' },
+							{ name: 'Sterility reversal', slug: 'cardio', coverage: 'none' },
+							{ name: 'Services Medicare does not cover', slug: 'cardio', coverage: 'none' }
+						],
+						extras: [
+							{ name: 'Dental', slug: 'dental', value: 750, isSublimit: false },
+							{ name: 'General', slug: 'dental', value: '', isSublimit: true },
+							{ name: 'Major', slug: 'dental', value: '', isSublimit: true },
+							{ name: 'Orthodontics', slug: 'dental', value: 300, isSublimit: true },
+							{ name: 'Optical', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Physio, Chiro and Osteopathy', slug: 'dental', value: 350, isSublimit: false },
+							{ name: 'Natural Therapy', slug: 'dental', value: 250, isSublimit: false },
+							{ name: 'Remedial Massage', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Non-PBS Prescriptions', slug: 'dental', value: 150, isSublimit: false },
+							{ name: 'Psychology', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Occupational Therapy', slug: 'dental', value: 250, isSublimit: false },
+							{ name: 'Speech Therapy', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Health Maintenance', slug: 'dental', value: 100, isSublimit: false }
+						],
+						options: {
+							extra_back: ['65%', '75%', '85%'],
+							excess: ['$0', '$250', '$500'],
+							frequency: ['weekly', 'monthly', 'yearly']
+						},
+						prices: {
+							65: {
+								extra_value: 1234,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1234.56,
+											discounted_premium: 1000.56,
+											hospital_excess: 1100.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 1100.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 990.56,
+											discounted_premium: 850.56,
+											hospital_excess: 800.43,
+										}
+									}
+								}
+							},
+							75: {
+								extra_value: 1564,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1233.56,
+											discounted_premium: 2342.56,
+											hospital_excess: 3433.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 4545.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 3434.56,
+											discounted_premium: 1233.56,
+											hospital_excess: 1000.43,
+										}
+									}
+								}
+							},
+							85: {
+								extra_value: 2000,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1233.56,
+											discounted_premium: 2342.56,
+											hospital_excess: 3433.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 4545.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 3434.56,
+											discounted_premium: 1233.56,
+											hospital_excess: 1000.43,
+										}
+									}
+								}
+							}	
+						}
+					},
+					{
+						id: 2,
+						name: 'High Hospital with Middle Extras',
+						description: 'Total coverage for total piece of mind. If you\'re rich, this is for you.',
+						hospitals: [
+							{ name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Appendix', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
+							{ name: 'Psychiatric Services', slug: 'cardio', coverage: 'restricted' },
+							{ name: 'Pregnancy Related Services', slug: 'cardio', coverage: 'none' },
+							{ name: 'Joint replacement, including spine, with prostheses', slug: 'cardio', coverage: 'none' },
+							{ name: 'Cataracts and eye lens procedures', slug: 'cardio', coverage: 'none' },
+							{ name: 'Dialysis for Chronic Kidney Failure', slug: 'cardio', coverage: 'none' },
+							{ name: 'Bariatric Surgery', slug: 'cardio', coverage: 'none' },
+							{ name: 'Assisted Reproductive Services', slug: 'cardio', coverage: 'none' },
+							{ name: 'Spinal Fusion', slug: 'cardio', coverage: 'none' },
+							{ name: 'Podiatric Surgery', slug: 'cardio', coverage: 'none' },
+							{ name: 'Sterility reversal', slug: 'cardio', coverage: 'none' },
+							{ name: 'Services Medicare does not cover', slug: 'cardio', coverage: 'none' }
+						],
+						extras: [
+							{ name: 'Dental', slug: 'dental', value: 750, isSublimit: false },
+							{ name: 'General', slug: 'dental', value: '', isSublimit: true },
+							{ name: 'Major', slug: 'dental', value: '', isSublimit: true },
+							{ name: 'Orthodontics', slug: 'dental', value: 300, isSublimit: true },
+							{ name: 'Optical', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Physio, Chiro and Osteopathy', slug: 'dental', value: 350, isSublimit: false },
+							{ name: 'Natural Therapy', slug: 'dental', value: 250, isSublimit: false },
+							{ name: 'Remedial Massage', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Non-PBS Prescriptions', slug: 'dental', value: 150, isSublimit: false },
+							{ name: 'Psychology', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Occupational Therapy', slug: 'dental', value: 250, isSublimit: false },
+							{ name: 'Speech Therapy', slug: 'dental', value: 200, isSublimit: false },
+							{ name: 'Health Maintenance', slug: 'dental', value: 100, isSublimit: false }
+						],
+						options: {
+							extra_back: ['65%', '75%', '85%'],
+							excess: ['$0', '$250', '$500'],
+							frequency: ['weekly', 'monthly', 'yearly']
+						},
+						prices: {
+							65: {
+								extra_value: 1234,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1234.56,
+											discounted_premium: 1000.56,
+											hospital_excess: 1100.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 1100.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 990.56,
+											discounted_premium: 850.56,
+											hospital_excess: 800.43,
+										}
+									}
+								}
+							},
+							75: {
+								extra_value: 1564,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1233.56,
+											discounted_premium: 2342.56,
+											hospital_excess: 3433.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 4545.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 3434.56,
+											discounted_premium: 1233.56,
+											hospital_excess: 1000.43,
+										}
+									}
+								}
+							},
+							85: {
+								extra_value: 2000,
+								rates: {
+									0: {
+										rate: {
+											gross_premium: 1233.56,
+											discounted_premium: 2342.56,
+											hospital_excess: 3433.43,
+										}
+									},
+									250: {
+										rate: {
+											gross_premium: 4545.56,
+											discounted_premium: 990.56,
+											hospital_excess: 1000.43,
+										}
+									},
+									500: {
+										rate: {
+											gross_premium: 3434.56,
+											discounted_premium: 1233.56,
+											hospital_excess: 1000.43,
+										}
+									}
+								}
+							}	
+						}
+					}
 				]
 			};
 		}
@@ -179,7 +428,7 @@ angular.module('health.services', [])
 
 	.service('GeoCode', [
 		function(){}
-	])
+	]);
 
 	// .service('GeoCode' ['$http', '$q',
 	// 	function($http, $q){

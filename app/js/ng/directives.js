@@ -12,7 +12,8 @@ angular.module('health.directives', [])
 				},
 				controller: function($scope){
 					console.log($scope);
-					$scope.$on('$stateChangeStart', function(event, toState){
+					$scope.$on('$stateChangeStart', function(){
+						// function takes event, toState, etc
 						//$.fn.fullpage.destroy();
 					});
 				}
@@ -134,8 +135,8 @@ angular.module('health.directives', [])
 		}
 	])
 	
-	.directive('quoteParameter', [
-		function(){
+	.directive('quoteSelect', ['QuoteData', '$modal',
+		function(QuoteData, $modal){
 			return {
 				restrict: 'E',
 				replace: true,
@@ -143,6 +144,66 @@ angular.module('health.directives', [])
 				scope: {
 					param: '@',
 					value: '='
+				},
+				link: function(scope){
+					scope.reselectQuoteParam = function(param){
+						$modal.open({
+							templateUrl: 'partials/quote/quote.modal.select.html',
+							resolve: {
+								param: function(){
+									return param;
+								}
+							},
+							controller: function($scope, param){
+								$scope.options = QuoteData.options[param];
+								$scope.updateParam = function(val){
+									$scope.$close(val);
+								};
+							}
+						}).result.then(function(val){
+							scope.value = val;
+						});
+					};
+				}
+			};
+		}
+	])
+
+	.directive('product', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				templateUrl: 'partials/interface/product.html',
+				scope: {
+					product: '=',
+					frequency: '='
+				},
+				link: function(scope){
+					scope.productMeta = {
+						extra_back: '65%',
+						excess: '$250',
+						price: 1123.44
+					};
+				}
+			};
+		}
+	])
+
+	.directive('buttonGroup', [
+		function(){
+			return {
+				restrict: 'E',
+				replace: true,
+				templateUrl: 'partials/interface/button-group.html',
+				scope: {
+					options: '=',
+					model: '=',
+					text: '@'
+				},
+				link: function(scope){
+					console.log(scope.model);
+					window.model = scope.model;
 				}
 			};
 		}

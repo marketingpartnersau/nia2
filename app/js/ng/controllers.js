@@ -3,7 +3,7 @@
 angular.module('health.controllers', [])
 
 	.controller('MainController', ['$scope', '$rootScope',
-		function($scope, $rootScope){
+		function($scope){
 
 			window.scope = $scope;
 
@@ -94,10 +94,10 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('QuoteFormController', ['$scope', 'QuoteData', 'GeoCode', 'Products',
-		function($scope, QuoteData2, GeoCode, Products){
+	.controller('QuoteFormController', ['$scope', '$modal', 'QuoteData', 'GeoCode', 'Products',
+		function($scope, $modal, QuoteData, GeoCode, Products){
 
-			$scope.options = QuoteData2.options;
+			$scope.options = QuoteData.options;
 			$scope.geocode = GeoCode;
 			$scope.formData = {
 				selections: {}
@@ -107,7 +107,7 @@ angular.module('health.controllers', [])
 
 			$scope.uiState = {
 				cardFlipped: false
-			}
+			};
 
 			window.formdata = $scope.formData;
 
@@ -126,11 +126,14 @@ angular.module('health.controllers', [])
 			$scope.getQuote = function(){
 				// on submit
 			};
+		}
+	])
 
-			$scope.flipCard = function(){
-				// (#quote-form)
-
-			}
+	.controller('QuoteController', ['$scope',
+		function($scope){
+			$scope.params = {
+				frequency: 'yearly'
+			};
 		}
 	])
 
@@ -143,12 +146,6 @@ angular.module('health.controllers', [])
 			$scope.getQuote = function(){
 
 			};
-		}
-	])
-
-	.controller('QuoteController', ['$scope',
-		function(){
-			// business here motherfucker
 		}
 	])
 

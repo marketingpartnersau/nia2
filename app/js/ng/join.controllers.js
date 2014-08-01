@@ -7,7 +7,7 @@ angular.module('health.joincontrollers', [])
 
 			$scope.viewProduct = function(id){
 				$modal.open({
-					templateUrl: 'partials/join/modal.view-product.html',
+					templateUrl: 'partials/modals/join.view-product.html',
 					windowClass: 'product-view',
 					resolve: {
 						Product: function(){

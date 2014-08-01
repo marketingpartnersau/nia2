@@ -1,0 +1,145 @@
+.product{
+	background-color: #f6f6f6;
+	border: 1px solid #eee;
+	padding: .9em;
+	header{
+
+		p{
+			margin-bottom: 0;
+			padding: 0;
+		}
+		h3{
+			margin-top: 0;
+			padding-top: 0;
+			font-size: 1.4em;
+		}
+	}
+
+	.button-group{
+		font-size: .6em;
+		text-transform: uppercase;
+		font-weight: bold;
+
+		a{
+			background: #eee;
+			display: inline-block;
+			padding: rem-calc(0) rem-calc(7px);
+			height: rem-calc(26px);
+			line-height: rem-calc(24px);
+			border: 1px solid #ddd;
+			width: 33%;
+			text-align: center;
+			border-right: none;
+
+			&:last-child{
+				border-right: 1px solid #ddd;
+			}
+
+			&.active{
+				background-color: #ddd;
+			}
+		}
+	}
+
+	.options{
+		margin-bottom: 1em;
+	}
+
+	.price{
+		hr{
+			margin-top: 0;
+			margin-bottom: .5em;
+			height: 1px;
+			border-color: #404040;
+		}
+
+		.dollars{
+			line-height: rem-calc(26px);
+		}
+	}
+
+	.description{
+		hr{
+			margin-top: 1em;
+			height: 1px;
+			border-color: #ccc;
+		}
+
+		p{
+			padding: 0;
+			font-weight: 200;
+			font-size: .8em;
+			line-height: 1.2;
+		}
+	}
+
+	.inclusions{
+		margin-top: 1.2em;
+		ul.tabs{
+			padding-left: 0;
+			padding-bottom: 0;
+
+			li{
+				margin-left: 0;
+				width: 50%;
+				border-bottom: 1px solid #ccc;
+				text-align: center;
+				text-transform: uppercase;
+				font-size: .8em;
+				padding: 1em 0;
+
+				&.active{
+					background-color: #ccc;
+				}
+			}
+		}
+
+		.extras{
+			background-color: #ccc;
+			padding-top: 1em;
+			padding-bottom: 2em;
+
+
+			ul{
+				margin-left: 1.25em;
+				li{
+
+					position: relative;
+					width: 100%;
+					padding-left: 1.5em;
+					font-weight: bold;
+					font-size: .8em;
+
+					span{
+						position: absolute;
+						right: 2em;
+						color: #666;
+						font-weight: normal;
+					}
+
+					i{
+						position: absolute;
+						left: rem-calc(-7px);
+						top: rem-calc(8px);
+					}
+
+					&.inclusive{
+						border-left: 1px solid #202020;
+						color: #ccc;
+						font-weight: normal;
+
+						&:before{
+							content: "";
+							display: block;
+							width: 1em;
+							border-top: 1px solid #202020;
+							position: absolute;
+							left: 0;
+							top: 1em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

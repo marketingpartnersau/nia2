@@ -9,7 +9,7 @@
 		for="{{ page.type }}-{{ option.value | lowercase }}" 
 		ui-sref="quote.{{page.next}}" 
 		ng-click="formData.selections[page.type] = option.value" 
-		ng-class="{ 'selected' : formData[page.type] === option.value }">
+		ng-class="{ 'selected' : formData.selections[page.type] === option.value }">
 
 		{{ option.label }}
 
