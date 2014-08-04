@@ -73,12 +73,12 @@
 		<div class="actions-mask" ng-class="{ 'show-save-form' : actions.showSaveForm }">
 			<div class="buttons">
 				<a class="buy-now">Buy now</a>
-				<a class="save-quote" ng-click="actions.showSaveForm = true">Save quote</a>
+				<a class="save-quote" ng-click="actions.showSaveForm = true">Email/Save quote</a>
 			</div>
 			<div class="form">
 				<input type="text" placeholder="you@example.com">
-				<a class="small button">email me</a>
-				<a class="small button alert" ng-click="actions.showSaveForm = false"><i class="fa fa-times"></i></a>
+				<a class="small button" ng-click="sendSaveForm()">email me</a>
+				<a class="small button alert" ng-click="actions.showSaveForm = false"><i class="fa" ng-class="{ 'fa-times' : (!actions.formSent || !actions.formSending), 'fa-spinner fa-spin' : actions.formSending, 'fa-check' : actions.formSent }"></i></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>

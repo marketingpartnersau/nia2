@@ -169,8 +169,8 @@ angular.module('health.directives', [])
 		}
 	])
 
-	.directive('product', [
-		function(){
+	.directive('product', ['$timeout',
+		function($timeout){
 			return {
 				restrict: 'E',
 				replace: true,
@@ -187,7 +187,7 @@ angular.module('health.directives', [])
 					};
 
 					scope.actions = {
-						showSaveForm: false
+						showSaveForm: false,
 					};
 				}
 			};
