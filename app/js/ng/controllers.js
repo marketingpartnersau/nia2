@@ -138,7 +138,7 @@ angular.module('health.controllers', [])
 
 			$scope.showText = {
 				hidden: false
-			}
+			};
 
 			$timeout(function(){
 				$scope.showText.hidden = true;

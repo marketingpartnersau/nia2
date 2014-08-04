@@ -188,7 +188,7 @@ angular.module('health.directives', [])
 
 					scope.actions = {
 						showSaveForm: false
-					}
+					};
 				}
 			};
 		}

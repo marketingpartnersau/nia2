@@ -1,15 +1,13 @@
-<p class="small-12 columns above-recs hide-on-flip">Based on what you've told us, we think these are the best products for you.</p>
+<p class="small-12 columns above-recs" ng-class="{ hidden : showText.hidden }">Based on what you've told us, we think these are the best products for you.</p>
 
-<a class="small-12 columns see-more" ng-click="seeAll()">See all products <i class="fa fa-angle-right"></i></a>
-
-<div class="small-12 columns carousel-container">
+<div class="small-12 columns carousel-container" ng-class="{ hidden : showText.hidden }">
 	<ul rn-carousel class="products">
 		<li ng-repeat="product in products">
-			<div class="flip">
-				<div class="card">
-					<product product="product" frequency="params.frequency"></product>
-				</div>
-			</div>
+			<product product="product" params="params"></product>
+		</li>
+		<li>
+			<p>Not sure these products are right for you?</p>
+			<a class="button">See all products <i class="fa fa-angle-right"></i></a>
 		</li>
 	</ul>
 </div>

@@ -3,7 +3,7 @@
 		<a 
 		  ng-repeat="option in options"
 		  ng-class="{ active : model == option }"
-		  ng-click="model = option">
+		  ng-click="updateModel(option)">
 			{{ option }}
 		</a>
 	</span>
