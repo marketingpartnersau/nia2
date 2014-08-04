@@ -2,6 +2,7 @@
 	background-color: #f6f6f6;
 	border: 1px solid #eee;
 	padding: .9em;
+	padding-bottom: 0;
 	header{
 
 		p{
@@ -30,6 +31,7 @@
 			width: 33%;
 			text-align: center;
 			border-right: none;
+			transition: background-color .3s $cubic-bezier;
 
 			&:last-child{
 				border-right: 1px solid #ddd;
@@ -75,6 +77,9 @@
 
 	.inclusions{
 		margin-top: 1.2em;
+		position: relative;
+		overflow: hidden;
+
 		ul.tabs{
 			padding-left: 0;
 			padding-bottom: 0;
@@ -87,6 +92,8 @@
 				text-transform: uppercase;
 				font-size: .8em;
 				padding: 1em 0;
+				cursor: pointer;
+				transition: background-color .3s $cubic-bezier;
 
 				&.active{
 					background-color: #ccc;
@@ -94,11 +101,40 @@
 			}
 		}
 
-		.extras{
+		.tab-container{
+			width: 200%;
 			background-color: #ccc;
+
+			.extras{
+				opacity: 0;
+			}
+
+			&.extras-active{
+				.extras,
+				.hospitals{	
+					-webkit-transform: translate3d(-100%, 0, 0);
+							transform: translate3d(-100%, 0, 0);
+
+				}
+
+				.extras{
+					opacity: 1;
+				}
+
+				.hospitals{
+					opacity: 0;
+				}
+			}
+		}
+
+		.extras,
+		.hospitals{
 			padding-top: 1em;
 			padding-bottom: 2em;
-
+			width: 50%;
+			float: left;
+			-webkit-transition: all .5s $cubic-bezier;
+					transition: all .5s $cubic-bezier;
 
 			ul{
 				margin-left: 1.25em;
@@ -125,7 +161,7 @@
 
 					&.inclusive{
 						border-left: 1px solid #202020;
-						color: #ccc;
+						color: #777;
 						font-weight: normal;
 
 						&:before{
@@ -137,6 +173,69 @@
 							left: 0;
 							top: 1em;
 						}
+					}
+				}
+			}
+		}
+	}
+
+	.actions{
+		overflow: hidden;
+
+		.actions-mask{
+			width: 200%;
+
+			&.show-save-form{
+				> div{
+					-webkit-transform: translate3d(-100%, 0, 0);
+							transform: translate3d(-100%, 0, 0);
+						}
+			}
+
+			> div{
+				width: 50%;
+				float: left;
+				-webkit-transition: all .5s $cubic-bezier;
+						transition: all .5s $cubic-bezier;
+			}
+
+			.form{
+
+				> input,
+				> a{
+					display: inline-block;
+					float: left;
+					height: rem-calc(42px);
+					margin: 0;
+				}
+
+				input{
+					width: 50%;
+				}
+
+				a{
+					width: 35%;
+					padding: 0;
+					line-height: rem-calc(42px);
+				}
+
+				a.alert{
+					width: 15%;
+					padding: 0;
+					line-height: rem-calc(42px);
+				}
+			}
+
+			.buttons{
+				a{
+					width: 50%;
+					float: left;
+					line-height: rem-calc(42px);
+					display: inline-block;
+					text-align: center;
+
+					&:hover{
+						background-color: #ddd;
 					}
 				}
 			}

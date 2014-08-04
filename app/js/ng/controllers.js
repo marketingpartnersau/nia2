@@ -129,11 +129,20 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('QuoteController', ['$scope',
-		function($scope){
+	.controller('QuoteController', ['$scope', '$timeout',
+		function($scope, $timeout){
 			$scope.params = {
-				frequency: 'yearly'
+				frequency: 'year',
+				inclusion: 'hospitals'
 			};
+
+			$scope.showText = {
+				hidden: false
+			}
+
+			$timeout(function(){
+				$scope.showText.hidden = true;
+			}, 5000);
 		}
 	])
 
@@ -155,7 +164,6 @@ angular.module('health.controllers', [])
 				.jsonp('http://nia.staging.wpengine.com/api/get_recent_posts/?callback=JSON_CALLBACK')
 				.success(function(response){
 					$scope.posts = response.posts;
-					console.log($scope.posts);
 				});
 
 		}

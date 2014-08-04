@@ -5330,7 +5330,8 @@ th.hide-for-touch {
 .product {
   background-color: #f6f6f6;
   border: 1px solid #eee;
-  padding: 0.9em; }
+  padding: 0.9em;
+  padding-bottom: 0; }
   .product header p {
     margin-bottom: 0;
     padding: 0; }
@@ -5351,7 +5352,8 @@ th.hide-for-touch {
       border: 1px solid #ddd;
       width: 33%;
       text-align: center;
-      border-right: none; }
+      border-right: none;
+      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
       .product .button-group a:last-child {
         border-right: 1px solid #ddd; }
       .product .button-group a.active {
@@ -5375,7 +5377,9 @@ th.hide-for-touch {
     font-size: 0.8em;
     line-height: 1.2; }
   .product .inclusions {
-    margin-top: 1.2em; }
+    margin-top: 1.2em;
+    position: relative;
+    overflow: hidden; }
     .product .inclusions ul.tabs {
       padding-left: 0;
       padding-bottom: 0; }
@@ -5386,35 +5390,52 @@ th.hide-for-touch {
         text-align: center;
         text-transform: uppercase;
         font-size: 0.8em;
-        padding: 1em 0; }
+        padding: 1em 0;
+        cursor: pointer;
+        transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .product .inclusions ul.tabs li.active {
           background-color: #ccc; }
-    .product .inclusions .extras {
-      background-color: #ccc;
+    .product .inclusions .tab-container {
+      width: 200%;
+      background-color: #ccc; }
+      .product .inclusions .tab-container .extras {
+        opacity: 0; }
+      .product .inclusions .tab-container.extras-active .extras, .product .inclusions .tab-container.extras-active .hospitals {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0); }
+      .product .inclusions .tab-container.extras-active .extras {
+        opacity: 1; }
+      .product .inclusions .tab-container.extras-active .hospitals {
+        opacity: 0; }
+    .product .inclusions .extras, .product .inclusions .hospitals {
       padding-top: 1em;
-      padding-bottom: 2em; }
-      .product .inclusions .extras ul {
+      padding-bottom: 2em;
+      width: 50%;
+      float: left;
+      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .product .inclusions .extras ul, .product .inclusions .hospitals ul {
         margin-left: 1.25em; }
-        .product .inclusions .extras ul li {
+        .product .inclusions .extras ul li, .product .inclusions .hospitals ul li {
           position: relative;
           width: 100%;
           padding-left: 1.5em;
           font-weight: bold;
           font-size: 0.8em; }
-          .product .inclusions .extras ul li span {
+          .product .inclusions .extras ul li span, .product .inclusions .hospitals ul li span {
             position: absolute;
             right: 2em;
             color: #666;
             font-weight: normal; }
-          .product .inclusions .extras ul li i {
+          .product .inclusions .extras ul li i, .product .inclusions .hospitals ul li i {
             position: absolute;
             left: -0.4375rem;
             top: 0.5rem; }
-          .product .inclusions .extras ul li.inclusive {
+          .product .inclusions .extras ul li.inclusive, .product .inclusions .hospitals ul li.inclusive {
             border-left: 1px solid #202020;
-            color: #ccc;
+            color: #777;
             font-weight: normal; }
-            .product .inclusions .extras ul li.inclusive:before {
+            .product .inclusions .extras ul li.inclusive:before, .product .inclusions .hospitals ul li.inclusive:before {
               content: "";
               display: block;
               width: 1em;
@@ -5422,6 +5443,41 @@ th.hide-for-touch {
               position: absolute;
               left: 0;
               top: 1em; }
+  .product .actions {
+    overflow: hidden; }
+    .product .actions .actions-mask {
+      width: 200%; }
+      .product .actions .actions-mask.show-save-form > div {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0); }
+      .product .actions .actions-mask > div {
+        width: 50%;
+        float: left;
+        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .product .actions .actions-mask .form > input, .product .actions .actions-mask .form > a {
+        display: inline-block;
+        float: left;
+        height: 2.625rem;
+        margin: 0; }
+      .product .actions .actions-mask .form input {
+        width: 50%; }
+      .product .actions .actions-mask .form a {
+        width: 35%;
+        padding: 0;
+        line-height: 2.625rem; }
+      .product .actions .actions-mask .form a.alert {
+        width: 15%;
+        padding: 0;
+        line-height: 2.625rem; }
+      .product .actions .actions-mask .buttons a {
+        width: 50%;
+        float: left;
+        line-height: 2.625rem;
+        display: inline-block;
+        text-align: center; }
+        .product .actions .actions-mask .buttons a:hover {
+          background-color: #ddd; }
 
 #quote-form {
   position: relative; }
@@ -5433,13 +5489,11 @@ th.hide-for-touch {
     #quote-form label [type="radio"] {
       opacity: 0;
       position: absolute; }
-  #quote-form.card-flipped .summary {
+  #quote-form .above-recs.hidden {
     opacity: 0; }
-  #quote-form.card-flipped .hide-on-flip {
-    opacity: 0; }
-  #quote-form.card-flipped .carousel-container {
-    -webkit-transform: translate3d(0, -8.75rem, 0);
-    transform: translate3d(0, -8.75rem, 0); }
+  #quote-form .carousel-container.hidden {
+    -webkit-transform: translate3d(0, -4.375rem, 0);
+    transform: translate3d(0, -4.375rem, 0); }
   #quote-form .card {
     transition: 0.3s;
     transform-style: preserve-3d;

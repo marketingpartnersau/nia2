@@ -91,7 +91,8 @@ angular.module('health.services', [])
 						{value: 'cheap', 	label: 'The cheapest insurance'},
 						{value: 'tax', 		label: 'To save on tax'},
 						{value: 'family', 	label: 'To have more kids'},
-						{value: 'coverage', label: 'The best insurance'}
+						{value: 'coverage', label: 'The best insurance'},
+						{value: 'all', 		label: 'Just show me all products'}
 					],
 				},
 				input: {}
@@ -123,7 +124,8 @@ angular.module('health.services', [])
 						{value: 'cheap', 	label: 'The cheapest insurance'},
 						{value: 'tax', 		label: 'To save on tax'},
 						{value: 'family', 	label: 'To have more kids'},
-						{value: 'coverage', label: 'The best insurance'}
+						{value: 'coverage', label: 'The best insurance'},
+						{value: 'all', 		label: 'Just show me all products'}
 					],
 					age: [
 						{value: '18', 		label: 'Under 31'},
@@ -212,7 +214,7 @@ angular.module('health.services', [])
 						options: {
 							extra_back: ['65%', '75%', '85%'],
 							excess: ['$0', '$250', '$500'],
-							frequency: ['weekly', 'monthly', 'yearly']
+							frequency: ['week', 'month', 'year']
 						},
 						prices: {
 							65: {

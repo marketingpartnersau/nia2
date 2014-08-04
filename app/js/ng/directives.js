@@ -177,7 +177,7 @@ angular.module('health.directives', [])
 				templateUrl: 'partials/interface/product.html',
 				scope: {
 					product: '=',
-					frequency: '='
+					params: '='
 				},
 				link: function(scope){
 					scope.productMeta = {
@@ -185,6 +185,10 @@ angular.module('health.directives', [])
 						excess: '$250',
 						price: 1123.44
 					};
+
+					scope.actions = {
+						showSaveForm: false
+					}
 				}
 			};
 		}
@@ -202,8 +206,9 @@ angular.module('health.directives', [])
 					text: '@'
 				},
 				link: function(scope){
-					console.log(scope.model);
-					window.model = scope.model;
+					scope.updateModel = function(option){
+						scope.model = option;
+					};
 				}
 			};
 		}

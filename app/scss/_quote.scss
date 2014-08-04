@@ -13,19 +13,14 @@
 		}
 	}
 
-	&.card-flipped{
-		.summary{
-			opacity: 0;
-		}
+	
+	.above-recs.hidden{
+		opacity: 0;
+	}
 
-		.hide-on-flip{
-			opacity: 0;
-		}
-
-		.carousel-container{
-			-webkit-transform: translate3d(0,rem-calc(-140px),0);
-					transform: translate3d(0,rem-calc(-140px),0);
-		}
+	.carousel-container.hidden{
+		-webkit-transform: translate3d(0,rem-calc(-70px),0);
+				transform: translate3d(0,rem-calc(-70px),0);
 	}
 
 	.card{

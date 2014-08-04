@@ -121,7 +121,7 @@ angular.module('health', [
 							title: 'How much do you earn?',
 							content: 'We use this to give you an accurate rebate.',
 							type: 'income',
-							next: 'type',
+							next: 'priority',
 							policy: function(){
 								if($scope.formData.policy === 'Sgl'){
 									return 'single';
