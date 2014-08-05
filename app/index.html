@@ -19,7 +19,7 @@
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body ng-controller="MainController" ng-style="{ 'overflow-y' : overflowY.overflow }">
+  <body ng-controller="MainController" ng-style="{ 'overflow-y' : overflowY.overflow }" state="{{ $state.current.name }}">
 
     <top-bar></top-bar>
     <bottom-bar></bottom-bar>
@@ -74,6 +74,7 @@
     <script src="js/ng/directives.js"></script>
     <script src="js/ng/controllers.js"></script>
     <script src="js/ng/join.controllers.js"></script>
+    <script src="js/ng/quote.controllers.js"></script>
     <!-- endbuild -->
   </body>
 </html>

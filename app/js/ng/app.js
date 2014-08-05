@@ -9,7 +9,8 @@ angular.module('health', [
 		'health.directives',
 		'health.services',
 		'health.controllers',
-		'health.joincontrollers',
+		'health.controllers.join',
+		'health.controllers.quote',
 	])
 
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -79,7 +80,8 @@ angular.module('health', [
 				.state('quote.location', {
 					url: '/location',
 					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
+					controller: function($scope, $stateParams){
+						console.log($stateParams);
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
@@ -189,6 +191,11 @@ angular.module('health', [
 				.state('why-us', {
 					url: '/why-us',
 					templateUrl: 'partials/pages/why-us.html',
+				})
+
+				.state('about', {
+					url: '/about',
+					template: '<h2>About health.com.au</h2>'
 				})
 
 				.state('customers', {

@@ -2,5 +2,9 @@
 <p>{{ page.content }}</p>
 
 <image-upload-button photo="signupData.license" callback-fn="after()"></image-upload-button>
+<hr>
+<p class="skip" ng-show="page.skippable">
+	<a ui-sref="join.thanks" class="button">I don't have one</a>
+</p>
 
 <p><small>It goes without saying that we will NEVER share this information with anyone or any business. It's just to help us get you set up quickly.</small></p>

@@ -20,7 +20,7 @@
 	left: 0;
 	right: 0;
 	height: 40px;
-	z-index: 90;
+	z-index: 999;
 
 	h1{
 		text-transform: uppercase;
@@ -42,7 +42,7 @@
 	top: -100%;
 	left: 0;
 	right: 0;
-	z-index: 98;
+	z-index: 998;
 	transition: top .3s $cubic-bezier;
 
 	background-color: #eee;

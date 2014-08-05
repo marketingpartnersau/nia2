@@ -54,7 +54,7 @@ angular.module('health.services', [])
 				moreMenuItems: [
 					{name: 'Customer Area', description: 'Everything you need', state: 'customers'},
 					{name: 'Blog', description: 'Read our stuff', state: 'blog'},
-					{name: '10 Second Quote', description: 'Swear to god!', state: 'quote2'},
+					{name: 'About health.com.au', description: 'The story behind us', state: 'about'},
 					{name: 'Join now', description: 'Just for preview', state: 'join.start'}
 				]
 			};

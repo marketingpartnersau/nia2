@@ -11,7 +11,6 @@ angular.module('health.directives', [])
 					});
 				},
 				controller: function($scope){
-					console.log($scope);
 					$scope.$on('$stateChangeStart', function(){
 						// function takes event, toState, etc
 						//$.fn.fullpage.destroy();
