@@ -65,7 +65,7 @@ angular.module('health', [
 				})
 
 				.state('quote.policy', {
-					url: '/policy',
+					url: '/',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -78,7 +78,7 @@ angular.module('health', [
 				})
 
 				.state('quote.location', {
-					url: '/location',
+					url: 'policy/:policy',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope, $stateParams){
 						console.log($stateParams);
@@ -90,20 +90,8 @@ angular.module('health', [
 					}
 				})
 
-				.state('quote.priority', {
-					url: '/priority',
-					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
-						$scope.page = {
-							title: 'What are you looking for?',
-							type: 'priority',
-							next: 'show'
-						};
-					} 
-				})
-
 				.state('quote.age', {
-					url: '/age',
+					url: 'policy/:policy/state/:state',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -116,7 +104,7 @@ angular.module('health', [
 				})
 
 				.state('quote.income', {
-					url: '/age',
+					url: 'policy/:policy/state/:state/age/:age',
 					templateUrl: 'partials/quote/quote.income-select.html',
 					controller: function($scope){
 						 $scope.page = {
@@ -135,8 +123,20 @@ angular.module('health', [
 					}
 				})
 
+				.state('quote.priority', {
+					url: 'policy/:policy/state/:state/age/:age/income/:income',
+					templateUrl: 'partials/quote/quote.select.html',
+					controller: function($scope){
+						$scope.page = {
+							title: 'What are you looking for?',
+							type: 'priority',
+							next: 'show'
+						};
+					} 
+				})
+
 				.state('quote.show', {
-					url: '/show',
+					url: 'policy/:policy/state/:state/age/:age/income/:income/priority/:priority',
 					templateUrl: 'partials/quote/quote.show.html',
 					controller: 'QuoteController'
 				})

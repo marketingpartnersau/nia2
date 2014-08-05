@@ -34,12 +34,14 @@ angular.module('health.controllers.quote', [])
 		}
 	])
 
-	.controller('QuoteController', ['$scope', '$timeout',
-		function($scope, $timeout){
+	.controller('QuoteController', ['$scope', '$timeout', '$state', '$stateParams',
+		function($scope, $timeout, $state, $stateParams){
 			$scope.params = {
 				frequency: 'year',
 				inclusion: 'hospitals'
 			};
+
+			console.log($stateParams);
 
 			$scope.showText = {
 				hidden: false

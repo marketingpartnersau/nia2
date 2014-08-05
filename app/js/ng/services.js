@@ -128,10 +128,10 @@ angular.module('health.services', [])
 						{value: 'all', 		label: 'Just show me all products'}
 					],
 					age: [
-						{value: '18', 		label: 'Under 31'},
-						{value: '31', 		label: 'Between 31 and 38'},
-						{value: '38', 		label: 'Between 38 and 55'},
-						{value: '55', 		label: 'Older than 55'}
+						{value: '18-30', 		label: 'Under 31'},
+						{value: '31-37', 		label: 'Between 31 and 38'},
+						{value: '38-55', 		label: 'Between 38 and 55'},
+						{value: '55-100', 		label: 'Older than 55'}
 					],
 					income: {
 						single: [
