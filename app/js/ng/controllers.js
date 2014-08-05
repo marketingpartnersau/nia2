@@ -2,10 +2,10 @@
 
 angular.module('health.controllers', [])
 
-	.controller('MainController', ['$scope', '$rootScope',
-		function($scope){
+	.controller('MainController', ['$scope', '$rootScope', '$state',
+		function($scope, $rootScope, $state){
 
-			window.scope = $scope;
+			$rootScope.$state = $state;
 
 			$scope.uiStates = {
 				bottomDrawerOpen: false,
@@ -13,12 +13,22 @@ angular.module('health.controllers', [])
 			};
 
 			// WHY DID THIS STOP WORKING
-			$scope.$on('$stateChangeStart',
+			$rootScope.$on('$stateChangeStart',
 				function(event, toState){
 					if(toState.name === 'home'){
-						$scope.overflowY = {overflow: 'hidden'};} 
+						$scope.overflowY = {overflow: 'hidden'};
+					}
 					else {
-						$scope.overflowY = {overflow: 'scroll'};}
+						$scope.overflowY = {overflow: 'scroll'};
+
+						// remove all events 
+						// $.fn.fullpage.setAllowScrolling(false);
+						// $.fn.fullpage.setKeyboardScrolling(false);
+						// $(window).off('hashchange');
+						// $(document).off('click', '#fullPage-nav a');
+						// $('.section').off('click', '.toSlide');
+						// $(document).off('click', '.fullPage-slidesNav a');
+					}
 				}
 			);
 
@@ -33,7 +43,7 @@ angular.module('health.controllers', [])
 					templateUrl: 'partials/modals/support.html',
 					controller: 'SupportPopupController'
 				}).result.then(function(){
-
+					
 				});
 			};
 		}
@@ -94,57 +104,7 @@ angular.module('health.controllers', [])
 		}
 	])
 
-	.controller('QuoteFormController', ['$scope', '$modal', 'QuoteData', 'GeoCode', 'Products',
-		function($scope, $modal, QuoteData, GeoCode, Products){
-
-			$scope.options = QuoteData.options;
-			$scope.geocode = GeoCode;
-			$scope.formData = {
-				selections: {}
-			};
-
-			$scope.products = Products.products;
-
-			$scope.uiState = {
-				cardFlipped: false
-			};
-
-			window.formdata = $scope.formData;
-
-			$scope.getLocation = function(){
-				if(navigator.geolocation){
-					navigator.geolocation.getCurrentPosition($scope.savePosition);
-				}
-			};
-
-			$scope.savePosition = function(position){
-				$scope.formData.coords = position.coords;
-				$scope.formData.geoCode = GeoCode.reverse($scope.formData.coords.lat, $scope.formData.coords.lng);
-				console.log($scope.formData);
-			};
-
-			$scope.getQuote = function(){
-				// on submit
-			};
-		}
-	])
-
-	.controller('QuoteController', ['$scope', '$timeout',
-		function($scope, $timeout){
-			$scope.params = {
-				frequency: 'year',
-				inclusion: 'hospitals'
-			};
-
-			$scope.showText = {
-				hidden: false
-			};
-
-			$timeout(function(){
-				$scope.showText.hidden = true;
-			}, 5000);
-		}
-	])
+	
 
 	// THIS ONE IS SORTA REDUNDANT
 	.controller('SecondQuoteFormController', ['$scope', 'QuoteData',

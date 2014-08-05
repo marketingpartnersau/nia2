@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('health.joincontrollers', [])
+angular.module('health.controllers.join', [])
 	.controller('JoinController', ['$scope', '$modal',
 		function($scope, $modal){
 			$scope.signupData = {};
@@ -18,7 +18,6 @@ angular.module('health.joincontrollers', [])
 					controller: function($scope, Product){
 						// This will be a dynamicly 
 						// grabbed product to show
-						console.log(id, $scope, Product);
 					}
 				});
 			};
@@ -120,7 +119,8 @@ angular.module('health.joincontrollers', [])
 			$scope.page = {
 				title: 'Finally, your current health insurance card',
 				content: 'Be sure to take a photo of the side with your policy details on it! This helps us switch you faster.',
-				type: 'current-insurance'
+				type: 'current-insurance',
+				skippable: true
 			};
 
 			$scope.after = function(){

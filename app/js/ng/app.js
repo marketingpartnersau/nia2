@@ -9,7 +9,8 @@ angular.module('health', [
 		'health.directives',
 		'health.services',
 		'health.controllers',
-		'health.joincontrollers',
+		'health.controllers.join',
+		'health.controllers.quote',
 	])
 
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -64,7 +65,7 @@ angular.module('health', [
 				})
 
 				.state('quote.policy', {
-					url: '/policy',
+					url: '/',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -77,9 +78,10 @@ angular.module('health', [
 				})
 
 				.state('quote.location', {
-					url: '/location',
+					url: 'policy/:policy',
 					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
+					controller: function($scope, $stateParams){
+						console.log($stateParams);
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
@@ -88,20 +90,8 @@ angular.module('health', [
 					}
 				})
 
-				.state('quote.priority', {
-					url: '/priority',
-					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
-						$scope.page = {
-							title: 'What are you looking for?',
-							type: 'priority',
-							next: 'show'
-						};
-					} 
-				})
-
 				.state('quote.age', {
-					url: '/age',
+					url: 'policy/:policy/state/:state',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -114,7 +104,7 @@ angular.module('health', [
 				})
 
 				.state('quote.income', {
-					url: '/age',
+					url: 'policy/:policy/state/:state/age/:age',
 					templateUrl: 'partials/quote/quote.income-select.html',
 					controller: function($scope){
 						 $scope.page = {
@@ -133,8 +123,20 @@ angular.module('health', [
 					}
 				})
 
+				.state('quote.priority', {
+					url: 'policy/:policy/state/:state/age/:age/income/:income',
+					templateUrl: 'partials/quote/quote.select.html',
+					controller: function($scope){
+						$scope.page = {
+							title: 'What are you looking for?',
+							type: 'priority',
+							next: 'show'
+						};
+					} 
+				})
+
 				.state('quote.show', {
-					url: '/show',
+					url: 'policy/:policy/state/:state/age/:age/income/:income/priority/:priority',
 					templateUrl: 'partials/quote/quote.show.html',
 					controller: 'QuoteController'
 				})
@@ -189,6 +191,11 @@ angular.module('health', [
 				.state('why-us', {
 					url: '/why-us',
 					templateUrl: 'partials/pages/why-us.html',
+				})
+
+				.state('about', {
+					url: '/about',
+					template: '<h2>About health.com.au</h2>'
 				})
 
 				.state('customers', {
