@@ -54,10 +54,10 @@ angular.module('health', [
 					controller: 'QuoteFormController'
 				})
 
-				.state('quote.type', {
-					url: '/get',
-					templateUrl: 'partials/quote/quote.type.html'
-				})
+				// .state('quote.type', {
+				// 	url: '/get',
+				// 	templateUrl: 'partials/quote/quote.type.html'
+				// })
 
 				.state('quote.return', {
 					url: '/return',
@@ -67,7 +67,7 @@ angular.module('health', [
 				.state('quote.policy', {
 					url: '/',
 					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
+					controller: function($scope, $stateParams){
 						$scope.page = {
 							title: 'What best describes you?',
 							type: 'policy',
@@ -78,10 +78,9 @@ angular.module('health', [
 				})
 
 				.state('quote.location', {
-					url: 'policy/:policy',
+					url: '/:policy',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope, $stateParams){
-						console.log($stateParams);
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
@@ -91,7 +90,7 @@ angular.module('health', [
 				})
 
 				.state('quote.age', {
-					url: 'policy/:policy/state/:state',
+					url: '/:policy/:state',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -104,7 +103,7 @@ angular.module('health', [
 				})
 
 				.state('quote.income', {
-					url: 'policy/:policy/state/:state/age/:age',
+					url: '/:policy/:state/:age',
 					templateUrl: 'partials/quote/quote.income-select.html',
 					controller: function($scope){
 						 $scope.page = {
@@ -124,7 +123,7 @@ angular.module('health', [
 				})
 
 				.state('quote.priority', {
-					url: 'policy/:policy/state/:state/age/:age/income/:income',
+					url: '/:policy/:state/:age/:income',
 					templateUrl: 'partials/quote/quote.select.html',
 					controller: function($scope){
 						$scope.page = {
@@ -136,7 +135,7 @@ angular.module('health', [
 				})
 
 				.state('quote.show', {
-					url: 'policy/:policy/state/:state/age/:age/income/:income/priority/:priority',
+					url: '/:policy/:state/:age/:income/:priority',
 					templateUrl: 'partials/quote/quote.show.html',
 					controller: 'QuoteController'
 				})

@@ -16,6 +16,19 @@ angular.module('health.controllers.quote', [])
 
 			window.formdata = $scope.formData;
 
+			$scope.addFormData = function(params){
+				_.each(params, function(val, key, list){
+					if( !$scope.formData.selections.hasOwnProperty(key) ){
+						$scope.formData.selections[key] = val;
+					}
+				});
+			};
+
+			$scope.$on('$stateChangeSuccess', 
+			function(event, toState, toParams){
+					$scope.addFormData(toParams);
+			})
+
 			$scope.getLocation = function(){
 				if(navigator.geolocation){
 					navigator.geolocation.getCurrentPosition($scope.savePosition);
