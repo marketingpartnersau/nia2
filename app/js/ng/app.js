@@ -29,34 +29,11 @@ angular.module('health', [
 					// the issue here could also be reloading
 					// the home page when returning to home
 				})
-
-				// .state('testimonials', {
-				// 	url: '/testimonials',
-				// 	onEnter: function($state, $modal){
-				// 		var modalInstance = $modal.open({
-				// 			templateUrl: 'partials/modals/testimonials.html',
-				// 			resolve: {
-				// 				testimonials: 'Testimonials'
-				// 			},
-				// 			controller: ['$scope', '$modalInstance', 'Testimonials',
-				// 			function($scope, $modalInstance, Testimonials){
-				// 				$scope.testimonials = Testimonials.testimonials;
-				// 			}]
-				// 		}).result.then(function(result){
-				// 			$state.transitionTo(result);
-				// 		});
-				// 	}
-				// })
 				
 				.state('quote', {
 					url: '/quote',
 					templateUrl: 'partials/pages/quote.html',
 					controller: 'QuoteFormController'
-				})
-
-				.state('quote.type', {
-					url: '/get',
-					templateUrl: 'partials/quote/quote.type.html'
 				})
 
 				.state('quote.return', {
@@ -71,49 +48,48 @@ angular.module('health', [
 						$scope.page = {
 							title: 'What best describes you?',
 							type: 'policy',
-							next: 'location',
+							next: 'quote.location',
 							return: true
 						};
 					}
 				})
 
 				.state('quote.location', {
-					url: 'policy/:policy',
-					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope, $stateParams){
-						console.log($stateParams);
+					url: '/:policy',
+					templateUrl: '/partials/quote/quote.select.html',
+					controller: function($scope, $state, $stateParams){
 						$scope.page = {
 							title: 'What are you from?',
 							type: 'state',
-							next: 'age'
+							next: 'quote.age'
 						};
 					}
 				})
 
 				.state('quote.age', {
-					url: 'policy/:policy/state/:state',
-					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
+					url: '/:policy/:state',
+					templateUrl: '/partials/quote/quote.select.html',
+					controller: function($scope, $state, $stateParams){
 						$scope.page = {
 							title: 'How old are you?',
 							content: 'If a couple, please pick the oldest out of you. Sorry to be rude - it helps us recommend you better.',
 							type: 'age',
-							next: 'income'
+							next: 'quote.income'
 						};
 					}
 				})
 
 				.state('quote.income', {
-					url: 'policy/:policy/state/:state/age/:age',
-					templateUrl: 'partials/quote/quote.income-select.html',
-					controller: function($scope){
-						 $scope.page = {
+					url: '/:policy/:state/:age',
+					templateUrl: '/partials/quote/quote.income-select.html',
+					controller: function($scope, $state, $stateParams){
+						$scope.page = {
 							title: 'How much do you earn?',
 							content: 'We use this to give you an accurate rebate.',
 							type: 'income',
-							next: 'priority',
+							next: 'quote.priority',
 							policy: function(){
-								if($scope.formData.policy === 'Sgl'){
+								if($stateParams.policy === 'Sgl'){
 									return 'single';
 								} else {
 									return 'house';
@@ -124,28 +100,60 @@ angular.module('health', [
 				})
 
 				.state('quote.priority', {
-					url: 'policy/:policy/state/:state/age/:age/income/:income',
-					templateUrl: 'partials/quote/quote.select.html',
-					controller: function($scope){
+					url: '/:policy/:state/:age/:income',
+					templateUrl: '/partials/quote/quote.select.html',
+					controller: function($scope, $state, $stateParams){
 						$scope.page = {
 							title: 'What are you looking for?',
 							type: 'priority',
-							next: 'show'
+							next: 'quote.show'
 						};
-					} 
+					}
 				})
 
 				.state('quote.show', {
-					url: 'policy/:policy/state/:state/age/:age/income/:income/priority/:priority',
-					templateUrl: 'partials/quote/quote.show.html',
+					url: '/:policy/:state/:age/:income/:priority/:i',
+					templateUrl: '/partials/quote/quote.show.html',
 					controller: 'QuoteController'
 				})
 
-				// .state('products' {
+				.state('find', {
+					url: '/find',
+					templateUrl: 'partials/pages/find.html',
+					controller: 'FindController'
+				})
 
-				// })
+				.state('find.age', {
+					url: '',
+					templateUrl: 'partials/find/find.age.html',
+					controller: function($scope){
 
-				// .state('products.show/:product_id')
+					}
+				})
+
+				.state('find.priority', {
+					url: '/:age',
+					templateUrl: 'partials/find/find.priority.html',
+					controller: function($scope){
+
+					}
+				})
+
+				.state('find.hospital', {
+					url: '/:age/:priority',
+					templateUrl: 'partials/find/find.hospital.html',
+					controller: function($scope){
+
+					}
+				})
+
+				.state('find.extras', {
+					url: '/:age/:priority',
+					templateUrl: 'partials/find/find.extras.html',
+					controller: function($scope){
+
+					}
+				})
 				
 				.state('quote2', {
 					// Other quote template.

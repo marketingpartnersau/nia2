@@ -1,6 +1,6 @@
 angular.module('health.controllers.quote', [])
-	.controller('QuoteFormController', ['$scope', '$modal', 'QuoteData', 'GeoCode', 'Products',
-		function($scope, $modal, QuoteData, GeoCode, Products){
+	.controller('QuoteFormController', ['$scope', '$modal', '$state', '$stateParams', 'QuoteData', 'GeoCode',
+		function($scope, $modal, $state, $stateParams, QuoteData, GeoCode){
 
 			$scope.options = QuoteData.options;
 			$scope.geocode = GeoCode;
@@ -8,13 +8,21 @@ angular.module('health.controllers.quote', [])
 				selections: {}
 			};
 
-			$scope.products = Products.products;
-
 			$scope.uiState = {
 				cardFlipped: false
 			};
 
-			window.formdata = $scope.formData;
+
+			$scope.$on('$stateChangeStart', 
+			function(event, toState, toParams, fromState, fromParams){
+				_.each(fromParams, function(val, key){
+					toParams[key] = val;
+				});
+
+				_.each(toParams, function(val, key){
+					$scope.formData.selections[key] = val;
+				});
+			});
 
 			$scope.getLocation = function(){
 				if(navigator.geolocation){
@@ -34,8 +42,13 @@ angular.module('health.controllers.quote', [])
 		}
 	])
 
-	.controller('QuoteController', ['$scope', '$timeout', '$state', '$stateParams',
-		function($scope, $timeout, $state, $stateParams){
+
+	.controller('QuoteController', ['$scope', '$timeout', '$state', '$stateParams', 'Products',
+		function($scope, $timeout, $state, $stateParams, Products){
+
+			$scope.products = Products.products;
+			$scope.formData.selections = $stateParams;
+
 			$scope.params = {
 				frequency: 'year',
 				inclusion: 'hospitals'

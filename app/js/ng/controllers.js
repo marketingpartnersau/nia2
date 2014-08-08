@@ -104,6 +104,11 @@ angular.module('health.controllers', [])
 		}
 	])
 
+	.controller('FindController', ['$scope', 
+	function($scope){
+		
+	}])
+
 	
 
 	// THIS ONE IS SORTA REDUNDANT
