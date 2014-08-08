@@ -4,13 +4,10 @@
 
 	<label 
 		ng-repeat="option in options[page.type][page.policy()]" 
-		for="{{ page.type }}-{{ option.value | lowercase }}" 
-		ui-sref="quote.{{page.next}}" 
-		ng-click="formData.selections[page.type] = option.value" 
-		ng-class="{ 'selected' : formData[page.type] === option.value }">
-
+		for="{{ page.type }}-{{ option.value | lowercase }}"
+		ui-sref="{{ page.next }}({ {{ page.type }} : option.value })"
+		ng-class="{ 'selected' : formData.selections[page.type] === option.value }">
 		{{ option.label }}
-
 		<input 
 			type="radio" 
 			ng-model="formData.selections[page.type]" 
@@ -18,4 +15,5 @@
 			id="{{page.type}}-{{ option.value | lowercase }}" 
 			name="{{ page.type }}-{{ option.value | lowercase }}">
 	</label>
+
 </div>

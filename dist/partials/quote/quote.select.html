@@ -7,10 +7,8 @@
 	<label 
 		ng-repeat="option in options[page.type]" 
 		for="{{ page.type }}-{{ option.value | lowercase }}" 
-		ui-sref="quote.{{page.next}}" 
-		ng-click="formData.selections[page.type] = option.value" 
+		ui-sref="{{ page.next }}({ {{ page.type }} : option.value })"
 		ng-class="{ 'selected' : formData.selections[page.type] === option.value }">
-
 		{{ option.label }}
 
 		<input 
@@ -20,4 +18,5 @@
 			id="{{page.type}}-{{ option.value | lowercase }}" 
 			name="{{ page.type }}-{{ option.value | lowercase }}">
 	</label>
+
 </div>
