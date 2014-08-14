@@ -52,7 +52,7 @@ angular.module('health.services', [])
 					{name: 'Claim', slug: 'claim', icon: 'fa-user', state: 'customers'}
 				],
 				moreMenuItems: [
-					{name: 'Customer Area', description: 'Everything you need', state: 'customers'},
+					{name: 'Find your policy', description: 'Answer a few questions, get the perfect quote', state: 'find.age'},
 					{name: 'Blog', description: 'Read our stuff', state: 'blog'},
 					{name: 'About health.com.au', description: 'The story behind us', state: 'about'},
 					{name: 'Join now', description: 'Just for preview', state: 'join.start'}
@@ -63,41 +63,6 @@ angular.module('health.services', [])
 
 	.factory('BlogData', [
 		function(){}
-	])
-
-	.service('QuoteData2', [
-		function(){
-			//Anything here?
-
-			return {
-				options: {
-					demographics: [
-						{ value: 'Sgl',		age: '31', label: 'Single, Under 31' },
-						{ value: 'Fam',		age: '38', label: 'Middle aged Family' },
-						{ value: 'Cpl',		age: '31', label: 'Young couple on the loose' },
-						{ value: 'SPFam',	age: '31', label: 'Young Single Parent' },
-					],
-					states: [
-						{ value: 'NSW',		label: 'New South Wales' },
-						{ value: 'VIC', 	label: 'Victoria' },
-						{ value: 'QLD', 	label: 'Queensland' },
-						{ value: 'TAS', 	label: 'Tasmania' },
-						{ value: 'ACT', 	label: 'Australian Capital Territory' },
-						{ value: 'NT',  	label: 'Northern Territory' },
-						{ value: 'SA',  	label: 'South Australia' },
-						{ value: 'WA',  	label: 'Western Australia' }
-					],
-					priorities: [
-						{value: 'cheap', 	label: 'The cheapest insurance'},
-						{value: 'tax', 		label: 'To save on tax'},
-						{value: 'family', 	label: 'To have more kids'},
-						{value: 'coverage', label: 'The best insurance'},
-						{value: 'all', 		label: 'Just show me all products'}
-					],
-				},
-				input: {}
-			};
-		}
 	])
 
 	.service('QuoteData', [
@@ -161,9 +126,70 @@ angular.module('health.services', [])
 						title: 'What are you after?',
 						type: 'priority'
 					}
-				},
-				formData: {}
+				}
 			};
+		}
+	])
+
+	.service('FindData', [
+		function(){
+			return {
+				options: {
+					age: [
+						{value: '18-30', 		label: 'Under 31'},
+						{value: '31-37', 		label: 'Between 31 and 38'},
+						{value: '38-55', 		label: 'Between 38 and 55'},
+						{value: '55-100', 		label: 'Older than 55'}
+					],
+					priority: [
+						{value: 'cheap', 		label: 'The cheapest insurance'},
+						{value: 'tax', 			label: 'To save on tax'},
+						{value: 'family', 		label: 'To have more kids'},
+						{value: 'coverage', 	label: 'The best insurance'},
+						{value: 'all', 			label: 'Just show me all products'}
+					],
+					hospital: [
+						{value: 'high', 		label: 'High hospital coverage', 			desc: 'For example, Prengancy Treatment, IVF, Prostheses'},
+						{value: 'middle',		label: 'Heart and lung related coverage',  	desc: 'For example, Cardiothoracic therapy, Spinal fusions, etc'},
+						{value: 'basic', 		label: 'Just the basics', 					desc: 'For example, Tonsils, Appendix, Adenoids, accidents'}
+					],
+					extras: [
+						{value: 'high', 		label: 'The works', 						desc: 'You need all extras available'},
+						{value: 'middle', 	label: 'Most of the extras', 				desc: 'Higher cost things like Speech Therapy, Psychology and Occupational Therapy'},
+						{value: 'basic', 		label: 'Just the basics', 					desc: 'You only need things like massage, natural therapy and gym memberships'},
+					],
+					policy: [
+						{ value: 'Sgl',   	label: 'Single' },
+						{ value: 'Cpl',   	label: 'Couple' },
+						{ value: 'Fam',   	label: 'Family' },
+						{ value: 'SPFam', 	label: 'Single Parent' }
+					],
+					state: [
+						{ value: 'NSW',			label: 'New South Wales' },
+						{ value: 'VIC', 		label: 'Victoria' },
+						{ value: 'QLD', 		label: 'Queensland' },
+						{ value: 'TAS', 		label: 'Tasmania' },
+						{ value: 'ACT', 		label: 'Australian Capital Territory' },
+						{ value: 'NT',  		label: 'Northern Territory' },
+						{ value: 'SA',  		label: 'South Australia' },
+						{ value: 'WA',  		label: 'Western Australia' }
+					],
+					income: {
+						single: [
+							{value: 'tier1', 	label: 'Less than $90k'},
+							{value: 'tier2', 	label: 'Between $90k and $102k'},
+							{value: 'tier3', 	label: 'Between $102k and $136k'},
+							{value: 'tier4', 	label: 'More than $136k'}
+						],
+						house: [
+							{value: 'tier1', 	label: 'Less than $180k'},
+							{value: 'tier2', 	label: 'Between $180k and $204k'},
+							{value: 'tier3', 	label: 'Between $204k and $272k'},
+							{value: 'tier4', 	label: 'More than $272k'}
+						]
+					}
+				}
+			}
 		}
 	])
 
@@ -176,14 +202,14 @@ angular.module('health.services', [])
 						name: 'Basic Hospital with Middle Extras',
 						description: 'If children aren’t an issue any more, then Vitality 65 offers peace of mind with a wide range of hospital and extras benefits.',
 						hospitals: [
-							{ name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Appendix', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Appendix', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
 							{ name: 'Psychiatric Services', slug: 'cardio', coverage: 'restricted' },
 							{ name: 'Pregnancy Related Services', slug: 'cardio', coverage: 'none' },
 							{ name: 'Joint replacement, including spine, with prostheses', slug: 'cardio', coverage: 'none' },
@@ -302,14 +328,14 @@ angular.module('health.services', [])
 						name: 'High Hospital with Middle Extras',
 						description: 'Total coverage for total piece of mind. If you\'re rich, this is for you.',
 						hospitals: [
-							{ name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Appendix', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
-							{ name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Cardiothoracic Services', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Treatment for accidents', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Appendix', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Tonsils', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Shoulder Reconstruction', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Knee Reconstruction', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Adenoids', slug: 'cardio', coverage: 'covered' },
+							// { name: 'Palliative Care', slug: 'cardio', coverage: 'covered' },
 							{ name: 'Psychiatric Services', slug: 'cardio', coverage: 'restricted' },
 							{ name: 'Pregnancy Related Services', slug: 'cardio', coverage: 'none' },
 							{ name: 'Joint replacement, including spine, with prostheses', slug: 'cardio', coverage: 'none' },
@@ -340,7 +366,7 @@ angular.module('health.services', [])
 						options: {
 							extra_back: ['65%', '75%', '85%'],
 							excess: ['$0', '$250', '$500'],
-							frequency: ['weekly', 'monthly', 'yearly']
+							frequency: ['week', 'month', 'year']
 						},
 						prices: {
 							65: {

@@ -5338,26 +5338,8 @@ th.hide-for-touch {
   .product header h3 {
     margin-top: 0;
     padding-top: 0;
-    font-size: 1.4em; }
-  .product .button-group {
-    font-size: 0.6em;
-    text-transform: uppercase;
-    font-weight: bold; }
-    .product .button-group a {
-      background: #eee;
-      display: inline-block;
-      padding: 0 0.4375rem;
-      height: 1.625rem;
-      line-height: 1.5rem;
-      border: 1px solid #ddd;
-      width: 33%;
-      text-align: center;
-      border-right: none;
-      transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-      .product .button-group a:last-child {
-        border-right: 1px solid #ddd; }
-      .product .button-group a.active {
-        background-color: #ddd; }
+    font-size: 1.4em;
+    line-height: 1.2em; }
   .product .options {
     margin-bottom: 1em; }
   .product .price hr {
@@ -5366,7 +5348,14 @@ th.hide-for-touch {
     height: 1px;
     border-color: #404040; }
   .product .price .dollars {
-    line-height: 1.625rem; }
+    line-height: 1em;
+    margin-top: -6px; }
+  .product .price-action p {
+    margin-top: 5px;
+    margin-right: 2px;
+    margin-bottom: 0; }
+  .product .price-action .small.button {
+    margin-bottom: 0; }
   .product .description hr {
     margin-top: 1em;
     height: 1px;
@@ -5377,7 +5366,6 @@ th.hide-for-touch {
     font-size: 0.8em;
     line-height: 1.2; }
   .product .inclusions {
-    margin-top: 1.2em;
     position: relative;
     overflow: hidden; }
     .product .inclusions ul.tabs {
@@ -5430,7 +5418,7 @@ th.hide-for-touch {
           .product .inclusions .extras ul li i, .product .inclusions .hospitals ul li i {
             position: absolute;
             left: -0.4375rem;
-            top: 0.5rem; }
+            top: 0.25rem; }
           .product .inclusions .extras ul li.inclusive, .product .inclusions .hospitals ul li.inclusive {
             border-left: 1px solid #202020;
             color: #777;
@@ -5447,7 +5435,7 @@ th.hide-for-touch {
     overflow: hidden; }
     .product .actions .actions-mask {
       width: 200%; }
-      .product .actions .actions-mask.show-save-form > div {
+      .product .actions .actions-mask.show-save-form > div.save-quote-button, .product .actions .actions-mask.show-save-form > div.form {
         -webkit-transform: translate3d(-100%, 0, 0);
         transform: translate3d(-100%, 0, 0); }
       .product .actions .actions-mask > div {
@@ -5455,6 +5443,8 @@ th.hide-for-touch {
         float: left;
         -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .product .actions .actions-mask hr {
+        margin: 0; }
       .product .actions .actions-mask .form > input, .product .actions .actions-mask .form > a {
         display: inline-block;
         float: left;
@@ -5470,14 +5460,45 @@ th.hide-for-touch {
         width: 15%;
         padding: 0;
         line-height: 2.625rem; }
+      .product .actions .actions-mask .buy-now-button a {
+        display: block;
+        text-align: center;
+        line-height: 2.625rem;
+        border-top: 1px solid #ddd; }
+      .product .actions .actions-mask .buttons a:first-child {
+        border-right: 1px solid #ddd; }
       .product .actions .actions-mask .buttons a {
         width: 50%;
         float: left;
         line-height: 2.625rem;
         display: inline-block;
-        text-align: center; }
+        text-align: center;
+        font-size: 0.9em; }
         .product .actions .actions-mask .buttons a:hover {
           background-color: #ddd; }
+
+.customise .price {
+  color: #fff; }
+
+.button-group {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  font-weight: bold; }
+  .button-group a {
+    background: #eee;
+    display: inline-block;
+    padding: 0 0.4375rem;
+    height: 1.625rem;
+    line-height: 1.5rem;
+    border: 1px solid #ddd;
+    width: 33%;
+    text-align: center;
+    border-right: none;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .button-group a:last-child {
+      border-right: 1px solid #ddd; }
+    .button-group a.active {
+      background-color: #ddd; }
 
 #quote-form {
   position: relative; }
@@ -5552,6 +5573,34 @@ th.hide-for-touch {
       transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     #quote-form [ui-view] .carousel-container {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+#find-views .columns.select label {
+  color: blue;
+  border-bottom: 1px solid #eee;
+  padding: 10px 5px; }
+  #find-views .columns.select label input {
+    position: absolute;
+    opacity: 0; }
+#find-views .pick label strong {
+  background-color: #eee;
+  display: block;
+  padding: 2px 5px;
+  color: blue; }
+#find-views .pick label p {
+  padding: 5px;
+  border: 1px solid #eee;
+  color: #666;
+  font-size: 1em; }
+#find-views .pick label input {
+  position: absolute;
+  opacity: 0; }
+#find-views .show .above-recs {
+  font-style: italic;
+  padding-top: 1em;
+  line-height: 1.2em; }
+#find-views .show .carousel-container {
+  width: 18.75rem;
+  margin: 0.625rem; }
 
 #fullpage .section {
   -webkit-box-sizing: border-box;
@@ -6364,3 +6413,6 @@ perspective effects (not including the modals and the overlay).
 
 .md-close.md-visible {
   opacity: 1; }
+
+.small.button {
+  padding: 5px 10px; }

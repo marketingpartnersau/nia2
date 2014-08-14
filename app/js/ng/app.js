@@ -123,43 +123,119 @@ angular.module('health', [
 				controller: 'FindController'
 			})
 
-			.state('find.age', {
-				url: '',
-				templateUrl: 'partials/find/find.age.html',
+			.state('find.priority', {
+				url: '/',
+				templateUrl: 'partials/find/find.select.html',
 				controller: function($scope){
-
+					$scope.selectOptions = $scope.options.priority;
+					$scope.page = {
+						type: 'priority',
+						next: 'find.age',
+						title: 'What\'s your priority?'
+					}
 				}
 			})
 
-			.state('find.priority', {
-				url: '/:age',
-				templateUrl: 'partials/find/find.priority.html',
+			.state('find.age', {
+				url: '/:priority',
+				templateUrl: 'partials/find/find.select.html',
 				controller: function($scope){
-
+					$scope.selectOptions = $scope.options.age;
+					$scope.page = {
+						type: 'age',
+						next: 'find.hospital',
+						title: 'How old are you?'
+					}
 				}
 			})
 
 			.state('find.hospital', {
-				url: '/:age/:priority',
-				templateUrl: 'partials/find/find.hospital.html',
+				url: '/:priority/:age',
+				templateUrl: '/partials/find/find.pick.html',
 				controller: function($scope){
-
+					$scope.selectOptions = $scope.options.hospital;
+					$scope.page = {
+						type: 'hospital',
+						next: 'find.extras',
+						title: 'What sort of hospital cover do you need?'
+					}
 				}
 			})
 
 			.state('find.extras', {
-				url: '/:age/:priority',
-				templateUrl: 'partials/find/find.extras.html',
+				url: '/:priority/:age/:hospital',
+				templateUrl: '/partials/find/find.pick.html',
 				controller: function($scope){
-
+					$scope.selectOptions = $scope.options.extras;
+					$scope.page = {
+						type: 'extras',
+						next: 'find.show',
+						title: 'What sort of extras do you need?'
+					}
 				}
 			})
-			
-			.state('quote2', {
-				// Other quote template.
-				url: '/quote2',
-				templateUrl: 'partials/pages/quote.html',
-				controller: 'QuoteFormController'
+
+			.state('find.show', {
+				url: '/:priority/:age/:hospital/:extras/:policy/:state/:income',
+				templateUrl: '/partials/find/find.show.html',
+				controller: 'FindShowController'
+			})
+
+			// .state('find.policy', {
+			// 	url: '/:priority/:age/:hospital/:extras',
+			// 	templateUrl: '/partials/find/find.select.html',
+			// 	controller: function($scope){
+			// 		$scope.selectOptions = $scope.options.policy;
+			// 		$scope.page = {
+			// 			type: 'policy',
+			// 			next: 'find.state',
+			// 			title: 'What best describes you?'
+			// 		}
+			// 	}
+			// })
+
+			// .state('find.state', {
+			// 	url: '/:priority/:age/:hospital/:extras/:policy',
+			// 	templateUrl: '/partials/find/find.select.html',
+			// 	controller: function($scope){
+			// 		$scope.selectOptions = $scope.options.state;
+			// 		$scope.page = {
+			// 			type: 'state',
+			// 			next: 'find.income',
+			// 			title: 'Where are you from?'
+			// 		}
+			// 	}
+			// })
+
+			// .state('find.income', {
+			// 	url: '/:priority/:age/:hospital/:extras/:policy/:state',
+			// 	templateUrl: '/partials/find/find.select.html',
+			// 	controller: function($scope){
+			// 		$scope.policy = function(){
+			// 			if($scope.formData.selections.policy === 'Sgl'){
+			// 				return 'single';
+			// 			} else {
+			// 				return 'house';
+			// 			}
+			// 		};
+
+			// 		$scope.selectOptions = $scope.options.income[$scope.policy()];
+			// 		console.log($scope.policy());
+
+			// 		$scope.page = {
+			// 			type: 'income',
+			// 			next: 'find.accurate',
+			// 			title: 'How much do you earn?'
+			// 		}
+			// 	}
+			// })
+
+			.state('find.accurate', {
+				url: '/:priority/:age/:hospital/:extras/:policy/:state/:income',
+				templateUrl: '/partials/find/find.select.html',
+				controller: function($scope){
+					
+				}
 			})
 
 			.state('join', {
@@ -169,7 +245,7 @@ angular.module('health', [
 			})
 
 			.state('join.start', {
-				url: '/start',
+				url: '/',
 				templateUrl: 'partials/join/join.start.html'
 			})
 

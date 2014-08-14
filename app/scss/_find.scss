@@ -1,0 +1,49 @@
+#find-views{
+	.columns.select{
+		label{
+			color: blue;
+			border-bottom: 1px solid #eee;
+			padding: 10px 5px;
+
+			input{
+				position: absolute;
+				opacity: 0;
+			}
+		}
+	}
+	.pick{
+		label{
+			strong{
+				background-color: #eee;
+				display: block;
+				padding: 2px 5px;
+				color: blue;
+			}
+
+			p{
+				padding: 5px;
+				border: 1px solid #eee;
+				color: #666;
+				font-size: 1em;
+			}
+
+			input{
+				position: absolute;
+				opacity: 0;
+			}
+		}
+	}
+
+	.show{
+		.above-recs{
+			font-style: italic;
+			padding-top: 1em;
+			line-height: 1.2em;
+		}
+
+		.carousel-container{
+			width: rem-calc(300px);
+			margin: rem-calc(10px);
+		}
+	}
+}

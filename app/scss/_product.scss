@@ -13,33 +13,7 @@
 			margin-top: 0;
 			padding-top: 0;
 			font-size: 1.4em;
-		}
-	}
-
-	.button-group{
-		font-size: .6em;
-		text-transform: uppercase;
-		font-weight: bold;
-
-		a{
-			background: #eee;
-			display: inline-block;
-			padding: rem-calc(0) rem-calc(7px);
-			height: rem-calc(26px);
-			line-height: rem-calc(24px);
-			border: 1px solid #ddd;
-			width: 33%;
-			text-align: center;
-			border-right: none;
-			transition: background-color .3s $cubic-bezier;
-
-			&:last-child{
-				border-right: 1px solid #ddd;
-			}
-
-			&.active{
-				background-color: #ddd;
-			}
+			line-height: 1.2em;
 		}
 	}
 
@@ -56,7 +30,18 @@
 		}
 
 		.dollars{
-			line-height: rem-calc(26px);
+			line-height: 1em;
+			margin-top: -6px;
+		}
+	}
+
+	.price-action{
+		p{
+			margin-top: 5px; margin-right: 2px;
+			margin-bottom: 0;
+		}
+		.small.button{
+			margin-bottom: 0;
 		}
 	}
 
@@ -76,7 +61,6 @@
 	}
 
 	.inclusions{
-		margin-top: 1.2em;
 		position: relative;
 		overflow: hidden;
 
@@ -156,7 +140,7 @@
 					i{
 						position: absolute;
 						left: rem-calc(-7px);
-						top: rem-calc(8px);
+						top: rem-calc(4px);
 					}
 
 					&.inclusive{
@@ -186,7 +170,8 @@
 			width: 200%;
 
 			&.show-save-form{
-				> div{
+				> div.save-quote-button,
+				> div.form{
 					-webkit-transform: translate3d(-100%, 0, 0);
 							transform: translate3d(-100%, 0, 0);
 						}
@@ -197,6 +182,10 @@
 				float: left;
 				-webkit-transition: all .5s $cubic-bezier;
 						transition: all .5s $cubic-bezier;
+			}
+
+			hr{
+				margin: 0;
 			}
 
 			.form{
@@ -226,19 +215,63 @@
 				}
 			}
 
+			.buy-now-button a{
+				display: block;
+				text-align: center;
+				line-height: rem-calc(42px);
+				border-top: 1px solid #ddd;
+			}
+
 			.buttons{
+				a:first-child{
+					border-right: 1px solid #ddd;
+				}
 				a{
 					width: 50%;
 					float: left;
 					line-height: rem-calc(42px);
 					display: inline-block;
 					text-align: center;
+					font-size: .9em;
 
 					&:hover{
 						background-color: #ddd;
 					}
 				}
 			}
+		}
+	}
+}
+
+.customise{
+	.price{
+		color: #fff;
+	}
+}
+
+.button-group{
+	font-size: .6em;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	a{
+		background: #eee;
+		display: inline-block;
+		padding: rem-calc(0) rem-calc(7px);
+		height: rem-calc(26px);
+		line-height: rem-calc(24px);
+		border: 1px solid #ddd;
+		width: 33%;
+		text-align: center;
+		border-right: none;
+		transition: background-color .3s $cubic-bezier;
+
+		&:last-child{
+			border-right: 1px solid #ddd;
+		}
+
+		&.active{
+			background-color: #ddd;
 		}
 	}
 }

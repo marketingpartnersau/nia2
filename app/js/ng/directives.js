@@ -168,8 +168,8 @@ angular.module('health.directives', [])
 		}
 	])
 
-	.directive('product', ['$timeout',
-		function($timeout){
+	.directive('product', ['$modal',
+		function($modal){
 			return {
 				restrict: 'E',
 				replace: true,
@@ -182,12 +182,28 @@ angular.module('health.directives', [])
 					scope.productMeta = {
 						extra_back: '65%',
 						excess: '$250',
-						price: 1123.44
+						price: 18.00
 					};
 
 					scope.actions = {
 						showSaveForm: false,
 						customiseProduct: false
+					};
+
+					scope.customiseProduct = function(product, meta){
+						$modal.open({
+							templateUrl: '/partials/interface/product-customise.html',
+							resolve: {
+								product: function(){return product;},
+								meta: function(){return meta;}
+							},
+							controller: function($scope, product, meta){
+								$scope.product = product;
+								$scope.meta = meta;
+							}
+						}).result.then(function(result){
+
+						});
 					};
 				}
 			};
