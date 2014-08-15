@@ -26,13 +26,11 @@
 			<p>{{product.description}}</p>
 			<a class="small button">BUY NOW</a>
 		</div>
-		<hr>
-		<h4 class="small-12 columns">Policy coverage</h4>
 	</div>
 	<div class="row inclusions">
 		<ul class="tabs inline-list">
-			<li ng-click="params.inclusion = 'hospitals'" ng-class="{ active : params.inclusion == 'hospitals' }">Hospitals</li>
-			<li ng-click="params.inclusion = 'extras'" ng-class="{ active : params.inclusion == 'extras' }">Extras</li>
+			<li ng-click="params.inclusion = 'hospitals'" ng-class="{ active : params.inclusion == 'hospitals' }">Hospital cover</li>
+			<li ng-click="params.inclusion = 'extras'" ng-class="{ active : params.inclusion == 'extras' }">Extras benefits</li>
 		</ul>
 		<div class="tab-container {{ params.inclusion }}-active">
 			<div class="hospitals">

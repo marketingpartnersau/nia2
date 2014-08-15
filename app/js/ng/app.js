@@ -11,6 +11,7 @@ angular.module('health', [
 		'health.controllers',
 		'health.controllers.join',
 		'health.controllers.quote',
+		'health.controllers.find',
 	])
 
 	.config(['$stateProvider', '$urlRouterProvider',
@@ -179,63 +180,6 @@ angular.module('health', [
 				url: '/:priority/:age/:hospital/:extras/:policy/:state/:income',
 				templateUrl: '/partials/find/find.show.html',
 				controller: 'FindShowController'
-			})
-
-			// .state('find.policy', {
-			// 	url: '/:priority/:age/:hospital/:extras',
-			// 	templateUrl: '/partials/find/find.select.html',
-			// 	controller: function($scope){
-			// 		$scope.selectOptions = $scope.options.policy;
-			// 		$scope.page = {
-			// 			type: 'policy',
-			// 			next: 'find.state',
-			// 			title: 'What best describes you?'
-			// 		}
-			// 	}
-			// })
-
-			// .state('find.state', {
-			// 	url: '/:priority/:age/:hospital/:extras/:policy',
-			// 	templateUrl: '/partials/find/find.select.html',
-			// 	controller: function($scope){
-			// 		$scope.selectOptions = $scope.options.state;
-			// 		$scope.page = {
-			// 			type: 'state',
-			// 			next: 'find.income',
-			// 			title: 'Where are you from?'
-			// 		}
-			// 	}
-			// })
-
-			// .state('find.income', {
-			// 	url: '/:priority/:age/:hospital/:extras/:policy/:state',
-			// 	templateUrl: '/partials/find/find.select.html',
-			// 	controller: function($scope){
-			// 		$scope.policy = function(){
-			// 			if($scope.formData.selections.policy === 'Sgl'){
-			// 				return 'single';
-			// 			} else {
-			// 				return 'house';
-			// 			}
-			// 		};
-
-			// 		$scope.selectOptions = $scope.options.income[$scope.policy()];
-			// 		console.log($scope.policy());
-
-			// 		$scope.page = {
-			// 			type: 'income',
-			// 			next: 'find.accurate',
-			// 			title: 'How much do you earn?'
-			// 		}
-			// 	}
-			// })
-
-			.state('find.accurate', {
-				url: '/:priority/:age/:hospital/:extras/:policy/:state/:income',
-				templateUrl: '/partials/find/find.select.html',
-				controller: function($scope){
-					
-				}
 			})
 
 			.state('join', {

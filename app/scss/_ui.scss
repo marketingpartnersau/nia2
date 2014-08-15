@@ -155,6 +155,46 @@
 }
 
 
+// FIND QUOTE MODAL TRANSITION
+
+.accurate-quote{
+
+	.select.page{
+		-webkit-transition: all 5s $cubic-bezier;
+		position: relative;
+	}
+
+	.ng-hide-add{
+		// before enter state
+		position: absolute;
+		left: 0;
+		right: 0;
+		-webkit-transform: translate3d(rem-calc(100px), 0 0);
+		opacity: 0;
+	}
+
+	.ng-hide-add-active{
+		// final enter state
+		-webkit-transform: translate3d(0, 0 0);
+		opacity: 1;
+	}
+
+	.ng-hide-remove{
+		// before leave
+		position: absolute;
+		left: 0;
+		right: 0;
+		-webkit-transform: translate3d(0, 0 0);
+		opacity: 1;
+	}
+
+	.ng-hide-remove-active{
+		-webkit-transform: translate3d(rem-calc(-100px), 0 0);
+		opacity: 0;
+	}
+}
+
+
 /* PROGRESS BUTTON */
 
 /* General styles for all types of buttons */

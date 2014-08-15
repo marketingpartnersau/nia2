@@ -47,3 +47,16 @@
 		}
 	}
 }
+
+.accurate-quote{
+	label{
+		color: blue;
+		padding: 10px;
+		border-bottom: 1px solid #404040;
+
+		input{
+			position: absolute;
+			opacity: 0;
+		}
+	}
+}

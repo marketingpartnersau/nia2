@@ -1,8 +1,0 @@
-<p ng-show="correct_address"><strong>Just checking:</strong> is the address listed on this license your current address?</p>
-<p ng-show="correct_address"><a class="button" ng-click="accept(true)">Yes</a> <a class="button" ng-click="correct_address = false">No</a></p>
-
-<div class="correct_address" ng-show="!correct_address">
-	<p>That's alright! Please give us your correct address below.</p>
-	<p><input type="text" ng-model="signupData.address"></p>
-	<p><a class="button" ng-click="accept(false)">Save</a></p>
-</div>

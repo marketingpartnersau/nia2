@@ -134,6 +134,26 @@ angular.module('health.services', [])
 	.service('FindData', [
 		function(){
 			return {
+				accurate: {
+					pages: [
+						{
+							title: 'What best describes you?',
+							type: 'policy',
+							next: 'state',
+						},
+						{
+							title: 'Where do you live?',
+							type: 'state',
+							next: 'income',
+						},
+						{
+							title: 'How much do you earn?',
+							type: 'income',
+							next: 'confirm',
+						}
+					]
+				},
+
 				options: {
 					age: [
 						{value: '18-30', 		label: 'Under 31'},
@@ -174,20 +194,26 @@ angular.module('health.services', [])
 						{ value: 'SA',  		label: 'South Australia' },
 						{ value: 'WA',  		label: 'Western Australia' }
 					],
-					income: {
-						single: [
-							{value: 'tier1', 	label: 'Less than $90k'},
-							{value: 'tier2', 	label: 'Between $90k and $102k'},
-							{value: 'tier3', 	label: 'Between $102k and $136k'},
-							{value: 'tier4', 	label: 'More than $136k'}
-						],
-						house: [
-							{value: 'tier1', 	label: 'Less than $180k'},
-							{value: 'tier2', 	label: 'Between $180k and $204k'},
-							{value: 'tier3', 	label: 'Between $204k and $272k'},
-							{value: 'tier4', 	label: 'More than $272k'}
-						]
-					}
+					income: [
+						{value: 'tier1', 	label: 'Less than $90k'},
+						{value: 'tier2', 	label: 'Between $90k and $102k'},
+						{value: 'tier3', 	label: 'Between $102k and $136k'},
+						{value: 'tier4', 	label: 'More than $136k'}
+					]
+					// income: {
+					// 	single: [
+					// 		{value: 'tier1', 	label: 'Less than $90k'},
+					// 		{value: 'tier2', 	label: 'Between $90k and $102k'},
+					// 		{value: 'tier3', 	label: 'Between $102k and $136k'},
+					// 		{value: 'tier4', 	label: 'More than $136k'}
+					// 	],
+					// 	house: [
+					// 		{value: 'tier1', 	label: 'Less than $180k'},
+					// 		{value: 'tier2', 	label: 'Between $180k and $204k'},
+					// 		{value: 'tier3', 	label: 'Between $204k and $272k'},
+					// 		{value: 'tier4', 	label: 'More than $272k'}
+					// 	]
+					// }
 				}
 			}
 		}

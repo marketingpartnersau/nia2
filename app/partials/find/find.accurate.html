@@ -1,18 +1,28 @@
-<div class="small-12 columns select">
-	<h2>What best describes you?</h2>
-	
-	<label 
-		ng-repeat="option in options.policy" 
-		for="{{page.type}}-{{ option.value | lowercase }}"
-		ng-click="next()"
-		ng-class="{ 'selected' : formData.selections[page.type] === option.value }">
-		{{ option.label }}
-		<input 
-			type="radio" 
-			ng-model="formData.selections[page.type]" 
-			value="{{ option.value }}" 
-			id="{{page.type}}-{{ option.value | lowercase }}" 
-			name="{{page.type}}-{{ option.value | lowercase }}">
-	</label>
+<div class="accurate-quote">
+	<div  class="small-12 columns select page" 
+				ng-repeat="page in pages"
+				ng-hide="pageHidden[page.type]"
+				ng-animate="{ enter: 'animate-enter', leave: 'animate-leave' }">
 
+		<h2>{{ page.title }}</h2>
+		
+		<label 
+			ng-repeat="option in options[page.type]" 
+			for="{{page.type}}-{{ option.value | lowercase }}"
+			ng-click="next(page.next)">
+			{{ option.label }}
+			<input 
+				type="radio" 
+				ng-model="selections[page.type]" 
+				value="{{ option.value }}" 
+				id="{{page.type}}-{{ option.value | lowercase }}" 
+				name="{{page.type}}-{{ option.value | lowercase }}">
+		</label>
+
+	</div>
+
+	<div class="small-12 columns confirm text-center" ng-hide="pageHidden.confirm">
+		<i class="fa fa-check fa-5x" style="color: lime"></i><br>
+		<h4 style="color: #ddd;">Thanks! processing...</h4>
+	</div>
 </div>

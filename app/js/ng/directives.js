@@ -200,9 +200,14 @@ angular.module('health.directives', [])
 							controller: function($scope, product, meta){
 								$scope.product = product;
 								$scope.meta = meta;
-							}
-						}).result.then(function(result){
 
+								$scope.savePrefs = function(customisations){
+									$scope.$close(customisations);
+								};
+							}
+						}).result.then(function(newMeta){
+							console.log(newMeta)
+							scope.params.frequency = newMeta.frequency
 						});
 					};
 				}
