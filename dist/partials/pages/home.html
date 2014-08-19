@@ -1,0 +1,119 @@
+<div full-page-scroll data="data" id="fullpage">
+  <div class="section hero">
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>G'day Australia. We're health.com.au</h1>
+        <h2>We’ve got a new take on health insurance.</h2>
+        <p>Simple products, understandable coverage and great prices. All online.</p>
+        <p><a ui-sref="quote.policy" class="button">Get a quote</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section testimonials">
+    <ul class="no-bullet">
+      <li class="title row">
+        <h2 class="small-12 columns">We back this with amazing customer service</h2>
+        <p class="small-12 columns">Just ask any of our 85,000+ customers</p>
+      </li>
+      <li class="testimonial row" ng-repeat="testimonial in testimonials | limitTo:2">
+        <div class="small-2 columns">
+          <img src="http://placehold.it/30x30">
+        </div>
+        <div class="small-10 columns">
+          <blockquote>
+            <p>{{ testimonial.description }}<br><em>{{ testimonial.name }}</em></p>
+          </blockquote>
+        </div>
+      </li>
+      <li class="readmore">
+        <a class="button" class="fa fa-comment" ng-click="openTestimonials()">
+         Read more</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section awards">
+    <div class="title">
+      <h2>We've disrupted health insurance.</h2>
+    </div>
+    <div class="awards">
+      <ul>
+        <li ng-repeat="award in awards">
+          
+        </li>
+      </ul>
+    </div>
+    <div class="press">
+      
+    </div>
+    <div class="readmore">
+      <a class="button" class="fa fa-comment" ng-click="openProofs()"> Read more</a>
+    </div>
+  </div>
+
+  <div class="section points">
+    <div class="row reasons">
+      <div class="reason" 
+           ng-repeat="reason in data.reasons" 
+           ng-init="showReason = false" 
+           ng-class="{ 'show-reason' : showReason }" 
+           ng-click="showReason = !showReason">
+        <h3>{{ reason.name }} <br> <i class="fa fa-chevron-down"></i></h3>
+        <p>{{ reason.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section products">
+    <div class="row">
+        <div class="product page-title">
+          <div>
+            <h2>Our popular products</h2>
+          </div>
+        </div>
+        <div class="product"
+             ng-repeat="product in data.products"
+             ng-init="showProduct = false"
+             ng-class="{ 'show-product' : showProduct }">
+           <div>
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="section contact">
+    <div class="row">
+      <div class="small-12 columns">
+        <h3>Let's have a chat!</h3>
+        <p>Give us a call, or live chat with us to discuss what we can do for you.</p>
+        <p>
+          <a href="tel:130000000" class="button">Call us</a> 
+          <a href="sms:+64231231" class="button">SMS us</a>
+        </p>
+        <p>
+          <a ng-click="openModal('contact')" class="button">Call me</a> 
+          <a class="button">Livechat</a>
+        </p> 
+        <p>
+          <a ui-sref="quote.get" class="button">Get a quote</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section quote">
+    <div class="row">
+      <div class="small-12 columns">
+        <h3>Get a quote</h3>
+        <p>Ready to make the switch? Grab a quick quote to see what you can get.</p>
+        <a class="button" ui-sref="quote.location({policy: 'Sgl'})">Single</a>
+        <a class="button" ui-sref="quote.location({policy: 'Cpl'})">Couple</a>
+        <a class="button" ui-sref="quote.location({policy: 'Fam'})">Family</a>
+        <a class="button" ui-sref="quote.location({policy: 'SPFam'})">Single Parent</a>
+      </div>
+    </div>
+  </div>
+</div>

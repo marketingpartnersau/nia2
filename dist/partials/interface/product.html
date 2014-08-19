@@ -1,0 +1,81 @@
+<div class="product">
+	<header class="row">
+		<div class="small-12 columns">
+			<h3>{{ product.name }}</h3>
+		</div>
+	</header>
+	<div class="row price">
+		<div class="small-4 columns dollars">
+			<small>from <br></small>
+			<strong>${{ productMeta.price | number:2 }}</strong>
+		</div>
+		<div class="small-8 columns">
+			<button-group 
+				options="product.options.frequency"
+				model="params.frequency"
+				text="">
+			</button-group>
+		</div>
+		<div class="small-12 columns price-action">
+			<p>Per {{ params.frequency }}<a class="small button right" ng-click="$parent.getAccurateQuote()">Get accurate price</a></p>
+		</div>
+	</div>
+	<div class="row description">
+		<hr>
+		<div class="small-12 columns">
+			<p>{{product.description}}</p>
+			<a class="small button">BUY NOW</a>
+		</div>
+	</div>
+	<div class="row inclusions">
+		<ul class="tabs inline-list">
+			<li ng-click="params.inclusion = 'hospitals'" ng-class="{ active : params.inclusion == 'hospitals' }">Hospital cover</li>
+			<li ng-click="params.inclusion = 'extras'" ng-class="{ active : params.inclusion == 'extras' }">Extras benefits</li>
+		</ul>
+		<div class="tab-container {{ params.inclusion }}-active">
+			<div class="hospitals">
+				<h4>Everything is covered except:</h4>
+				<ul class="no-bullet">
+					<li ng-repeat="hospital in product.hospitals">
+						<i class="fa" 
+							ng-class="{ 'fa-check' : hospital.coverage == 'covered', 'fa-times' : hospital.coverage == 'none', 'fa-exclamation-triangle' : hospital.coverage == 'restricted' }"></i>
+						 {{ hospital.name }}
+					</li>
+					<li>
+						<i class="fa fa-plus"></i>
+						<a>I need more cover</a>
+					</li>
+				</ul>
+			</div>
+			<div class="extras">
+				<ul class="no-bullet">
+					<li><i class="fa fa-ambulance"></i> Emergency Ambulance <span>FREE</span></li>
+					<li ng-repeat="extra in product.extras" ng-class="{ inclusive : extra.isSublimit }">
+						<i class="fa fa-check" ng-hide="extra.isSublimit"></i> 
+						{{extra.name}} 
+						<span ng-show="extra.value !== ''">${{extra.value}}</span>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="row actions">
+		<div class="actions-mask" ng-class="{ 'show-save-form' : actions.showSaveForm }">
+			<hr>
+			<div class="buttons">
+				<a ng-click="customiseProduct(product, productMeta)">Customise product</a>
+				<a class="save-quote" ng-click="actions.showSaveForm = true">save quote</a>
+			</div>
+			<div class="form">
+				<input type="text" placeholder="you@example.com">
+				<a class="small button" ng-click="sendSaveForm()">email me</a>
+				<a class="small button alert" ng-click="actions.showSaveForm = false"><i class="fa" ng-class="{ 'fa-times' : (!actions.formSent || !actions.formSending), 'fa-spinner fa-spin' : actions.formSending, 'fa-check' : actions.formSent }"></i></a>
+			</div>
+			<div class="buy-now-button">
+				<a>Buy now</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

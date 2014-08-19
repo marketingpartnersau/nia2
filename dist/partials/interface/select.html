@@ -1,0 +1,13 @@
+<div class="cs-select cs-skin-underline" ng-init="open = false" ng-class="{ 'cs-active' : open }">
+    <span class="cs-placeholder" ng-click="toggleSelect()">{{ label }} <i class="fa fa-times"></i></span>
+    <div class="cs-options">
+        <ul>
+            <li data-option data-value="option.value" ng-repeat="option in options" ng-click="updateSelect(option)" ng-class="{ 'cs-focus' : userinput === options[$index] }">
+                <span>{{ option.label }}</span>
+            </li>
+        </ul>
+    </div>
+    <!-- <select class="cs-select cs-skin-underline" ng-model="userinput" ng-options="option as option.label for option in options">
+        <option value="">{{ label }}</option>
+    </select> -->
+</div>
