@@ -52,7 +52,7 @@ angular.module('health.services', [])
 					{name: 'Claim', slug: 'claim', icon: 'fa-user', state: 'customers'}
 				],
 				moreMenuItems: [
-					{name: 'Find your policy', description: 'Answer a few questions, get the perfect quote', state: 'find.age'},
+					{name: 'Find your policy', description: 'Answer a few questions, get the perfect quote', state: 'find.priority'},
 					{name: 'Blog', description: 'Read our stuff', state: 'blog'},
 					{name: 'About health.com.au', description: 'The story behind us', state: 'about'},
 					{name: 'Join now', description: 'Just for preview', state: 'join.start'}
