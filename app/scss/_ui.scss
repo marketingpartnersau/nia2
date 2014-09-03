@@ -154,6 +154,37 @@
   transform:translate3d(-100px, 0, 0);
 }
 
+[state*="join"]{
+	[ui-view]{
+		.ng-enter {
+		  opacity: 0;
+		  -webkit-transform: translate3d(0, 50px, 0);
+		}
+
+		.ng-enter-active {
+		  opacity: 1;
+		  -webkit-transform: translate3d(0,0,0);
+		  -moz-transform:translate3d(0, 0, 0);
+		  transform:translate3d(0, 0, 0);
+		}
+
+		.ng-leave {
+		  opacity: 1; 
+		  -webkit-transform:translate3d(0, 0, 0);
+		  -moz-transform:translate3d(0, 0, 0);
+		  transform:translate3d(0, 0, 0);
+		}
+
+		.ng-leave-active {
+		  opacity: 0;
+		  /*padding-left: 100px;*/
+		  -webkit-transform:translate3d(0, -100px, 0);
+		  -moz-transform:translate3d(0, -100px, 0);
+		  transform:translate3d(0, -100px, 0);
+		}
+	}
+}
+
 
 // FIND QUOTE MODAL TRANSITION
 
